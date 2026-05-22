@@ -17,32 +17,42 @@
   <style>
     /* ─── TOKENS ──────────────────────────────────────────── */
     :root {
+      /* brand primárias (usar com moderação) */
       --queen-pink:       #E8C2CA;
       --thistle:          #D1B3C4;
       --glossy-grape:     #B392AC;
       --mountbatten-pink: #937892;
       --old-lavender:     #735D78;
 
-      --sage-green:   #6B7F5E;
-      --warm-mustard: #C9A84C;
-      --dusty-blue:   #7C9BAD;
-      --terracotta:   #C17A5B;
+      /* secundárias — protagonistas do redesign */
+      --sage-green:    #6B7F5E;
+      --sage-light:    #EDF2EA;
+      --sage-mid:      #B8C9B0;
+      --warm-mustard:  #C9A84C;
+      --dusty-blue:    #7C9BAD;
+      --dusty-blue-lt: #EBF2F6;
+      --terracotta:    #C17A5B;
+      --terracotta-lt: #F7EDE6;
+      --terracotta-md: #E8C4B0;
 
-      --white:        #FFFFFF;
-      --off-white:    #FAF6F8;
-      --text-dark:    #2E2229;
-      --text-mid:     #5A4A55;
+      /* neutros */
+      --white:      #FFFFFF;
+      --cream:      #FAF7F3;
+      --cream-warm: #F5EDE3;
+      --text-dark:  #2A221E;
+      --text-mid:   #5A4A3A;
+      --text-soft:  #8A7468;
 
       --font-display: 'Great Vibes', cursive;
       --font-body:    'DM Sans', sans-serif;
 
       --radius-sm:  8px;
       --radius-md:  16px;
-      --radius-lg:  32px;
-      --radius-xl:  64px;
+      --radius-lg:  28px;
+      --radius-xl:  60px;
 
-      --shadow-soft: 0 4px 24px rgba(115, 93, 120, 0.10);
-      --shadow-card: 0 8px 40px rgba(115, 93, 120, 0.13);
+      --shadow-soft: 0 4px 24px rgba(80, 50, 30, 0.08);
+      --shadow-card: 0 8px 40px rgba(80, 50, 30, 0.11);
 
       --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -54,7 +64,7 @@
       font-family: var(--font-body);
       font-weight: 400;
       color: var(--text-dark);
-      background: var(--off-white);
+      background: var(--cream);
       overflow-x: hidden;
       line-height: 1.7;
     }
@@ -64,11 +74,6 @@
     button { font-family: var(--font-body); cursor: pointer; border: none; background: none; }
 
     /* ─── TYPOGRAPHY ──────────────────────────────────────── */
-    .display {
-      font-family: var(--font-display);
-      line-height: 1.1;
-      color: var(--old-lavender);
-    }
     h1, h2, h3, h4 {
       font-family: var(--font-body);
       font-weight: 800;
@@ -77,10 +82,10 @@
     }
     h1 { font-size: clamp(2rem, 5vw, 3.25rem); }
     h2 { font-size: clamp(1.6rem, 4vw, 2.5rem); }
-    h3 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); }
+    h3 { font-size: clamp(1.05rem, 2.5vw, 1.3rem); }
     p { color: var(--text-mid); font-size: 1rem; }
 
-    /* ─── LAYOUT UTILS ────────────────────────────────────── */
+    /* ─── LAYOUT ──────────────────────────────────────────── */
     .container {
       width: min(1140px, 100%);
       padding-inline: clamp(1.25rem, 5vw, 3rem);
@@ -91,23 +96,18 @@
       padding-block: clamp(4rem, 10vw, 7rem);
       overflow: hidden;
     }
-    .section--light { background: var(--off-white); }
-    .section--blush { background: #F5EBEd; }
-    .section--pink  { background: var(--queen-pink); }
     .section-label {
       display: inline-block;
       font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--mountbatten-pink);
+      color: var(--terracotta);
       margin-bottom: 0.75rem;
     }
-    .section-heading {
-      margin-bottom: 1.25rem;
-    }
+    .section-heading { margin-bottom: 1.25rem; }
     .section-lead {
-      font-size: 1.075rem;
+      font-size: 1.05rem;
       max-width: 62ch;
       margin-bottom: 2.5rem;
       color: var(--text-mid);
@@ -128,13 +128,22 @@
       letter-spacing: 0.02em;
     }
     .btn-primary {
-      background: var(--old-lavender);
+      background: var(--terracotta);
       color: var(--white);
-      box-shadow: 0 4px 18px rgba(115, 93, 120, 0.30);
+      box-shadow: 0 4px 18px rgba(193, 122, 91, 0.30);
     }
     .btn-primary:hover {
+      background: #a8654a;
+      box-shadow: 0 6px 24px rgba(193, 122, 91, 0.42);
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: var(--old-lavender);
+      color: var(--white);
+      box-shadow: 0 4px 18px rgba(115, 93, 120, 0.28);
+    }
+    .btn-secondary:hover {
       background: var(--mountbatten-pink);
-      box-shadow: 0 6px 24px rgba(115, 93, 120, 0.38);
       transform: translateY(-2px);
     }
     .btn-outline {
@@ -147,31 +156,34 @@
       color: var(--white);
       transform: translateY(-2px);
     }
+    .btn-outline-terra {
+      background: transparent;
+      color: var(--terracotta);
+      border: 2px solid var(--terracotta);
+    }
+    .btn-outline-terra:hover {
+      background: var(--terracotta);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
     .btn-white {
       background: var(--white);
       color: var(--old-lavender);
       box-shadow: 0 4px 18px rgba(0,0,0,0.12);
     }
-    .btn-white:hover {
-      background: var(--queen-pink);
-      transform: translateY(-2px);
-    }
+    .btn-white:hover { background: var(--cream-warm); transform: translateY(-2px); }
     .btn-ghost-white {
       background: transparent;
       color: var(--white);
-      border: 2px solid rgba(255,255,255,0.65);
+      border: 2px solid rgba(255,255,255,0.55);
     }
-    .btn-ghost-white:hover {
-      background: rgba(255,255,255,0.15);
-      border-color: var(--white);
-    }
+    .btn-ghost-white:hover { background: rgba(255,255,255,0.12); border-color: var(--white); }
 
     /* ─── BLOB DECO ───────────────────────────────────────── */
     .blob-deco {
       position: absolute;
       pointer-events: none;
       z-index: 0;
-      opacity: 0.13;
     }
     .blob-deco svg { display: block; }
 
@@ -181,15 +193,15 @@
       inset-block-start: 0;
       inset-inline: 0;
       z-index: 900;
-      background: rgba(250, 246, 248, 0.90);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(250, 247, 243, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid transparent;
       transition: border-color 0.3s, box-shadow 0.3s;
     }
     #nav.scrolled {
-      border-color: var(--thistle);
-      box-shadow: 0 2px 16px rgba(115,93,120,0.08);
+      border-color: var(--terracotta-md);
+      box-shadow: 0 2px 20px rgba(80, 50, 30, 0.07);
     }
     .nav-inner {
       display: flex;
@@ -197,9 +209,20 @@
       justify-content: space-between;
       height: 68px;
     }
+    /* Logo: mostra imagem se existir, fallback em texto */
     .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+    }
+    .nav-logo-img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
+    .nav-logo-text {
       font-family: var(--font-display);
-      font-size: 1.85rem;
+      font-size: 1.8rem;
       color: var(--old-lavender);
       line-height: 1;
     }
@@ -222,22 +245,20 @@
       inset-inline-start: 0;
       width: 0;
       height: 2px;
-      background: var(--glossy-grape);
+      background: var(--terracotta);
       border-radius: 2px;
       transition: width 0.3s;
     }
-    .nav-links a:hover { color: var(--old-lavender); }
+    .nav-links a:hover { color: var(--terracotta); }
     .nav-links a:hover::after { width: 100%; }
     .nav-cta { margin-inline-start: 0.5rem; }
 
-    /* hamburger */
     .hamburger {
       display: none;
       flex-direction: column;
       gap: 5px;
       width: 32px;
       padding: 4px;
-      cursor: pointer;
     }
     .hamburger span {
       display: block;
@@ -250,22 +271,21 @@
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* mobile menu */
     .mobile-menu {
       position: fixed;
       inset-block-start: 68px;
       inset-inline: 0;
-      background: var(--off-white);
+      background: var(--cream);
       padding: 1.5rem;
       display: flex;
       flex-direction: column;
       gap: 1.25rem;
-      border-top: 1px solid var(--thistle);
+      border-top: 1px solid var(--terracotta-md);
       transform: translateY(-110%);
       opacity: 0;
       transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
       z-index: 800;
-      box-shadow: 0 12px 32px rgba(115,93,120,0.12);
+      box-shadow: 0 12px 32px rgba(80,50,30,0.10);
     }
     .mobile-menu.open { transform: translateY(0); opacity: 1; }
     .mobile-menu a {
@@ -273,25 +293,34 @@
       font-weight: 500;
       color: var(--text-mid);
       padding: 0.5rem 0;
-      border-bottom: 1px solid var(--queen-pink);
+      border-bottom: 1px solid var(--terracotta-md);
       transition: color 0.2s;
     }
     .mobile-menu a:last-child { border-bottom: none; }
-    .mobile-menu a:hover { color: var(--old-lavender); }
+    .mobile-menu a:hover { color: var(--terracotta); }
 
     /* ─── HERO ────────────────────────────────────────────── */
     #hero {
       min-height: 100svh;
-      background: var(--queen-pink);
+      background: var(--cream-warm);
       display: flex;
       align-items: center;
       padding-block-start: 68px;
       overflow: hidden;
       position: relative;
     }
-    .hero-blob-1 { top: -10%; right: -8%; width: min(560px, 70vw); }
-    .hero-blob-2 { bottom: -15%; left: -12%; width: min(480px, 65vw); }
-
+    .hero-blob-1 {
+      top: -8%;
+      right: -6%;
+      width: min(580px, 70vw);
+      opacity: 0.14;
+    }
+    .hero-blob-2 {
+      bottom: -12%;
+      left: -10%;
+      width: min(440px, 60vw);
+      opacity: 0.10;
+    }
     .hero-inner {
       position: relative;
       z-index: 1;
@@ -304,13 +333,23 @@
     }
     .hero-content { max-width: 560px; }
     .hero-eyebrow {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       font-size: 0.75rem;
       font-weight: 700;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--mountbatten-pink);
+      color: var(--sage-green);
       margin-bottom: 1.25rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--sage-green);
+      border-radius: 2px;
     }
     .hero-name {
       font-family: var(--font-display);
@@ -320,20 +359,22 @@
       margin-bottom: 0.35rem;
     }
     .hero-role {
-      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
       font-weight: 500;
-      color: var(--mountbatten-pink);
-      letter-spacing: 0.08em;
+      color: var(--terracotta);
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       margin-bottom: 1.75rem;
     }
     .hero-tagline {
-      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-size: clamp(1rem, 1.8vw, 1.1rem);
       color: var(--text-mid);
       max-width: 46ch;
       margin-bottom: 2.5rem;
       font-style: italic;
-      line-height: 1.75;
+      line-height: 1.8;
+      border-left: 3px solid var(--terracotta);
+      padding-left: 1rem;
     }
     .hero-actions {
       display: flex;
@@ -346,54 +387,76 @@
       align-items: center;
       position: relative;
     }
+    .hero-photo-wrap {
+      position: relative;
+      width: min(360px, 68vw);
+    }
+    .hero-photo-shape {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: 55% 45% 52% 48% / 58% 52% 48% 42%;
+      overflow: hidden;
+      background: linear-gradient(155deg, var(--terracotta-md) 0%, var(--terracotta) 100%);
+      animation: morphPhoto 9s ease-in-out infinite;
+      box-shadow: var(--shadow-card);
+    }
+    .hero-photo-shape img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .hero-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 1rem;
+    }
+    .hero-photo-placeholder span { font-size: 2.5rem; }
+    @keyframes morphPhoto {
+      0%, 100% { border-radius: 55% 45% 52% 48% / 58% 52% 48% 42%; }
+      33%       { border-radius: 45% 55% 48% 52% / 52% 48% 55% 45%; }
+      66%       { border-radius: 52% 48% 55% 45% / 48% 56% 44% 52%; }
+    }
     .hero-badge {
       position: absolute;
       background: var(--white);
       border-radius: var(--radius-lg);
-      padding: 1rem 1.25rem;
+      padding: 0.875rem 1.125rem;
       box-shadow: var(--shadow-card);
       display: flex;
       align-items: center;
-      gap: 0.625rem;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--old-lavender);
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 700;
       white-space: nowrap;
     }
-    .hero-badge .badge-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--sage-green);
-      flex-shrink: 0;
+    .badge-icon-green { color: var(--sage-green); }
+    .badge-icon-terra { color: var(--terracotta); }
+    .hero-badge-tl {
+      top: 8%;
+      left: -10%;
+      color: var(--sage-green);
     }
-    .hero-badge-top  { top: 10%; right: 0; }
-    .hero-badge-bot  { bottom: 18%; left: 0; }
-    .hero-circle {
-      width: min(380px, 70vw);
-      height: min(380px, 70vw);
-      border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%;
-      background: linear-gradient(135deg, var(--thistle) 0%, var(--glossy-grape) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      animation: morphBlob 8s ease-in-out infinite;
-    }
-    .hero-circle-inner {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      color: rgba(255,255,255,0.95);
-      text-align: center;
-      padding: 1.5rem;
-      line-height: 1.3;
+    .hero-badge-br {
+      bottom: 10%;
+      right: -8%;
+      color: var(--old-lavender);
     }
     .hero-years {
       position: absolute;
-      bottom: -10px;
-      right: -10px;
-      width: 90px;
-      height: 90px;
+      bottom: -16px;
+      right: 10%;
+      width: 86px;
+      height: 86px;
       background: var(--warm-mustard);
       border-radius: 50%;
       display: flex;
@@ -404,77 +467,78 @@
       box-shadow: var(--shadow-card);
     }
     .hero-years strong { font-size: 1.5rem; font-weight: 800; line-height: 1; }
-    .hero-years span   { font-size: 0.65rem; text-align: center; font-weight: 500; }
-
-    @keyframes morphBlob {
-      0%, 100% { border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%; }
-      33%       { border-radius: 40% 60% 45% 55% / 55% 45% 55% 45%; }
-      66%       { border-radius: 55% 45% 60% 40% / 45% 60% 40% 55%; }
-    }
+    .hero-years span   { font-size: 0.62rem; text-align: center; font-weight: 500; }
 
     /* ─── ABOUT ───────────────────────────────────────────── */
-    #sobre {
-      background: var(--off-white);
-    }
+    #sobre { background: var(--cream); }
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1.4fr;
+      grid-template-columns: 1fr 1.5fr;
       gap: clamp(2.5rem, 6vw, 5rem);
       align-items: start;
     }
-    .about-aside {
-      position: relative;
-    }
-    .about-shape {
+    .about-aside { position: relative; }
+    .about-photo-wrap {
       width: 100%;
-      aspect-ratio: 3/4;
       max-width: 340px;
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      background: linear-gradient(160deg, var(--queen-pink) 0%, var(--thistle) 100%);
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
+      aspect-ratio: 3/4;
+      border-radius: 48% 52% 46% 54% / 55% 50% 50% 45%;
       overflow: hidden;
-      position: relative;
+      background: linear-gradient(155deg, var(--sage-light) 0%, var(--sage-mid) 100%);
+      box-shadow: var(--shadow-card);
     }
-    .about-shape::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.2) 0%, transparent 60%);
+    .about-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
     }
-    .about-ornament {
+    .about-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--sage-green);
+      font-size: 0.82rem;
+      text-align: center;
+      padding: 1.5rem;
+    }
+    .about-photo-placeholder span { font-size: 3rem; opacity: 0.6; }
+    .about-deco-1 {
       position: absolute;
-      top: -20px;
-      right: -20px;
-      width: 80px;
-      height: 80px;
-      background: var(--warm-mustard);
+      top: -18px;
+      right: -18px;
+      width: 72px;
+      height: 72px;
+      background: var(--terracotta);
       border-radius: 50%;
-      opacity: 0.25;
+      opacity: 0.18;
     }
-    .about-ornament-2 {
+    .about-deco-2 {
       position: absolute;
-      bottom: 40px;
-      left: -24px;
-      width: 52px;
-      height: 52px;
+      bottom: 60px;
+      left: -20px;
+      width: 48px;
+      height: 48px;
       background: var(--sage-green);
       border-radius: 50%;
-      opacity: 0.22;
+      opacity: 0.20;
     }
     .about-quote {
-      background: var(--white);
-      border-left: 3px solid var(--glossy-grape);
-      padding: 1.25rem 1.5rem;
+      background: var(--terracotta-lt);
+      border-left: 3px solid var(--terracotta);
+      padding: 1.125rem 1.375rem;
       border-radius: 0 var(--radius-md) var(--radius-md) 0;
       margin-top: 1.5rem;
-      box-shadow: var(--shadow-soft);
     }
     .about-quote p {
-      font-size: 0.95rem;
+      font-size: 0.93rem;
       font-style: italic;
-      color: var(--mountbatten-pink);
+      color: var(--terracotta);
+      line-height: 1.7;
     }
     .about-content .section-label { display: block; }
     .about-content h2 { margin-bottom: 1.5rem; }
@@ -491,61 +555,61 @@
       align-items: center;
       gap: 0.35rem;
       padding: 0.4rem 0.875rem;
-      background: var(--queen-pink);
       border-radius: 100px;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 600;
-      color: var(--old-lavender);
     }
+    .about-tag--green { background: var(--sage-light); color: var(--sage-green); }
+    .about-tag--terra { background: var(--terracotta-lt); color: var(--terracotta); }
+    .about-tag--lav   { background: #EDE8F0; color: var(--old-lavender); }
 
     /* ─── O QUE FAÇO ──────────────────────────────────────── */
-    #oque-faco {
-      background: var(--old-lavender);
-      color: var(--white);
-    }
-    #oque-faco .section-label { color: var(--thistle); }
+    #oque-faco { background: var(--old-lavender); }
+    #oque-faco .section-label { color: var(--terracotta-md); }
     #oque-faco h2 { color: var(--white); }
-    #oque-faco .section-lead { color: rgba(255,255,255,0.82); }
-    #oque-faco p { color: rgba(255,255,255,0.75); }
-    .oque-lead { max-width: 68ch; margin-bottom: 3rem; font-size: 1.05rem; color: rgba(255,255,255,0.82); }
+    .oque-lead {
+      max-width: 66ch;
+      margin-bottom: 3rem;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.8;
+    }
     .oque-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 1rem;
     }
     .oque-card {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.13);
       border-radius: var(--radius-md);
       padding: 1.5rem 1rem;
       text-align: center;
       transition: var(--transition);
     }
     .oque-card:hover {
-      background: rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.13);
+      border-color: rgba(255,255,255,0.28);
       transform: translateY(-4px);
-      border-color: rgba(255,255,255,0.3);
     }
     .oque-icon {
       width: 52px;
       height: 52px;
       margin: 0 auto 0.875rem;
-      background: rgba(255,255,255,0.12);
       border-radius: var(--radius-md);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.5rem;
     }
-    .oque-card h3 {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1.35;
-    }
+    .oque-icon--terra { background: rgba(193,122,91,0.22); }
+    .oque-icon--green { background: rgba(107,127,94,0.22); }
+    .oque-icon--blue  { background: rgba(124,155,173,0.22); }
+    .oque-icon--gold  { background: rgba(201,168,76,0.22); }
+    .oque-card h3 { font-size: 0.82rem; font-weight: 700; color: var(--white); line-height: 1.35; }
 
     /* ─── SERVICES ────────────────────────────────────────── */
-    #servicos { background: var(--off-white); }
+    #servicos { background: var(--cream); }
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -557,32 +621,36 @@
       border-radius: var(--radius-lg);
       padding: 2.25rem 2rem;
       box-shadow: var(--shadow-card);
-      border: 1.5px solid var(--queen-pink);
+      border: 1.5px solid var(--terracotta-md);
       position: relative;
       transition: var(--transition);
     }
     .service-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 16px 48px rgba(115,93,120,0.16);
-      border-color: var(--glossy-grape);
+      box-shadow: 0 16px 50px rgba(80,50,30,0.14);
+      border-color: var(--terracotta);
     }
     .service-card--featured {
-      border-color: var(--old-lavender);
-      background: linear-gradient(160deg, #fcf7fb 0%, var(--white) 100%);
+      border-color: var(--terracotta);
+      background: linear-gradient(160deg, var(--terracotta-lt) 0%, var(--white) 60%);
     }
     .service-card--featured::before {
       content: 'Começa aqui';
       position: absolute;
       top: -1px;
       right: 1.75rem;
-      background: var(--old-lavender);
+      background: var(--terracotta);
       color: var(--white);
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 700;
       padding: 0.35rem 0.875rem;
       border-radius: 0 0 var(--radius-sm) var(--radius-sm);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.07em;
     }
+    .service-card--green { border-color: var(--sage-mid); }
+    .service-card--green:hover { border-color: var(--sage-green); }
+    .service-card--blue { border-color: #B8D0DC; }
+    .service-card--blue:hover { border-color: var(--dusty-blue); }
     .service-badge {
       display: inline-flex;
       align-items: center;
@@ -591,9 +659,11 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--mountbatten-pink);
       margin-bottom: 0.875rem;
     }
+    .service-badge--terra { color: var(--terracotta); }
+    .service-badge--green { color: var(--sage-green); }
+    .service-badge--blue  { color: var(--dusty-blue); }
     .service-card h3 {
       font-size: 1.2rem;
       color: var(--old-lavender);
@@ -609,24 +679,26 @@
     .service-price {
       font-size: 1.5rem;
       font-weight: 800;
-      color: var(--warm-mustard);
     }
+    .service-price--terra { color: var(--terracotta); }
+    .service-price--green { color: var(--sage-green); }
+    .service-price--blue  { color: var(--dusty-blue); }
     .service-duration {
       font-size: 0.82rem;
-      color: var(--mountbatten-pink);
+      color: var(--text-soft);
       font-weight: 500;
     }
     .service-desc {
       font-size: 0.92rem;
       color: var(--text-mid);
-      line-height: 1.7;
+      line-height: 1.72;
       margin-bottom: 1.5rem;
     }
-    .service-card .btn { font-size: 0.875rem; padding: 0.7rem 1.4rem; }
-    .service-card--online .service-price { color: var(--dusty-blue); }
 
     /* ─── PERCURSOS ───────────────────────────────────────── */
-    #percursos { background: var(--queen-pink); }
+    #percursos { background: var(--sage-light); }
+    #percursos .section-label { color: var(--sage-green); }
+    #percursos h2 { color: var(--old-lavender); }
     .percursos-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
@@ -640,37 +712,32 @@
       box-shadow: var(--shadow-card);
       transition: var(--transition);
     }
-    .percurso-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(115,93,120,0.18); }
-    .percurso-header {
-      padding: 2rem 2rem 1.5rem;
-      position: relative;
+    .percurso-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(80,50,30,0.14); }
+    .percurso-header { padding: 2rem 2rem 1.25rem; }
+    .percurso-top-bar {
+      height: 4px;
+      border-radius: 4px 4px 0 0;
+      margin: -2rem -2rem 1.5rem;
     }
+    .percurso-top-bar--lav   { background: var(--old-lavender); }
+    .percurso-top-bar--terra { background: var(--terracotta); }
+    .percurso-top-bar--green { background: var(--sage-green); }
     .percurso-icon {
-      width: 60px;
-      height: 60px;
+      width: 58px;
+      height: 58px;
       border-radius: var(--radius-md);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.75rem;
+      font-size: 1.7rem;
       margin-bottom: 1rem;
     }
-    .percurso-card:nth-child(1) .percurso-icon { background: #f0eef9; }
-    .percurso-card:nth-child(2) .percurso-icon { background: #edf4eb; }
-    .percurso-card:nth-child(3) .percurso-icon { background: #fdf3ee; }
-    .percurso-card h3 {
-      font-size: 1.15rem;
-      color: var(--old-lavender);
-      margin-bottom: 0.625rem;
-    }
-    .percurso-short {
-      font-size: 0.9rem;
-      color: var(--text-mid);
-      line-height: 1.65;
-    }
-    .percurso-body {
-      padding: 0 2rem 2rem;
-    }
+    .percurso-icon--lav   { background: #EDE8F0; }
+    .percurso-icon--terra { background: var(--terracotta-lt); }
+    .percurso-icon--green { background: var(--sage-light); }
+    .percurso-card h3 { font-size: 1.1rem; color: var(--old-lavender); margin-bottom: 0.625rem; }
+    .percurso-short { font-size: 0.9rem; color: var(--text-mid); line-height: 1.65; }
+    .percurso-body { padding: 0 2rem 2rem; }
     .percurso-expand {
       display: grid;
       grid-template-rows: 0fr;
@@ -678,15 +745,13 @@
       overflow: hidden;
     }
     .percurso-expand.open { grid-template-rows: 1fr; }
-    .percurso-expand-inner {
-      min-height: 0;
-    }
+    .percurso-expand-inner { min-height: 0; }
     .percurso-full {
       font-size: 0.88rem;
       color: var(--text-mid);
-      line-height: 1.7;
+      line-height: 1.72;
       padding-top: 1rem;
-      border-top: 1px solid var(--queen-pink);
+      border-top: 1px solid var(--sage-light);
       margin-top: 0.75rem;
     }
     .percurso-full p + p { margin-top: 0.75rem; }
@@ -697,11 +762,7 @@
       margin-top: 1.25rem;
       font-size: 0.84rem;
       font-weight: 700;
-      color: var(--old-lavender);
-      background: none;
-      border: none;
-      padding: 0;
-      cursor: pointer;
+      color: var(--sage-green);
       transition: gap 0.2s;
     }
     .percurso-btn:hover { gap: 0.65rem; }
@@ -709,12 +770,12 @@
     .percurso-btn.open svg { transform: rotate(180deg); }
 
     /* ─── COMO FUNCIONA ───────────────────────────────────── */
-    #como-funciona { background: var(--off-white); }
+    #como-funciona { background: var(--cream-warm); }
+    #como-funciona .section-label { color: var(--old-lavender); }
     .timeline {
       position: relative;
       display: flex;
       flex-direction: column;
-      gap: 0;
       margin-top: 3rem;
       padding-inline-start: 3rem;
     }
@@ -725,13 +786,10 @@
       inset-block-start: 0;
       inset-block-end: 0;
       width: 2px;
-      background: linear-gradient(to bottom, var(--queen-pink), var(--glossy-grape), var(--old-lavender));
+      background: linear-gradient(to bottom, var(--terracotta), var(--old-lavender), var(--sage-green));
       border-radius: 2px;
     }
-    .timeline-item {
-      position: relative;
-      padding-bottom: 2.5rem;
-    }
+    .timeline-item { position: relative; padding-bottom: 2.5rem; }
     .timeline-item:last-child { padding-bottom: 0; }
     .timeline-dot {
       position: absolute;
@@ -740,31 +798,15 @@
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      background: var(--old-lavender);
-      border: 3px solid var(--off-white);
-      box-shadow: 0 0 0 3px var(--old-lavender);
+      border: 3px solid var(--cream-warm);
       z-index: 1;
     }
-    .timeline-item:nth-child(2) .timeline-dot { background: var(--glossy-grape); box-shadow: 0 0 0 3px var(--glossy-grape); }
-    .timeline-item:nth-child(3) .timeline-dot { background: var(--mountbatten-pink); box-shadow: 0 0 0 3px var(--mountbatten-pink); }
-    .timeline-num {
-      font-size: 0.7rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--mountbatten-pink);
-      margin-bottom: 0.4rem;
-    }
-    .timeline-item h3 {
-      font-size: 1.1rem;
-      color: var(--old-lavender);
-      margin-bottom: 0.875rem;
-    }
-    .timeline-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
+    .timeline-dot--terra  { background: var(--terracotta); box-shadow: 0 0 0 3px var(--terracotta); }
+    .timeline-dot--lav    { background: var(--old-lavender); box-shadow: 0 0 0 3px var(--old-lavender); }
+    .timeline-dot--green  { background: var(--sage-green); box-shadow: 0 0 0 3px var(--sage-green); }
+    .timeline-num { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 0.4rem; }
+    .timeline-item h3 { font-size: 1.1rem; color: var(--old-lavender); margin-bottom: 0.875rem; }
+    .timeline-list { display: flex; flex-direction: column; gap: 0.5rem; }
     .timeline-list li {
       display: flex;
       align-items: flex-start;
@@ -778,92 +820,64 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: var(--glossy-grape);
+      background: var(--terracotta);
       flex-shrink: 0;
       margin-top: 0.5rem;
     }
     .como-note {
       margin-top: 3rem;
-      background: var(--queen-pink);
+      background: var(--white);
+      border: 1.5px solid var(--sage-mid);
       border-radius: var(--radius-lg);
-      padding: 2rem 2.5rem;
+      padding: 1.75rem 2.25rem;
       display: flex;
       align-items: center;
       gap: 1.5rem;
     }
-    .como-note-icon {
-      font-size: 2rem;
-      flex-shrink: 0;
-    }
-    .como-note p {
-      font-size: 0.95rem;
-      color: var(--old-lavender);
-      font-weight: 500;
-    }
+    .como-note-icon { font-size: 2rem; flex-shrink: 0; }
+    .como-note p { font-size: 0.95rem; color: var(--sage-green); font-weight: 500; }
 
     /* ─── LOCATION ────────────────────────────────────────── */
-    #localizacao { background: var(--off-white); }
+    #localizacao { background: var(--cream); }
     .location-grid {
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
+      grid-template-columns: 1fr 1.3fr;
       gap: 2.5rem;
       align-items: start;
       margin-top: 2.5rem;
     }
-    .location-info {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-    .location-detail {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-    }
+    .location-info { display: flex; flex-direction: column; gap: 1.25rem; }
+    .location-detail { display: flex; align-items: flex-start; gap: 1rem; }
     .location-detail-icon {
       width: 44px;
       height: 44px;
       border-radius: var(--radius-md);
-      background: var(--queen-pink);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
       font-size: 1.1rem;
     }
-    .location-detail-text strong {
-      display: block;
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: var(--old-lavender);
-      margin-bottom: 0.2rem;
-    }
-    .location-detail-text p, .location-detail-text a {
-      font-size: 0.9rem;
-      color: var(--text-mid);
-    }
-    .location-detail-text a:hover { color: var(--old-lavender); text-decoration: underline; }
+    .location-detail-icon--terra { background: var(--terracotta-lt); }
+    .location-detail-icon--green { background: var(--sage-light); }
+    .location-detail-icon--blue  { background: var(--dusty-blue-lt); }
+    .location-detail-icon--gold  { background: #FBF5E0; }
+    .location-detail-text strong { display: block; font-weight: 700; font-size: 0.88rem; color: var(--old-lavender); margin-bottom: 0.2rem; }
+    .location-detail-text p, .location-detail-text a { font-size: 0.9rem; color: var(--text-mid); }
+    .location-detail-text a:hover { color: var(--terracotta); text-decoration: underline; }
     .map-wrap {
       border-radius: var(--radius-lg);
       overflow: hidden;
       box-shadow: var(--shadow-card);
       aspect-ratio: 4/3;
+      border: 2px solid var(--terracotta-md);
     }
-    .map-wrap iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
 
     /* ─── CTA ─────────────────────────────────────────────── */
-    #contacto {
-      background: var(--old-lavender);
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-blob-1 { top: -20%; right: -10%; width: min(480px, 60vw); opacity: 0.08; }
-    .cta-blob-2 { bottom: -20%; left: -8%; width: min(360px, 50vw); opacity: 0.06; }
+    #contacto { background: var(--old-lavender); position: relative; overflow: hidden; }
+    .cta-blob-1 { top: -20%; right: -10%; width: min(480px, 60vw); opacity: 0.07; }
+    .cta-blob-2 { bottom: -20%; left: -8%; width: min(380px, 50vw); opacity: 0.05; }
     .cta-inner {
       position: relative;
       z-index: 1;
@@ -871,42 +885,33 @@
       max-width: 640px;
       margin: 0 auto;
     }
-    .cta-inner .section-label { color: var(--thistle); }
-    .cta-inner h2 {
-      color: var(--white);
-      font-size: clamp(2rem, 5vw, 3rem);
-      margin-bottom: 1rem;
-    }
-    .cta-inner > p {
-      color: rgba(255,255,255,0.8);
-      font-size: 1.05rem;
-      margin-bottom: 2.5rem;
-    }
+    .cta-inner .section-label { color: var(--terracotta-md); }
+    .cta-inner h2 { color: var(--white); font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem; }
+    .cta-inner > p { color: rgba(255,255,255,0.78); font-size: 1.05rem; margin-bottom: 2.5rem; }
     .cta-actions {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 1rem;
     }
     .cta-contacts {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 1.25rem;
+      gap: 1.5rem;
       margin-top: 2.5rem;
       padding-top: 2.5rem;
-      border-top: 1px solid rgba(255,255,255,0.18);
+      border-top: 1px solid rgba(255,255,255,0.15);
     }
     .cta-contact-item {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.8);
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.75);
       transition: color 0.2s;
     }
     .cta-contact-item:hover { color: var(--white); }
-    .cta-contact-item svg { flex-shrink: 0; }
 
     /* ─── FOOTER ──────────────────────────────────────────── */
     footer {
@@ -920,39 +925,42 @@
       justify-content: space-between;
       gap: 1.5rem;
     }
-    .footer-brand {
+    .footer-brand-logo {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.85;
+    }
+    .footer-brand-text {
       font-family: var(--font-display);
       font-size: 1.6rem;
-      color: var(--thistle);
+      color: var(--terracotta-md);
       line-height: 1;
     }
-    .footer-brand span {
+    .footer-brand-text span {
       display: block;
       font-family: var(--font-body);
       font-size: 0.72rem;
       font-weight: 400;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--mountbatten-pink);
+      color: var(--text-soft);
       margin-top: 0.25rem;
     }
-    .footer-social {
-      display: flex;
-      gap: 0.875rem;
-    }
+    .footer-social { display: flex; gap: 0.875rem; }
     .footer-social a {
       width: 40px;
       height: 40px;
-      background: rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.06);
       border-radius: var(--radius-sm);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--mountbatten-pink);
+      color: var(--text-soft);
       transition: var(--transition);
     }
     .footer-social a:hover {
-      background: var(--old-lavender);
+      background: var(--terracotta);
       color: var(--white);
       transform: translateY(-2px);
     }
@@ -960,10 +968,10 @@
       width: 100%;
       text-align: center;
       font-size: 0.78rem;
-      color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.28);
       padding-top: 1.5rem;
       margin-top: 1.5rem;
-      border-top: 1px solid rgba(255,255,255,0.07);
+      border-top: 1px solid rgba(255,255,255,0.06);
     }
 
     /* ─── SCROLL ANIMATIONS ───────────────────────────────── */
@@ -973,33 +981,34 @@
       transition: opacity 0.65s cubic-bezier(0.4,0,0.2,1), transform 0.65s cubic-bezier(0.4,0,0.2,1);
     }
     .reveal.visible { opacity: 1; transform: none; }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-1 { transition-delay: 0.10s; }
+    .reveal-delay-2 { transition-delay: 0.20s; }
+    .reveal-delay-3 { transition-delay: 0.30s; }
+    .reveal-delay-4 { transition-delay: 0.40s; }
 
     /* ─── RESPONSIVE ──────────────────────────────────────── */
     @media (max-width: 900px) {
       .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
-      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; padding-block: 3rem 2rem; }
       .hero-visual { order: -1; }
       .hero-tagline { margin-inline: auto; }
       .hero-actions { justify-content: center; }
-      .hero-badge-top, .hero-badge-bot { display: none; }
+      .hero-badge { display: none; }
+      .hero-photo-wrap { width: min(280px, 70vw); }
       .about-grid { grid-template-columns: 1fr; }
       .about-aside { display: none; }
       .location-grid { grid-template-columns: 1fr; }
       .timeline { padding-inline-start: 2.5rem; }
       .como-note { flex-direction: column; text-align: center; }
     }
-
     @media (max-width: 600px) {
       .services-grid { grid-template-columns: 1fr; }
       .percursos-grid { grid-template-columns: 1fr; }
       .oque-grid { grid-template-columns: repeat(2, 1fr); }
       .cta-contacts { flex-direction: column; align-items: center; }
       .footer-inner { justify-content: center; text-align: center; }
+      .cta-actions { flex-direction: column; align-items: center; }
     }
 
     /* ─── WHATSAPP FLOAT ──────────────────────────────────── */
@@ -1015,14 +1024,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      box-shadow: 0 4px 20px rgba(37,211,102,0.38);
       transition: var(--transition);
       color: white;
     }
-    .wa-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 32px rgba(37,211,102,0.5);
-    }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 8px 32px rgba(37,211,102,0.50); }
     .wa-float svg { width: 28px; height: 28px; }
   </style>
 </head>
@@ -1032,7 +1038,14 @@
   <nav id="nav" role="navigation" aria-label="Navegação principal">
     <div class="container">
       <div class="nav-inner">
-        <a href="#" class="nav-logo" aria-label="Júlia Assunção — Início">Júlia Assunção</a>
+
+        <a href="#" class="nav-logo" aria-label="Júlia Assunção — Início">
+          <!-- Logo: coloca assets/logo.png para aparecer a imagem -->
+          <img src="assets/logo.png" alt="Júlia Assunção Terapias Naturais" class="nav-logo-img"
+               onerror="this.style.display='none'" />
+          <span class="nav-logo-text">Júlia Assunção</span>
+        </a>
+
         <ul class="nav-links" role="list">
           <li><a href="#sobre">Quem sou</a></li>
           <li><a href="#servicos">Serviços</a></li>
@@ -1050,28 +1063,26 @@
     </div>
   </nav>
 
-  <!-- Mobile menu -->
   <nav class="mobile-menu" id="mobile-menu" aria-label="Menu mobile">
-    <a href="#sobre" class="mobile-link">Quem sou</a>
-    <a href="#servicos" class="mobile-link">Serviços</a>
-    <a href="#percursos" class="mobile-link">Percursos</a>
+    <a href="#sobre"         class="mobile-link">Quem sou</a>
+    <a href="#servicos"      class="mobile-link">Serviços</a>
+    <a href="#percursos"     class="mobile-link">Percursos</a>
     <a href="#como-funciona" class="mobile-link">Como funciona</a>
-    <a href="#localizacao" class="mobile-link">Localização</a>
-    <a href="https://wa.me/351927384304" target="_blank" rel="noopener" style="color:var(--old-lavender); font-weight:800;">Marcar Consulta →</a>
+    <a href="#localizacao"   class="mobile-link">Localização</a>
+    <a href="https://wa.me/351927384304" target="_blank" rel="noopener" style="color:var(--terracotta);font-weight:800;">Marcar Consulta →</a>
   </nav>
 
   <!-- ══ HERO ══════════════════════════════════════════════ -->
   <section id="hero" aria-label="Introdução">
 
-    <!-- Blob decorations -->
     <div class="blob-deco hero-blob-1" aria-hidden="true">
-      <svg viewBox="0 0 560 560" xmlns="http://www.w3.org/2000/svg">
-        <path fill="var(--old-lavender)" d="M280,70 C350,50 430,100 460,170 C490,240 480,320 440,380 C400,440 320,470 250,460 C180,450 110,400 90,330 C70,260 90,180 130,130 C170,80 210,90 280,70 Z"/>
+      <svg viewBox="0 0 580 580" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#C17A5B" d="M290,72 C360,52 445,95 478,168 C511,241 498,328 458,390 C418,452 335,472 262,462 C189,452 118,402 95,332 C72,262 92,184 133,132 C174,80 220,92 290,72 Z"/>
       </svg>
     </div>
     <div class="blob-deco hero-blob-2" aria-hidden="true">
-      <svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
-        <path fill="var(--glossy-grape)" d="M240,60 C300,40 380,80 420,150 C460,220 450,310 410,370 C370,430 290,450 220,440 C150,430 90,380 70,310 C50,240 70,170 110,120 C150,70 180,80 240,60 Z"/>
+      <svg viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#6B7F5E" d="M220,58 C278,40 348,78 382,148 C416,218 406,304 368,362 C330,420 252,438 182,428 C112,418 56,370 38,302 C20,234 42,162 82,114 C122,66 162,76 220,58 Z"/>
       </svg>
     </div>
 
@@ -1080,9 +1091,9 @@
 
         <div class="hero-content">
           <span class="hero-eyebrow">Terapias Naturais · Carcavelos, Portugal</span>
-          <h1 class="hero-name" aria-label="Júlia Assunção">Júlia Assunção</h1>
+          <h1 class="hero-name">Júlia Assunção</h1>
           <p class="hero-role">Terapeuta Natural</p>
-          <p class="hero-tagline">"Promovo bem-estar e equilíbrio através de uma abordagem integrativa, natural e personalizada."</p>
+          <blockquote class="hero-tagline">"Promovo bem-estar e equilíbrio através de uma abordagem integrativa, natural e personalizada."</blockquote>
           <div class="hero-actions">
             <a href="https://wa.me/351927384304" class="btn btn-primary" target="_blank" rel="noopener" aria-label="Marcar consulta via WhatsApp">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -1093,19 +1104,29 @@
         </div>
 
         <div class="hero-visual" aria-hidden="true">
-          <div class="hero-badge hero-badge-top">
-            <span class="badge-dot"></span>
-            Carcavelos, Portugal
+          <div class="hero-badge hero-badge-tl">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="badge-icon-green" aria-hidden="true"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zM2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            Carcavelos · Online
           </div>
-          <div class="hero-circle">
-            <div class="hero-circle-inner">Bem-estar<br>natural &amp;<br>personalizado</div>
-            <div class="hero-years">
+
+          <div class="hero-photo-wrap">
+            <div class="hero-photo-shape">
+              <!-- Foto: coloca assets/foto.jpg para aparecer a imagem -->
+              <img src="assets/foto.jpg" alt="Júlia Assunção, Terapeuta Natural"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
+              <div class="hero-photo-placeholder">
+                <span>🌿</span>
+                foto.jpg
+              </div>
+            </div>
+            <div class="hero-years" aria-label="10 anos de experiência">
               <strong>10</strong>
               <span>anos de<br>experiência</span>
             </div>
           </div>
-          <div class="hero-badge hero-badge-bot">
-            <span class="badge-dot"></span>
+
+          <div class="hero-badge hero-badge-br">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" class="badge-icon-terra" aria-hidden="true"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/></svg>
             Abordagem Integrativa
           </div>
         </div>
@@ -1120,11 +1141,17 @@
       <div class="about-grid">
 
         <aside class="about-aside" aria-hidden="true">
-          <div class="about-shape">
-            <!-- decorative shape -->
+          <div class="about-photo-wrap">
+            <!-- Foto: coloca assets/foto.jpg -->
+            <img src="assets/foto.jpg" alt="Júlia Assunção, Terapeuta Natural"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
+            <div class="about-photo-placeholder">
+              <span>🌿</span>
+              <p>foto.jpg</p>
+            </div>
           </div>
-          <div class="about-ornament"></div>
-          <div class="about-ornament-2"></div>
+          <div class="about-deco-1" aria-hidden="true"></div>
+          <div class="about-deco-2" aria-hidden="true"></div>
           <div class="about-quote">
             <p>"A minha profissão não é apenas o meu trabalho, é um caminho que escolhi trilhar com propósito, estudo e dedicação."</p>
           </div>
@@ -1138,13 +1165,13 @@
 
           <p class="reveal reveal-delay-2">Vivo intensamente aquilo que faço. A minha profissão não é apenas o meu trabalho, é um caminho que escolhi trilhar com propósito, estudo e dedicação. Ao longo dos anos, tenho aplicado muito do meu conhecimento também na minha vida e na minha família, e é profundamente gratificante ver, na prática, que aquilo em que acredito tem sentido, traz resultados e contribui para mais bem-estar.</p>
 
-          <p class="reveal reveal-delay-3">Continuo em constante aprendizagem porque acredito que cada pessoa é única, e que corpo, mente, emoções e hábitos estão sempre interligados. O meu trabalho nasce desse olhar: da escuta, do humano, atento e integrativo. Um olhar que acolhe a pessoa na sua totalidade e que procura promover equilíbrio, consciência corporal e qualidade de vida através de meios naturais, científicos e personalizados.</p>
+          <p class="reveal reveal-delay-3">Continuo em constante aprendizagem porque acredito que cada pessoa é única, e que corpo, mente, emoções e hábitos estão sempre interligados. O meu trabalho nasce desse olhar: da escuta, do humano, atento e integrativo — que acolhe a pessoa na sua totalidade e procura promover equilíbrio, consciência corporal e qualidade de vida através de meios naturais, científicos e personalizados.</p>
 
           <div class="about-tags reveal reveal-delay-3">
-            <span class="about-tag">🌿 10 anos de experiência</span>
-            <span class="about-tag">🇧🇷🇵🇹 Brasileira &amp; Portuguesa</span>
-            <span class="about-tag">📍 Carcavelos</span>
-            <span class="about-tag">💻 Consultas Online</span>
+            <span class="about-tag about-tag--green">🌿 10 anos de experiência</span>
+            <span class="about-tag about-tag--terra">🇧🇷🇵🇹 Brasileira &amp; Portuguesa</span>
+            <span class="about-tag about-tag--lav">📍 Carcavelos</span>
+            <span class="about-tag about-tag--blue" style="background:var(--dusty-blue-lt);color:var(--dusty-blue);">💻 Consultas Online</span>
           </div>
         </div>
 
@@ -1155,46 +1182,44 @@
   <!-- ══ O QUE FAÇO ═════════════════════════════════════════ -->
   <section id="oque-faco" class="section" aria-labelledby="oque-title">
 
-    <!-- Blob -->
-    <div class="blob-deco" style="top:-10%;right:-5%;width:min(420px,55vw);opacity:0.06;" aria-hidden="true">
-      <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
-        <path fill="var(--white)" d="M210,50 C270,30 350,70 390,140 C430,210 420,300 380,360 C340,420 260,440 190,430 C120,420 60,370 40,300 C20,230 40,160 80,110 C120,60 150,70 210,50 Z"/>
+    <div class="blob-deco" style="top:-8%;right:-4%;width:min(400px,50vw);opacity:0.06;" aria-hidden="true">
+      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#C17A5B" d="M200,52 C258,35 328,72 360,140 C392,208 382,292 344,348 C306,404 228,422 162,412 C96,402 42,358 26,292 C10,226 30,158 70,110 C110,62 142,69 200,52 Z"/>
       </svg>
     </div>
 
     <div class="container" style="position:relative;z-index:1;">
       <span class="section-label reveal">O que faço</span>
       <h2 id="oque-title" class="section-heading reveal reveal-delay-1" style="color:var(--white);">Uma abordagem pensada<br>para si, na sua totalidade</h2>
-
       <p class="oque-lead reveal reveal-delay-2">Promovo bem-estar e equilíbrio através de uma abordagem integrativa, natural e personalizada, baseada em conhecimento técnico e científico, experiência prática e escuta atenta. O meu trabalho começa pela compreensão da sua história, rotina, hábitos, estilo de vida e sinais que o corpo apresenta.</p>
 
       <div class="oque-grid reveal reveal-delay-3">
         <div class="oque-card">
-          <div class="oque-icon" role="img" aria-label="Técnicas complementares">🌸</div>
+          <div class="oque-icon oque-icon--terra" role="img" aria-label="Técnicas complementares">🌸</div>
           <h3>Técnicas complementares</h3>
         </div>
         <div class="oque-card">
-          <div class="oque-icon" role="img" aria-label="Recursos naturais">🌿</div>
+          <div class="oque-icon oque-icon--green" role="img" aria-label="Recursos naturais">🌿</div>
           <h3>Recursos naturais</h3>
         </div>
         <div class="oque-card">
-          <div class="oque-icon" role="img" aria-label="Aromaterapia">💧</div>
+          <div class="oque-icon oque-icon--blue" role="img" aria-label="Aromaterapia">💧</div>
           <h3>Aromaterapia</h3>
         </div>
         <div class="oque-card">
-          <div class="oque-icon" role="img" aria-label="Auriculoterapia">👂</div>
+          <div class="oque-icon oque-icon--gold" role="img" aria-label="Auriculoterapia">👂</div>
           <h3>Auriculoterapia</h3>
         </div>
         <div class="oque-card">
-          <div class="oque-icon" role="img" aria-label="Suplementação ortomolecular">💊</div>
+          <div class="oque-icon oque-icon--terra" role="img" aria-label="Suplementação ortomolecular">💊</div>
           <h3>Suplementação ortomolecular</h3>
         </div>
         <div class="oque-card">
-          <div class="oque-icon" role="img" aria-label="Ajustes alimentares">🥗</div>
+          <div class="oque-icon oque-icon--green" role="img" aria-label="Ajustes alimentares">🥗</div>
           <h3>Ajustes alimentares</h3>
         </div>
         <div class="oque-card">
-          <div class="oque-icon" role="img" aria-label="Mudanças no estilo de vida">☀️</div>
+          <div class="oque-icon oque-icon--gold" role="img" aria-label="Mudanças no estilo de vida">☀️</div>
           <h3>Mudanças no estilo de vida</h3>
         </div>
       </div>
@@ -1210,49 +1235,40 @@
 
       <div class="services-grid">
 
-        <!-- Consulta Inicial -->
         <article class="service-card service-card--featured reveal reveal-delay-1">
-          <div class="service-badge">
-            <span>✦</span> Consulta Integrativa
-          </div>
+          <div class="service-badge service-badge--terra">✦ Consulta Integrativa</div>
           <h3>Consulta Integrativa Inicial</h3>
           <div class="service-meta">
-            <span class="service-price">65€</span>
+            <span class="service-price service-price--terra">65€</span>
             <span class="service-duration">até 1h15</span>
           </div>
-          <p class="service-desc">O primeiro passo para compreender a sua história, rotina, hábitos, necessidades atuais e os sinais que o corpo apresenta. Neste encontro, a prioridade é a escuta atenta e a avaliação integrativa do seu momento de vida — alimentação, sono, stress, emoções, energia e estilo de vida. A partir dessa visão global, é desenvolvido um plano personalizado de apoio ao seu bem-estar.</p>
+          <p class="service-desc">O primeiro passo para compreender a sua história, rotina, hábitos, necessidades atuais e os sinais que o corpo apresenta. A prioridade é a escuta atenta e a avaliação integrativa do seu momento de vida — alimentação, sono, stress, emoções, energia e estilo de vida. A partir dessa visão global, é desenvolvido um plano personalizado de apoio ao seu bem-estar.</p>
           <a href="https://wa.me/351927384304" class="btn btn-primary" target="_blank" rel="noopener" aria-label="Marcar consulta integrativa inicial via WhatsApp">Marcar agora</a>
         </article>
 
-        <!-- Acompanhamento Mensal -->
-        <article class="service-card reveal reveal-delay-2">
-          <div class="service-badge">
-            <span>↻</span> Acompanhamento
-          </div>
+        <article class="service-card service-card--green reveal reveal-delay-2">
+          <div class="service-badge service-badge--green">↻ Acompanhamento</div>
           <h3>Acompanhamento Integrativo Mensal</h3>
           <div class="service-meta">
-            <span class="service-price">50€</span>
+            <span class="service-price service-price--green">50€</span>
             <span class="service-duration">até 50 minutos</span>
           </div>
-          <p class="service-desc">A continuidade da consulta inicial. Observamos a sua evolução, percebemos como o corpo está a responder e fazemos os ajustes necessários no plano. Podem ser revistas recomendações, adaptadas estratégias e redefinidas prioridades. Inclui suporte pontual por mensagem entre sessões para dúvidas relacionadas com o plano.</p>
-          <a href="https://wa.me/351927384304" class="btn btn-outline" target="_blank" rel="noopener" aria-label="Saber mais sobre acompanhamento mensal via WhatsApp">Saber mais</a>
+          <p class="service-desc">A continuidade da consulta inicial. Observamos a sua evolução, percebemos como o corpo está a responder e fazemos os ajustes necessários. Podem ser revistas recomendações, adaptadas estratégias e redefinidas prioridades. Inclui suporte por mensagem entre sessões para dúvidas relacionadas com o plano.</p>
+          <a href="https://wa.me/351927384304" class="btn btn-outline" target="_blank" rel="noopener" aria-label="Saber mais sobre acompanhamento mensal">Saber mais</a>
         </article>
 
-        <!-- Online -->
-        <article class="service-card service-card--online reveal reveal-delay-3">
-          <div class="service-badge" style="color:var(--dusty-blue);">
-            <span>💻</span> Online
-          </div>
+        <article class="service-card service-card--blue reveal reveal-delay-3">
+          <div class="service-badge service-badge--blue">💻 Online</div>
           <h3>Consulta &amp; Acompanhamento Online</h3>
           <div class="service-meta">
-            <span class="service-price" style="color:var(--dusty-blue);">55€</span>
+            <span class="service-price service-price--blue">55€</span>
             <span class="service-duration">1h15 · inicial</span>
           </div>
           <div class="service-meta" style="margin-top:-0.75rem;">
-            <span class="service-price" style="color:var(--dusty-blue);font-size:1.15rem;">40€</span>
+            <span class="service-price service-price--blue" style="font-size:1.2rem;">40€</span>
             <span class="service-duration">50 min · acompanhamento</span>
           </div>
-          <p class="service-desc">Segue o mesmo padrão das consultas presenciais, com toda a qualidade e atenção de sempre — na comodidade da sua casa ou de onde estiveres. Tudo o que precisa para cuidar de si, sem sair do conforto do seu espaço.</p>
+          <p class="service-desc">Segue o mesmo padrão das consultas presenciais, com toda a qualidade e atenção de sempre — na comodidade da sua casa ou de onde estiveres.</p>
           <a href="https://wa.me/351927384304" class="btn btn-outline" style="border-color:var(--dusty-blue);color:var(--dusty-blue);" target="_blank" rel="noopener" aria-label="Marcar consulta online via WhatsApp">Marcar online</a>
         </article>
 
@@ -1263,10 +1279,9 @@
   <!-- ══ PERCURSOS ══════════════════════════════════════════ -->
   <section id="percursos" class="section" aria-labelledby="percursos-title">
 
-    <!-- Blob -->
-    <div class="blob-deco" style="bottom:-12%;right:-8%;width:min(500px,60vw);opacity:0.18;" aria-hidden="true">
-      <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-        <path fill="var(--old-lavender)" d="M250,70 C320,50 400,90 440,160 C480,230 470,320 430,380 C390,440 310,460 240,450 C170,440 100,390 80,320 C60,250 80,180 120,130 C160,80 180,90 250,70 Z"/>
+    <div class="blob-deco" style="bottom:-10%;right:-6%;width:min(460px,55vw);opacity:0.20;" aria-hidden="true">
+      <svg viewBox="0 0 460 460" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#6B7F5E" d="M230,62 C292,44 368,82 402,152 C436,222 426,310 388,368 C350,426 270,444 200,434 C130,424 72,376 54,308 C36,240 58,168 98,118 C138,68 168,80 230,62 Z"/>
       </svg>
     </div>
 
@@ -1277,10 +1292,10 @@
 
       <div class="percursos-grid">
 
-        <!-- Mulher em Equilíbrio -->
         <article class="percurso-card reveal reveal-delay-1">
           <div class="percurso-header">
-            <div class="percurso-icon" role="img" aria-label="Mulher em Equilíbrio">🌷</div>
+            <div class="percurso-top-bar percurso-top-bar--lav"></div>
+            <div class="percurso-icon percurso-icon--lav" role="img" aria-label="Mulher em Equilíbrio">🌷</div>
             <h3>Percurso Mulher em Equilíbrio</h3>
             <p class="percurso-short">Para mulheres que sentem necessidade de cuidar melhor do corpo, da energia, das emoções e da rotina — considerando o ciclo feminino na sua totalidade.</p>
           </div>
@@ -1294,17 +1309,17 @@
                 </div>
               </div>
             </div>
-            <button class="percurso-btn" aria-expanded="false" aria-controls="expand-1" onclick="togglePercurso(this, 'expand-1')">
+            <button class="percurso-btn" aria-expanded="false" aria-controls="expand-1" onclick="togglePercurso(this,'expand-1')">
               Saber mais
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
           </div>
         </article>
 
-        <!-- Bem-estar Infantil -->
         <article class="percurso-card reveal reveal-delay-2">
           <div class="percurso-header">
-            <div class="percurso-icon" role="img" aria-label="Bem-estar Infantil">🌱</div>
+            <div class="percurso-top-bar percurso-top-bar--green"></div>
+            <div class="percurso-icon percurso-icon--green" role="img" aria-label="Bem-estar Infantil">🌱</div>
             <h3>Percurso Bem-estar Infantil</h3>
             <p class="percurso-short">Para crianças que apresentam sinais como cansaço frequente, falta de foco, imunidade baixa ou necessidade de maior equilíbrio no dia a dia. A partir dos 3 anos.</p>
           </div>
@@ -1318,19 +1333,19 @@
                 </div>
               </div>
             </div>
-            <button class="percurso-btn" aria-expanded="false" aria-controls="expand-2" onclick="togglePercurso(this, 'expand-2')">
+            <button class="percurso-btn" aria-expanded="false" aria-controls="expand-2" onclick="togglePercurso(this,'expand-2')">
               Saber mais
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
           </div>
         </article>
 
-        <!-- Gestante -->
         <article class="percurso-card reveal reveal-delay-3">
           <div class="percurso-header">
-            <div class="percurso-icon" role="img" aria-label="Gestante em Equilíbrio">🌙</div>
+            <div class="percurso-top-bar percurso-top-bar--terra"></div>
+            <div class="percurso-icon percurso-icon--terra" role="img" aria-label="Gestante em Equilíbrio">🌙</div>
             <h3>Percurso Gestante em Equilíbrio</h3>
-            <p class="percurso-short">Para gestantes que desejam viver esta fase única com mais consciência, bem-estar e cuidado natural — cuidando da mãe para que ela se sinta acolhida neste percurso.</p>
+            <p class="percurso-short">Para gestantes que desejam viver esta fase única com mais consciência, bem-estar e cuidado natural — preparando o corpo para oferecer ao bebé as melhores condições possíveis.</p>
           </div>
           <div class="percurso-body">
             <div class="percurso-expand" id="expand-3">
@@ -1342,7 +1357,7 @@
                 </div>
               </div>
             </div>
-            <button class="percurso-btn" aria-expanded="false" aria-controls="expand-3" onclick="togglePercurso(this, 'expand-3')">
+            <button class="percurso-btn" aria-expanded="false" aria-controls="expand-3" onclick="togglePercurso(this,'expand-3')">
               Saber mais
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
@@ -1363,7 +1378,7 @@
       <div class="timeline reveal reveal-delay-2">
 
         <div class="timeline-item">
-          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-dot timeline-dot--terra" aria-hidden="true"></div>
           <p class="timeline-num">Passo 1</p>
           <h3>Primeiro encontro — Consulta Integrativa Inicial</h3>
           <ul class="timeline-list" role="list">
@@ -1375,7 +1390,7 @@
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-dot timeline-dot--lav" aria-hidden="true"></div>
           <p class="timeline-num">Passo 2</p>
           <h3>Sessões mensais de acompanhamento</h3>
           <ul class="timeline-list" role="list">
@@ -1387,7 +1402,7 @@
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-dot timeline-dot--green" aria-hidden="true"></div>
           <p class="timeline-num">Duração recomendada</p>
           <h3>Mínimo 4 meses — ao seu ritmo</h3>
           <ul class="timeline-list" role="list">
@@ -1400,7 +1415,7 @@
       </div>
 
       <div class="como-note reveal">
-        <div class="como-note-icon" aria-hidden="true">💬</div>
+        <div class="como-note-icon" aria-hidden="true">🌱</div>
         <p>Entre sessões, tens suporte por mensagem para dúvidas relacionadas com o plano e pequenos ajustes necessários — porque o acompanhamento não termina quando a sessão acaba.</p>
       </div>
 
@@ -1414,41 +1429,40 @@
       <h2 id="local-title" class="section-heading reveal reveal-delay-1">Presencial em Carcavelos</h2>
 
       <div class="location-grid reveal reveal-delay-2">
-
         <div class="location-info">
+
           <div class="location-detail">
-            <div class="location-detail-icon" aria-hidden="true">📍</div>
+            <div class="location-detail-icon location-detail-icon--terra" aria-hidden="true">📍</div>
             <div class="location-detail-text">
               <strong>Espaço terapêutico</strong>
-              <p>
-                SENTE — Cowork Terapêutico<br>
-                Praceta De Portugal, 63A<br>
-                Quinta de São Gonçalo<br>
-                2775-369 Carcavelos
-              </p>
+              <p>SENTE — Cowork Terapêutico<br>Praceta De Portugal, 63A<br>Quinta de São Gonçalo<br>2775-369 Carcavelos</p>
             </div>
           </div>
+
           <div class="location-detail">
-            <div class="location-detail-icon" aria-hidden="true">🌐</div>
+            <div class="location-detail-icon location-detail-icon--green" aria-hidden="true">🌐</div>
             <div class="location-detail-text">
               <strong>Espaço parceiro</strong>
-              <a href="https://senteconsultorios.pt" target="_blank" rel="noopener" aria-label="Visitar site do SENTE - Cowork Terapêutico">senteconsultorios.pt ↗</a>
+              <a href="https://senteconsultorios.pt" target="_blank" rel="noopener" aria-label="Visitar site do SENTE">senteconsultorios.pt ↗</a>
             </div>
           </div>
+
           <div class="location-detail">
-            <div class="location-detail-icon" aria-hidden="true">💻</div>
+            <div class="location-detail-icon location-detail-icon--blue" aria-hidden="true">💻</div>
             <div class="location-detail-text">
               <strong>Consultas online</strong>
               <p>Também disponível à distância,<br>onde estiveres.</p>
             </div>
           </div>
+
           <div class="location-detail">
-            <div class="location-detail-icon" aria-hidden="true">📱</div>
+            <div class="location-detail-icon location-detail-icon--gold" aria-hidden="true">📱</div>
             <div class="location-detail-text">
               <strong>Marcar consulta</strong>
-              <a href="https://wa.me/351927384304" target="_blank" rel="noopener" aria-label="Contactar via WhatsApp">WhatsApp: +351 927 384 304</a>
+              <a href="https://wa.me/351927384304" target="_blank" rel="noopener">WhatsApp: +351 927 384 304</a>
             </div>
           </div>
+
         </div>
 
         <div class="map-wrap">
@@ -1457,10 +1471,9 @@
             title="Mapa com localização do consultório em Carcavelos"
             loading="lazy"
             allowfullscreen
-            aria-label="Mapa Google Maps — SENTE Cowork Terapêutico, Carcavelos"
+            aria-label="Mapa — SENTE Cowork Terapêutico, Carcavelos"
           ></iframe>
         </div>
-
       </div>
     </div>
   </section>
@@ -1470,12 +1483,12 @@
 
     <div class="blob-deco cta-blob-1" aria-hidden="true">
       <svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
-        <path fill="var(--white)" d="M240,60 C300,40 380,80 420,150 C460,220 450,310 410,370 C370,430 290,450 220,440 C150,430 90,380 70,310 C50,240 70,170 110,120 C150,70 180,80 240,60 Z"/>
+        <path fill="#C17A5B" d="M240,60 C300,40 380,80 420,150 C460,220 450,310 410,370 C370,430 290,450 220,440 C150,430 90,380 70,310 C50,240 70,170 110,120 C150,70 180,80 240,60 Z"/>
       </svg>
     </div>
     <div class="blob-deco cta-blob-2" aria-hidden="true">
-      <svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg">
-        <path fill="var(--white)" d="M180,50 C230,35 290,65 320,120 C350,175 340,245 310,285 C280,325 220,335 165,325 C110,315 65,275 50,220 C35,165 55,105 90,75 C125,45 130,65 180,50 Z"/>
+      <svg viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#6B7F5E" d="M190,50 C242,34 306,68 336,130 C366,192 356,270 318,316 C280,362 210,370 148,356 C86,342 36,298 22,240 C8,182 26,118 64,82 C102,46 138,66 190,50 Z"/>
       </svg>
     </div>
 
@@ -1490,22 +1503,20 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Falar comigo no WhatsApp
           </a>
-          <a href="mailto:comunicacao@juliaassuncao.com" class="btn btn-ghost-white" aria-label="Enviar email">
-            comunicacao@juliaassuncao.com
-          </a>
+          <a href="mailto:comunicacao@juliaassuncao.com" class="btn btn-ghost-white" aria-label="Enviar email">comunicacao@juliaassuncao.com</a>
         </div>
 
         <div class="cta-contacts reveal">
-          <a href="https://www.instagram.com/juterapiasnaturais" class="cta-contact-item" target="_blank" rel="noopener" aria-label="Instagram @juterapiasnaturais">
+          <a href="https://www.instagram.com/juterapiasnaturais" class="cta-contact-item" target="_blank" rel="noopener" aria-label="Instagram">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             @juterapiasnaturais
           </a>
-          <a href="https://www.facebook.com/Juliaterapiasnaturais" class="cta-contact-item" target="_blank" rel="noopener" aria-label="Facebook @Juliaterapiasnaturais">
+          <a href="https://www.facebook.com/Juliaterapiasnaturais" class="cta-contact-item" target="_blank" rel="noopener" aria-label="Facebook">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             @Juliaterapiasnaturais
           </a>
-          <a href="https://www.juliaassuncao.com" class="cta-contact-item" target="_blank" rel="noopener" aria-label="Website www.juliaassuncao.com">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <a href="https://www.juliaassuncao.com" class="cta-contact-item" target="_blank" rel="noopener" aria-label="Website">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
             www.juliaassuncao.com
           </a>
         </div>
@@ -1517,24 +1528,27 @@
   <footer role="contentinfo">
     <div class="container">
       <div class="footer-inner">
-
-        <div class="footer-brand">
-          Júlia Assunção
-          <span>Terapias Naturais</span>
+        <div>
+          <!-- Logo no footer: usa imagem se existir, fallback em texto -->
+          <img src="assets/logo.png" alt="Júlia Assunção Terapias Naturais" class="footer-brand-logo"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+          <div class="footer-brand-text" style="display:none;">
+            Júlia Assunção
+            <span>Terapias Naturais</span>
+          </div>
         </div>
 
         <nav class="footer-social" aria-label="Redes sociais">
-          <a href="https://www.instagram.com/juterapiasnaturais" target="_blank" rel="noopener" aria-label="Instagram de Júlia Assunção">
+          <a href="https://www.instagram.com/juterapiasnaturais" target="_blank" rel="noopener" aria-label="Instagram">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           </a>
-          <a href="https://www.facebook.com/Juliaterapiasnaturais" target="_blank" rel="noopener" aria-label="Facebook de Júlia Assunção">
+          <a href="https://www.facebook.com/Juliaterapiasnaturais" target="_blank" rel="noopener" aria-label="Facebook">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </a>
-          <a href="https://wa.me/351927384304" target="_blank" rel="noopener" aria-label="WhatsApp de Júlia Assunção">
+          <a href="https://wa.me/351927384304" target="_blank" rel="noopener" aria-label="WhatsApp">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           </a>
         </nav>
-
       </div>
       <p class="footer-copy">© 2025 Júlia Assunção. Todos os direitos reservados.</p>
     </div>
@@ -1547,17 +1561,15 @@
 
   <!-- ══ SCRIPTS ═════════════════════════════════════════════ -->
   <script>
-    /* ── NAV scroll state ─────────────────────────────────── */
+    /* ── NAV scroll ───────────────────────────────────────── */
     const nav = document.getElementById('nav');
-    const onScroll = () => {
+    window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 20);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
+    }, { passive: true });
 
-    /* ── Hamburger menu ───────────────────────────────────── */
-    const hamburger   = document.getElementById('hamburger');
-    const mobileMenu  = document.getElementById('mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
+    /* ── Hamburger ────────────────────────────────────────── */
+    const hamburger  = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
 
     function toggleMenu(open) {
       hamburger.classList.toggle('open', open);
@@ -1565,35 +1577,22 @@
       hamburger.setAttribute('aria-expanded', open);
       document.body.style.overflow = open ? 'hidden' : '';
     }
+    hamburger.addEventListener('click', () => toggleMenu(!hamburger.classList.contains('open')));
+    document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => toggleMenu(false)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleMenu(false); });
 
-    hamburger.addEventListener('click', () => {
-      const isOpen = hamburger.classList.contains('open');
-      toggleMenu(!isOpen);
-    });
-
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => toggleMenu(false));
-    });
-
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') toggleMenu(false);
-    });
-
-    /* ── Smooth scroll for anchor links ───────────────────── */
+    /* ── Smooth scroll ────────────────────────────────────── */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', e => {
         const target = document.querySelector(anchor.getAttribute('href'));
         if (!target) return;
         e.preventDefault();
-        const offset = 68;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 68, behavior: 'smooth' });
       });
     });
 
-    /* ── Intersection Observer (reveal on scroll) ─────────── */
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer  = new IntersectionObserver((entries) => {
+    /* ── Intersection Observer ────────────────────────────── */
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
@@ -1601,24 +1600,18 @@
         }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-    revealEls.forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     /* ── Percursos accordion ──────────────────────────────── */
     function togglePercurso(btn, expandId) {
-      const expand  = document.getElementById(expandId);
-      const isOpen  = expand.classList.contains('open');
-
-      // close all others
-      document.querySelectorAll('.percurso-expand.open').forEach(el => {
-        el.classList.remove('open');
-      });
+      const expand = document.getElementById(expandId);
+      const isOpen = expand.classList.contains('open');
+      document.querySelectorAll('.percurso-expand.open').forEach(el => el.classList.remove('open'));
       document.querySelectorAll('.percurso-btn.open').forEach(b => {
         b.classList.remove('open');
         b.setAttribute('aria-expanded', 'false');
-        b.firstChild.textContent = 'Saber mais';
+        b.childNodes[0].textContent = 'Saber mais ';
       });
-
       if (!isOpen) {
         expand.classList.add('open');
         btn.classList.add('open');

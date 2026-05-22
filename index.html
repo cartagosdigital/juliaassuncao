@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Júlia Assunção — Terapias Naturais</title>
+  <meta name="description" content="Júlia Assunção, Terapeuta Natural em Carcavelos. Abordagem integrativa, natural e personalizada para bem-estar e equilíbrio. 10 anos de experiência em terapias complementares." />
+  <meta name="keywords" content="terapeuta natural, terapias integrativas, carcavelos, bem-estar, aromaterapia, auriculoterapia, suplementação ortomolecular" />
+  <meta property="og:title" content="Júlia Assunção — Terapias Naturais" />
+  <meta property="og:description" content="Promovo bem-estar e equilíbrio através de uma abordagem integrativa, natural e personalizada." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── TOKENS ──────────────────────────────────────────── */
+    :root {
+      --queen-pink:       #E8C2CA;
+      --thistle:          #D1B3C4;
+      --glossy-grape:     #B392AC;
+      --mountbatten-pink: #937892;
+      --old-lavender:     #735D78;
+
+      --sage-green:   #6B7F5E;
+      --warm-mustard: #C9A84C;
+      --dusty-blue:   #7C9BAD;
+      --terracotta:   #C17A5B;
+
+      --white:        #FFFFFF;
+      --off-white:    #FAF6F8;
+      --text-dark:    #2E2229;
+      --text-mid:     #5A4A55;
+
+      --font-display: 'Great Vibes', cursive;
+      --font-body:    'DM Sans', sans-serif;
+
+      --radius-sm:  8px;
+      --radius-md:  16px;
+      --radius-lg:  32px;
+      --radius-xl:  64px;
+
+      --shadow-soft: 0 4px 24px rgba(115, 93, 120, 0.10);
+      --shadow-card: 0 8px 40px rgba(115, 93, 120, 0.13);
+
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ─── RESET ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      color: var(--text-dark);
+      background: var(--off-white);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { font-family: var(--font-body); cursor: pointer; border: none; background: none; }
+
+    /* ─── TYPOGRAPHY ──────────────────────────────────────── */
+    .display {
+      font-family: var(--font-display);
+      line-height: 1.1;
+      color: var(--old-lavender);
+    }
+    h1, h2, h3, h4 {
+      font-family: var(--font-body);
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--old-lavender);
+    }
+    h1 { font-size: clamp(2rem, 5vw, 3.25rem); }
+    h2 { font-size: clamp(1.6rem, 4vw, 2.5rem); }
+    h3 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); }
+    p { color: var(--text-mid); font-size: 1rem; }
+
+    /* ─── LAYOUT UTILS ────────────────────────────────────── */
+    .container {
+      width: min(1140px, 100%);
+      padding-inline: clamp(1.25rem, 5vw, 3rem);
+      margin-inline: auto;
+    }
+    .section {
+      position: relative;
+      padding-block: clamp(4rem, 10vw, 7rem);
+      overflow: hidden;
+    }
+    .section--light { background: var(--off-white); }
+    .section--blush { background: #F5EBEd; }
+    .section--pink  { background: var(--queen-pink); }
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--mountbatten-pink);
+      margin-bottom: 0.75rem;
+    }
+    .section-heading {
+      margin-bottom: 1.25rem;
+    }
+    .section-lead {
+      font-size: 1.075rem;
+      max-width: 62ch;
+      margin-bottom: 2.5rem;
+      color: var(--text-mid);
+    }
+
+    /* ─── BUTTONS ─────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.875rem 1.75rem;
+      border-radius: 100px;
+      transition: var(--transition);
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+    .btn-primary {
+      background: var(--old-lavender);
+      color: var(--white);
+      box-shadow: 0 4px 18px rgba(115, 93, 120, 0.30);
+    }
+    .btn-primary:hover {
+      background: var(--mountbatten-pink);
+      box-shadow: 0 6px 24px rgba(115, 93, 120, 0.38);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--old-lavender);
+      border: 2px solid var(--old-lavender);
+    }
+    .btn-outline:hover {
+      background: var(--old-lavender);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+    .btn-white {
+      background: var(--white);
+      color: var(--old-lavender);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+    }
+    .btn-white:hover {
+      background: var(--queen-pink);
+      transform: translateY(-2px);
+    }
+    .btn-ghost-white {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.65);
+    }
+    .btn-ghost-white:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: var(--white);
+    }
+
+    /* ─── BLOB DECO ───────────────────────────────────────── */
+    .blob-deco {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.13;
+    }
+    .blob-deco svg { display: block; }
+
+    /* ─── NAV ─────────────────────────────────────────────── */
+    #nav {
+      position: fixed;
+      inset-block-start: 0;
+      inset-inline: 0;
+      z-index: 900;
+      background: rgba(250, 246, 248, 0.90);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    #nav.scrolled {
+      border-color: var(--thistle);
+      box-shadow: 0 2px 16px rgba(115,93,120,0.08);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      color: var(--old-lavender);
+      line-height: 1;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      inset-block-end: -3px;
+      inset-inline-start: 0;
+      width: 0;
+      height: 2px;
+      background: var(--glossy-grape);
+      border-radius: 2px;
+      transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--old-lavender); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta { margin-inline-start: 0.5rem; }
+
+    /* hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      width: 32px;
+      padding: 4px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      display: block;
+      height: 2px;
+      background: var(--old-lavender);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* mobile menu */
+    .mobile-menu {
+      position: fixed;
+      inset-block-start: 68px;
+      inset-inline: 0;
+      background: var(--off-white);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      border-top: 1px solid var(--thistle);
+      transform: translateY(-110%);
+      opacity: 0;
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
+      z-index: 800;
+      box-shadow: 0 12px 32px rgba(115,93,120,0.12);
+    }
+    .mobile-menu.open { transform: translateY(0); opacity: 1; }
+    .mobile-menu a {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--queen-pink);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--old-lavender); }
+
+    /* ─── HERO ────────────────────────────────────────────── */
+    #hero {
+      min-height: 100svh;
+      background: var(--queen-pink);
+      display: flex;
+      align-items: center;
+      padding-block-start: 68px;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-blob-1 { top: -10%; right: -8%; width: min(560px, 70vw); }
+    .hero-blob-2 { bottom: -15%; left: -12%; width: min(480px, 65vw); }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      min-height: calc(100svh - 68px);
+      padding-block: 4rem;
+    }
+    .hero-content { max-width: 560px; }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mountbatten-pink);
+      margin-bottom: 1.25rem;
+    }
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 8vw, 6rem);
+      color: var(--old-lavender);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .hero-role {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 500;
+      color: var(--mountbatten-pink);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.75rem;
+    }
+    .hero-tagline {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--text-mid);
+      max-width: 46ch;
+      margin-bottom: 2.5rem;
+      font-style: italic;
+      line-height: 1.75;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .hero-badge {
+      position: absolute;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.25rem;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--old-lavender);
+      white-space: nowrap;
+    }
+    .hero-badge .badge-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--sage-green);
+      flex-shrink: 0;
+    }
+    .hero-badge-top  { top: 10%; right: 0; }
+    .hero-badge-bot  { bottom: 18%; left: 0; }
+    .hero-circle {
+      width: min(380px, 70vw);
+      height: min(380px, 70vw);
+      border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%;
+      background: linear-gradient(135deg, var(--thistle) 0%, var(--glossy-grape) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: morphBlob 8s ease-in-out infinite;
+    }
+    .hero-circle-inner {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: rgba(255,255,255,0.95);
+      text-align: center;
+      padding: 1.5rem;
+      line-height: 1.3;
+    }
+    .hero-years {
+      position: absolute;
+      bottom: -10px;
+      right: -10px;
+      width: 90px;
+      height: 90px;
+      background: var(--warm-mustard);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      box-shadow: var(--shadow-card);
+    }
+    .hero-years strong { font-size: 1.5rem; font-weight: 800; line-height: 1; }
+    .hero-years span   { font-size: 0.65rem; text-align: center; font-weight: 500; }
+
+    @keyframes morphBlob {
+      0%, 100% { border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%; }
+      33%       { border-radius: 40% 60% 45% 55% / 55% 45% 55% 45%; }
+      66%       { border-radius: 55% 45% 60% 40% / 45% 60% 40% 55%; }
+    }
+
+    /* ─── ABOUT ───────────────────────────────────────────── */
+    #sobre {
+      background: var(--off-white);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: clamp(2.5rem, 6vw, 5rem);
+      align-items: start;
+    }
+    .about-aside {
+      position: relative;
+    }
+    .about-shape {
+      width: 100%;
+      aspect-ratio: 3/4;
+      max-width: 340px;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      background: linear-gradient(160deg, var(--queen-pink) 0%, var(--thistle) 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .about-shape::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.2) 0%, transparent 60%);
+    }
+    .about-ornament {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 80px;
+      height: 80px;
+      background: var(--warm-mustard);
+      border-radius: 50%;
+      opacity: 0.25;
+    }
+    .about-ornament-2 {
+      position: absolute;
+      bottom: 40px;
+      left: -24px;
+      width: 52px;
+      height: 52px;
+      background: var(--sage-green);
+      border-radius: 50%;
+      opacity: 0.22;
+    }
+    .about-quote {
+      background: var(--white);
+      border-left: 3px solid var(--glossy-grape);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin-top: 1.5rem;
+      box-shadow: var(--shadow-soft);
+    }
+    .about-quote p {
+      font-size: 0.95rem;
+      font-style: italic;
+      color: var(--mountbatten-pink);
+    }
+    .about-content .section-label { display: block; }
+    .about-content h2 { margin-bottom: 1.5rem; }
+    .about-content p { margin-bottom: 1rem; font-size: 0.975rem; }
+    .about-content p:last-child { margin-bottom: 0; }
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.75rem;
+    }
+    .about-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.4rem 0.875rem;
+      background: var(--queen-pink);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--old-lavender);
+    }
+
+    /* ─── O QUE FAÇO ──────────────────────────────────────── */
+    #oque-faco {
+      background: var(--old-lavender);
+      color: var(--white);
+    }
+    #oque-faco .section-label { color: var(--thistle); }
+    #oque-faco h2 { color: var(--white); }
+    #oque-faco .section-lead { color: rgba(255,255,255,0.82); }
+    #oque-faco p { color: rgba(255,255,255,0.75); }
+    .oque-lead { max-width: 68ch; margin-bottom: 3rem; font-size: 1.05rem; color: rgba(255,255,255,0.82); }
+    .oque-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+    .oque-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .oque-card:hover {
+      background: rgba(255,255,255,0.14);
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.3);
+    }
+    .oque-icon {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 0.875rem;
+      background: rgba(255,255,255,0.12);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+    .oque-card h3 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.35;
+    }
+
+    /* ─── SERVICES ────────────────────────────────────────── */
+    #servicos { background: var(--off-white); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 2rem;
+      box-shadow: var(--shadow-card);
+      border: 1.5px solid var(--queen-pink);
+      position: relative;
+      transition: var(--transition);
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(115,93,120,0.16);
+      border-color: var(--glossy-grape);
+    }
+    .service-card--featured {
+      border-color: var(--old-lavender);
+      background: linear-gradient(160deg, #fcf7fb 0%, var(--white) 100%);
+    }
+    .service-card--featured::before {
+      content: 'Começa aqui';
+      position: absolute;
+      top: -1px;
+      right: 1.75rem;
+      background: var(--old-lavender);
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.35rem 0.875rem;
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      letter-spacing: 0.06em;
+    }
+    .service-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--mountbatten-pink);
+      margin-bottom: 0.875rem;
+    }
+    .service-card h3 {
+      font-size: 1.2rem;
+      color: var(--old-lavender);
+      margin-bottom: 0.4rem;
+      font-weight: 800;
+    }
+    .service-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .service-price {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--warm-mustard);
+    }
+    .service-duration {
+      font-size: 0.82rem;
+      color: var(--mountbatten-pink);
+      font-weight: 500;
+    }
+    .service-desc {
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .service-card .btn { font-size: 0.875rem; padding: 0.7rem 1.4rem; }
+    .service-card--online .service-price { color: var(--dusty-blue); }
+
+    /* ─── PERCURSOS ───────────────────────────────────────── */
+    #percursos { background: var(--queen-pink); }
+    .percursos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .percurso-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition);
+    }
+    .percurso-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(115,93,120,0.18); }
+    .percurso-header {
+      padding: 2rem 2rem 1.5rem;
+      position: relative;
+    }
+    .percurso-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    .percurso-card:nth-child(1) .percurso-icon { background: #f0eef9; }
+    .percurso-card:nth-child(2) .percurso-icon { background: #edf4eb; }
+    .percurso-card:nth-child(3) .percurso-icon { background: #fdf3ee; }
+    .percurso-card h3 {
+      font-size: 1.15rem;
+      color: var(--old-lavender);
+      margin-bottom: 0.625rem;
+    }
+    .percurso-short {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+    .percurso-body {
+      padding: 0 2rem 2rem;
+    }
+    .percurso-expand {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.45s cubic-bezier(0.4,0,0.2,1);
+      overflow: hidden;
+    }
+    .percurso-expand.open { grid-template-rows: 1fr; }
+    .percurso-expand-inner {
+      min-height: 0;
+    }
+    .percurso-full {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      padding-top: 1rem;
+      border-top: 1px solid var(--queen-pink);
+      margin-top: 0.75rem;
+    }
+    .percurso-full p + p { margin-top: 0.75rem; }
+    .percurso-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1.25rem;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--old-lavender);
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: gap 0.2s;
+    }
+    .percurso-btn:hover { gap: 0.65rem; }
+    .percurso-btn svg { transition: transform 0.3s; }
+    .percurso-btn.open svg { transform: rotate(180deg); }
+
+    /* ─── COMO FUNCIONA ───────────────────────────────────── */
+    #como-funciona { background: var(--off-white); }
+    .timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 3rem;
+      padding-inline-start: 3rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      inset-inline-start: 19px;
+      inset-block-start: 0;
+      inset-block-end: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--queen-pink), var(--glossy-grape), var(--old-lavender));
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      padding-bottom: 2.5rem;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot {
+      position: absolute;
+      inset-inline-start: calc(-3rem + 10px);
+      inset-block-start: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--old-lavender);
+      border: 3px solid var(--off-white);
+      box-shadow: 0 0 0 3px var(--old-lavender);
+      z-index: 1;
+    }
+    .timeline-item:nth-child(2) .timeline-dot { background: var(--glossy-grape); box-shadow: 0 0 0 3px var(--glossy-grape); }
+    .timeline-item:nth-child(3) .timeline-dot { background: var(--mountbatten-pink); box-shadow: 0 0 0 3px var(--mountbatten-pink); }
+    .timeline-num {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mountbatten-pink);
+      margin-bottom: 0.4rem;
+    }
+    .timeline-item h3 {
+      font-size: 1.1rem;
+      color: var(--old-lavender);
+      margin-bottom: 0.875rem;
+    }
+    .timeline-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .timeline-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      line-height: 1.55;
+    }
+    .timeline-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--glossy-grape);
+      flex-shrink: 0;
+      margin-top: 0.5rem;
+    }
+    .como-note {
+      margin-top: 3rem;
+      background: var(--queen-pink);
+      border-radius: var(--radius-lg);
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .como-note-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+    .como-note p {
+      font-size: 0.95rem;
+      color: var(--old-lavender);
+      font-weight: 500;
+    }
+
+    /* ─── LOCATION ────────────────────────────────────────── */
+    #localizacao { background: var(--off-white); }
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2.5rem;
+      align-items: start;
+      margin-top: 2.5rem;
+    }
+    .location-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .location-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .location-detail-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: var(--queen-pink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+    }
+    .location-detail-text strong {
+      display: block;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--old-lavender);
+      margin-bottom: 0.2rem;
+    }
+    .location-detail-text p, .location-detail-text a {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+    }
+    .location-detail-text a:hover { color: var(--old-lavender); text-decoration: underline; }
+    .map-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      aspect-ratio: 4/3;
+    }
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ─── CTA ─────────────────────────────────────────────── */
+    #contacto {
+      background: var(--old-lavender);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-blob-1 { top: -20%; right: -10%; width: min(480px, 60vw); opacity: 0.08; }
+    .cta-blob-2 { bottom: -20%; left: -8%; width: min(360px, 50vw); opacity: 0.06; }
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .cta-inner .section-label { color: var(--thistle); }
+    .cta-inner h2 {
+      color: var(--white);
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 1rem;
+    }
+    .cta-inner > p {
+      color: rgba(255,255,255,0.8);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+    }
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .cta-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.18);
+    }
+    .cta-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.8);
+      transition: color 0.2s;
+    }
+    .cta-contact-item:hover { color: var(--white); }
+    .cta-contact-item svg { flex-shrink: 0; }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    footer {
+      background: var(--text-dark);
+      padding: 2.5rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--thistle);
+      line-height: 1;
+    }
+    .footer-brand span {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mountbatten-pink);
+      margin-top: 0.25rem;
+    }
+    .footer-social {
+      display: flex;
+      gap: 0.875rem;
+    }
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.07);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--mountbatten-pink);
+      transition: var(--transition);
+    }
+    .footer-social a:hover {
+      background: var(--old-lavender);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+    .footer-copy {
+      width: 100%;
+      text-align: center;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+      padding-top: 1.5rem;
+      margin-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    /* ─── SCROLL ANIMATIONS ───────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s cubic-bezier(0.4,0,0.2,1), transform 0.65s cubic-bezier(0.4,0,0.2,1);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-visual { order: -1; }
+      .hero-tagline { margin-inline: auto; }
+      .hero-actions { justify-content: center; }
+      .hero-badge-top, .hero-badge-bot { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-aside { display: none; }
+      .location-grid { grid-template-columns: 1fr; }
+      .timeline { padding-inline-start: 2.5rem; }
+      .como-note { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .percursos-grid { grid-template-columns: 1fr; }
+      .oque-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-contacts { flex-direction: column; align-items: center; }
+      .footer-inner { justify-content: center; text-align: center; }
+    }
+
+    /* ─── WHATSAPP FLOAT ──────────────────────────────────── */
+    .wa-float {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 500;
+      width: 58px;
+      height: 58px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: var(--transition);
+      color: white;
+    }
+    .wa-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 32px rgba(37,211,102,0.5);
+    }
+    .wa-float svg { width: 28px; height: 28px; }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAV ══════════════════════════════════════════════ -->
+  <nav id="nav" role="navigation" aria-label="Navegação principal">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo" aria-label="Júlia Assunção — Início">Júlia Assunção</a>
+        <ul class="nav-links" role="list">
+          <li><a href="#sobre">Quem sou</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#percursos">Percursos</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#localizacao">Localização</a></li>
+        </ul>
+        <a href="https://wa.me/351927384304" class="btn btn-primary nav-cta" target="_blank" rel="noopener" aria-label="Marcar consulta via WhatsApp">
+          Marcar Consulta
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Menu mobile">
+    <a href="#sobre" class="mobile-link">Quem sou</a>
+    <a href="#servicos" class="mobile-link">Serviços</a>
+    <a href="#percursos" class="mobile-link">Percursos</a>
+    <a href="#como-funciona" class="mobile-link">Como funciona</a>
+    <a href="#localizacao" class="mobile-link">Localização</a>
+    <a href="https://wa.me/351927384304" target="_blank" rel="noopener" style="color:var(--old-lavender); font-weight:800;">Marcar Consulta →</a>
+  </nav>
+
+  <!-- ══ HERO ══════════════════════════════════════════════ -->
+  <section id="hero" aria-label="Introdução">
+
+    <!-- Blob decorations -->
+    <div class="blob-deco hero-blob-1" aria-hidden="true">
+      <svg viewBox="0 0 560 560" xmlns="http://www.w3.org/2000/svg">
+        <path fill="var(--old-lavender)" d="M280,70 C350,50 430,100 460,170 C490,240 480,320 440,380 C400,440 320,470 250,460 C180,450 110,400 90,330 C70,260 90,180 130,130 C170,80 210,90 280,70 Z"/>
+      </svg>
+    </div>
+    <div class="blob-deco hero-blob-2" aria-hidden="true">
+      <svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
+        <path fill="var(--glossy-grape)" d="M240,60 C300,40 380,80 420,150 C460,220 450,310 410,370 C370,430 290,450 220,440 C150,430 90,380 70,310 C50,240 70,170 110,120 C150,70 180,80 240,60 Z"/>
+      </svg>
+    </div>
+
+    <div class="container">
+      <div class="hero-inner">
+
+        <div class="hero-content">
+          <span class="hero-eyebrow">Terapias Naturais · Carcavelos, Portugal</span>
+          <h1 class="hero-name" aria-label="Júlia Assunção">Júlia Assunção</h1>
+          <p class="hero-role">Terapeuta Natural</p>
+          <p class="hero-tagline">"Promovo bem-estar e equilíbrio através de uma abordagem integrativa, natural e personalizada."</p>
+          <div class="hero-actions">
+            <a href="https://wa.me/351927384304" class="btn btn-primary" target="_blank" rel="noopener" aria-label="Marcar consulta via WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Marcar Consulta
+            </a>
+            <a href="#servicos" class="btn btn-outline">Conhecer os Serviços</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-badge hero-badge-top">
+            <span class="badge-dot"></span>
+            Carcavelos, Portugal
+          </div>
+          <div class="hero-circle">
+            <div class="hero-circle-inner">Bem-estar<br>natural &amp;<br>personalizado</div>
+            <div class="hero-years">
+              <strong>10</strong>
+              <span>anos de<br>experiência</span>
+            </div>
+          </div>
+          <div class="hero-badge hero-badge-bot">
+            <span class="badge-dot"></span>
+            Abordagem Integrativa
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ QUEM SOU ═══════════════════════════════════════════ -->
+  <section id="sobre" class="section" aria-labelledby="sobre-title">
+    <div class="container">
+      <div class="about-grid">
+
+        <aside class="about-aside" aria-hidden="true">
+          <div class="about-shape">
+            <!-- decorative shape -->
+          </div>
+          <div class="about-ornament"></div>
+          <div class="about-ornament-2"></div>
+          <div class="about-quote">
+            <p>"A minha profissão não é apenas o meu trabalho, é um caminho que escolhi trilhar com propósito, estudo e dedicação."</p>
+          </div>
+        </aside>
+
+        <div class="about-content">
+          <span class="section-label reveal">Quem sou eu</span>
+          <h2 id="sobre-title" class="section-heading reveal reveal-delay-1">Uma terapeuta que vive<br>aquilo que pratica</h2>
+
+          <p class="reveal reveal-delay-2">Sou brasileira e portuguesa, vivo em Portugal há 8 anos e há 10 trabalho na área das terapias integrativas e complementares. Sou mãe da Mel e da Duda, e foi também dentro de casa, na vivência do dia a dia, que fui percebendo ainda mais a importância de cuidar do corpo, da mente e do equilíbrio de forma natural, consciente e consistente.</p>
+
+          <p class="reveal reveal-delay-2">Vivo intensamente aquilo que faço. A minha profissão não é apenas o meu trabalho, é um caminho que escolhi trilhar com propósito, estudo e dedicação. Ao longo dos anos, tenho aplicado muito do meu conhecimento também na minha vida e na minha família, e é profundamente gratificante ver, na prática, que aquilo em que acredito tem sentido, traz resultados e contribui para mais bem-estar.</p>
+
+          <p class="reveal reveal-delay-3">Continuo em constante aprendizagem porque acredito que cada pessoa é única, e que corpo, mente, emoções e hábitos estão sempre interligados. O meu trabalho nasce desse olhar: da escuta, do humano, atento e integrativo. Um olhar que acolhe a pessoa na sua totalidade e que procura promover equilíbrio, consciência corporal e qualidade de vida através de meios naturais, científicos e personalizados.</p>
+
+          <div class="about-tags reveal reveal-delay-3">
+            <span class="about-tag">🌿 10 anos de experiência</span>
+            <span class="about-tag">🇧🇷🇵🇹 Brasileira &amp; Portuguesa</span>
+            <span class="about-tag">📍 Carcavelos</span>
+            <span class="about-tag">💻 Consultas Online</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ O QUE FAÇO ═════════════════════════════════════════ -->
+  <section id="oque-faco" class="section" aria-labelledby="oque-title">
+
+    <!-- Blob -->
+    <div class="blob-deco" style="top:-10%;right:-5%;width:min(420px,55vw);opacity:0.06;" aria-hidden="true">
+      <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+        <path fill="var(--white)" d="M210,50 C270,30 350,70 390,140 C430,210 420,300 380,360 C340,420 260,440 190,430 C120,420 60,370 40,300 C20,230 40,160 80,110 C120,60 150,70 210,50 Z"/>
+      </svg>
+    </div>
+
+    <div class="container" style="position:relative;z-index:1;">
+      <span class="section-label reveal">O que faço</span>
+      <h2 id="oque-title" class="section-heading reveal reveal-delay-1" style="color:var(--white);">Uma abordagem pensada<br>para si, na sua totalidade</h2>
+
+      <p class="oque-lead reveal reveal-delay-2">Promovo bem-estar e equilíbrio através de uma abordagem integrativa, natural e personalizada, baseada em conhecimento técnico e científico, experiência prática e escuta atenta. O meu trabalho começa pela compreensão da sua história, rotina, hábitos, estilo de vida e sinais que o corpo apresenta.</p>
+
+      <div class="oque-grid reveal reveal-delay-3">
+        <div class="oque-card">
+          <div class="oque-icon" role="img" aria-label="Técnicas complementares">🌸</div>
+          <h3>Técnicas complementares</h3>
+        </div>
+        <div class="oque-card">
+          <div class="oque-icon" role="img" aria-label="Recursos naturais">🌿</div>
+          <h3>Recursos naturais</h3>
+        </div>
+        <div class="oque-card">
+          <div class="oque-icon" role="img" aria-label="Aromaterapia">💧</div>
+          <h3>Aromaterapia</h3>
+        </div>
+        <div class="oque-card">
+          <div class="oque-icon" role="img" aria-label="Auriculoterapia">👂</div>
+          <h3>Auriculoterapia</h3>
+        </div>
+        <div class="oque-card">
+          <div class="oque-icon" role="img" aria-label="Suplementação ortomolecular">💊</div>
+          <h3>Suplementação ortomolecular</h3>
+        </div>
+        <div class="oque-card">
+          <div class="oque-icon" role="img" aria-label="Ajustes alimentares">🥗</div>
+          <h3>Ajustes alimentares</h3>
+        </div>
+        <div class="oque-card">
+          <div class="oque-icon" role="img" aria-label="Mudanças no estilo de vida">☀️</div>
+          <h3>Mudanças no estilo de vida</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SERVIÇOS ═══════════════════════════════════════════ -->
+  <section id="servicos" class="section" aria-labelledby="servicos-title">
+    <div class="container">
+      <span class="section-label reveal">Serviços</span>
+      <h2 id="servicos-title" class="section-heading reveal reveal-delay-1">Como posso acompanhá-la</h2>
+      <p class="section-lead reveal reveal-delay-2">Cada pessoa tem o seu ritmo e as suas necessidades. O plano é sempre construído a pensar em si.</p>
+
+      <div class="services-grid">
+
+        <!-- Consulta Inicial -->
+        <article class="service-card service-card--featured reveal reveal-delay-1">
+          <div class="service-badge">
+            <span>✦</span> Consulta Integrativa
+          </div>
+          <h3>Consulta Integrativa Inicial</h3>
+          <div class="service-meta">
+            <span class="service-price">65€</span>
+            <span class="service-duration">até 1h15</span>
+          </div>
+          <p class="service-desc">O primeiro passo para compreender a sua história, rotina, hábitos, necessidades atuais e os sinais que o corpo apresenta. Neste encontro, a prioridade é a escuta atenta e a avaliação integrativa do seu momento de vida — alimentação, sono, stress, emoções, energia e estilo de vida. A partir dessa visão global, é desenvolvido um plano personalizado de apoio ao seu bem-estar.</p>
+          <a href="https://wa.me/351927384304" class="btn btn-primary" target="_blank" rel="noopener" aria-label="Marcar consulta integrativa inicial via WhatsApp">Marcar agora</a>
+        </article>
+
+        <!-- Acompanhamento Mensal -->
+        <article class="service-card reveal reveal-delay-2">
+          <div class="service-badge">
+            <span>↻</span> Acompanhamento
+          </div>
+          <h3>Acompanhamento Integrativo Mensal</h3>
+          <div class="service-meta">
+            <span class="service-price">50€</span>
+            <span class="service-duration">até 50 minutos</span>
+          </div>
+          <p class="service-desc">A continuidade da consulta inicial. Observamos a sua evolução, percebemos como o corpo está a responder e fazemos os ajustes necessários no plano. Podem ser revistas recomendações, adaptadas estratégias e redefinidas prioridades. Inclui suporte pontual por mensagem entre sessões para dúvidas relacionadas com o plano.</p>
+          <a href="https://wa.me/351927384304" class="btn btn-outline" target="_blank" rel="noopener" aria-label="Saber mais sobre acompanhamento mensal via WhatsApp">Saber mais</a>
+        </article>
+
+        <!-- Online -->
+        <article class="service-card service-card--online reveal reveal-delay-3">
+          <div class="service-badge" style="color:var(--dusty-blue);">
+            <span>💻</span> Online
+          </div>
+          <h3>Consulta &amp; Acompanhamento Online</h3>
+          <div class="service-meta">
+            <span class="service-price" style="color:var(--dusty-blue);">55€</span>
+            <span class="service-duration">1h15 · inicial</span>
+          </div>
+          <div class="service-meta" style="margin-top:-0.75rem;">
+            <span class="service-price" style="color:var(--dusty-blue);font-size:1.15rem;">40€</span>
+            <span class="service-duration">50 min · acompanhamento</span>
+          </div>
+          <p class="service-desc">Segue o mesmo padrão das consultas presenciais, com toda a qualidade e atenção de sempre — na comodidade da sua casa ou de onde estiveres. Tudo o que precisa para cuidar de si, sem sair do conforto do seu espaço.</p>
+          <a href="https://wa.me/351927384304" class="btn btn-outline" style="border-color:var(--dusty-blue);color:var(--dusty-blue);" target="_blank" rel="noopener" aria-label="Marcar consulta online via WhatsApp">Marcar online</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PERCURSOS ══════════════════════════════════════════ -->
+  <section id="percursos" class="section" aria-labelledby="percursos-title">
+
+    <!-- Blob -->
+    <div class="blob-deco" style="bottom:-12%;right:-8%;width:min(500px,60vw);opacity:0.18;" aria-hidden="true">
+      <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+        <path fill="var(--old-lavender)" d="M250,70 C320,50 400,90 440,160 C480,230 470,320 430,380 C390,440 310,460 240,450 C170,440 100,390 80,320 C60,250 80,180 120,130 C160,80 180,90 250,70 Z"/>
+      </svg>
+    </div>
+
+    <div class="container" style="position:relative;z-index:1;">
+      <span class="section-label reveal">Percursos Integrativos</span>
+      <h2 id="percursos-title" class="section-heading reveal reveal-delay-1">Caminhos pensados<br>para momentos especiais</h2>
+      <p class="section-lead reveal reveal-delay-2">Percursos personalizados que reconhecem as necessidades únicas de cada fase da vida — porque cada momento merece um cuidado que lhe corresponda.</p>
+
+      <div class="percursos-grid">
+
+        <!-- Mulher em Equilíbrio -->
+        <article class="percurso-card reveal reveal-delay-1">
+          <div class="percurso-header">
+            <div class="percurso-icon" role="img" aria-label="Mulher em Equilíbrio">🌷</div>
+            <h3>Percurso Mulher em Equilíbrio</h3>
+            <p class="percurso-short">Para mulheres que sentem necessidade de cuidar melhor do corpo, da energia, das emoções e da rotina — considerando o ciclo feminino na sua totalidade.</p>
+          </div>
+          <div class="percurso-body">
+            <div class="percurso-expand" id="expand-1">
+              <div class="percurso-expand-inner">
+                <div class="percurso-full">
+                  <p>Indicado para mulheres que sentem necessidade de cuidar melhor do corpo, da energia, das emoções e da rotina. Este percurso considera fatores como ciclo feminino, stress, sono, alimentação, energia, idade, autocuidado, sobrecarga mental, sinais de desequilíbrio e estilo de vida.</p>
+                  <p>O objetivo é apoiar a mulher na construção de mais equilíbrio, consciência corporal e bem-estar, através de um plano personalizado que pode incluir orientações naturais, recomendações suplementares, aromaterapia, auriculoterapia, ajustes alimentares e estratégias de estilo de vida.</p>
+                  <p>Em cada acompanhamento mensal, observamos a evolução, ajustamos as recomendações e adaptamos o plano conforme as necessidades do momento.</p>
+                </div>
+              </div>
+            </div>
+            <button class="percurso-btn" aria-expanded="false" aria-controls="expand-1" onclick="togglePercurso(this, 'expand-1')">
+              Saber mais
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- Bem-estar Infantil -->
+        <article class="percurso-card reveal reveal-delay-2">
+          <div class="percurso-header">
+            <div class="percurso-icon" role="img" aria-label="Bem-estar Infantil">🌱</div>
+            <h3>Percurso Bem-estar Infantil</h3>
+            <p class="percurso-short">Para crianças que apresentam sinais como cansaço frequente, falta de foco, imunidade baixa ou necessidade de maior equilíbrio no dia a dia. A partir dos 3 anos.</p>
+          </div>
+          <div class="percurso-body">
+            <div class="percurso-expand" id="expand-2">
+              <div class="percurso-expand-inner">
+                <div class="percurso-full">
+                  <p>Indicado para crianças que apresentam sinais como cansaço frequente, falta de foco, baixa energia, alterações na rotina alimentar, imunidade baixa, sono pouco reparador ou necessidade de maior equilíbrio no dia a dia.</p>
+                  <p>Neste percurso, o foco principal está na nutrição, nos hábitos e no suporte natural adequado à fase da criança. A avaliação considera rotina alimentar, sono, energia, concentração, ambiente, hábitos familiares e necessidades individuais.</p>
+                  <p>O objetivo é ajudar a criança a sentir-se mais equilibrada, nutrida e acompanhada de forma natural, consciente e segura. A partir dos 3 anos.</p>
+                </div>
+              </div>
+            </div>
+            <button class="percurso-btn" aria-expanded="false" aria-controls="expand-2" onclick="togglePercurso(this, 'expand-2')">
+              Saber mais
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- Gestante -->
+        <article class="percurso-card reveal reveal-delay-3">
+          <div class="percurso-header">
+            <div class="percurso-icon" role="img" aria-label="Gestante em Equilíbrio">🌙</div>
+            <h3>Percurso Gestante em Equilíbrio</h3>
+            <p class="percurso-short">Para gestantes que desejam viver esta fase única com mais consciência, bem-estar e cuidado natural — cuidando da mãe para que ela se sinta acolhida neste percurso.</p>
+          </div>
+          <div class="percurso-body">
+            <div class="percurso-expand" id="expand-3">
+              <div class="percurso-expand-inner">
+                <div class="percurso-full">
+                  <p>A gestação é uma fase única, intensa e transformadora. Este percurso é indicado para gestantes que desejam viver esta fase com mais consciência, bem-estar e cuidado natural, preparando o corpo para oferecer ao bebé as melhores condições possíveis desde o início da vida.</p>
+                  <p>Neste acompanhamento, são considerados fatores como alimentação, rotina, sono, energia, digestão, stress, emoções, necessidades nutricionais e estilo de vida.</p>
+                  <p>O objetivo é cuidar da mãe para que ela também se sinta acolhida neste novo percurso da sua vida, fortalecendo a sua saúde, o seu equilíbrio e a sua ligação com o bebé.</p>
+                </div>
+              </div>
+            </div>
+            <button class="percurso-btn" aria-expanded="false" aria-controls="expand-3" onclick="togglePercurso(this, 'expand-3')">
+              Saber mais
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ COMO FUNCIONA ═══════════════════════════════════════ -->
+  <section id="como-funciona" class="section" aria-labelledby="como-title">
+    <div class="container">
+      <span class="section-label reveal">Como funciona</span>
+      <h2 id="como-title" class="section-heading reveal reveal-delay-1">Estrutura do<br>acompanhamento</h2>
+      <p class="section-lead reveal reveal-delay-2">Um processo pensado para que cada passo faça sentido e o corpo tenha tempo de responder, adaptar-se e evoluir ao seu ritmo.</p>
+
+      <div class="timeline reveal reveal-delay-2">
+
+        <div class="timeline-item">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <p class="timeline-num">Passo 1</p>
+          <h3>Primeiro encontro — Consulta Integrativa Inicial</h3>
+          <ul class="timeline-list" role="list">
+            <li>Escuta detalhada da história e necessidades atuais</li>
+            <li>Entrega de exames laboratoriais, se os tiver</li>
+            <li>Análise da rotina, hábitos, alimentação, sono, energia e estilo de vida</li>
+            <li>Identificação de prioridades e definição do plano personalizado</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <p class="timeline-num">Passo 2</p>
+          <h3>Sessões mensais de acompanhamento</h3>
+          <ul class="timeline-list" role="list">
+            <li>Revisão da evolução e adaptação do plano</li>
+            <li>Ajustes nas recomendações e acompanhamento das respostas do corpo</li>
+            <li>Suporte para manter a consistência</li>
+            <li>Esclarecimento de dúvidas sobre o plano</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <p class="timeline-num">Duração recomendada</p>
+          <h3>Mínimo 4 meses — ao seu ritmo</h3>
+          <ul class="timeline-list" role="list">
+            <li>A continuidade é livre e cada pessoa pode interromper quando desejar</li>
+            <li>Mudanças reais no bem-estar precisam de tempo para acontecer</li>
+            <li>O acompanhamento garante que os ajustes sejam feitos com responsabilidade</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="como-note reveal">
+        <div class="como-note-icon" aria-hidden="true">💬</div>
+        <p>Entre sessões, tens suporte por mensagem para dúvidas relacionadas com o plano e pequenos ajustes necessários — porque o acompanhamento não termina quando a sessão acaba.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ LOCALIZAÇÃO ════════════════════════════════════════ -->
+  <section id="localizacao" class="section" aria-labelledby="local-title">
+    <div class="container">
+      <span class="section-label reveal">Onde me encontrar</span>
+      <h2 id="local-title" class="section-heading reveal reveal-delay-1">Presencial em Carcavelos</h2>
+
+      <div class="location-grid reveal reveal-delay-2">
+
+        <div class="location-info">
+          <div class="location-detail">
+            <div class="location-detail-icon" aria-hidden="true">📍</div>
+            <div class="location-detail-text">
+              <strong>Espaço terapêutico</strong>
+              <p>
+                SENTE — Cowork Terapêutico<br>
+                Praceta De Portugal, 63A<br>
+                Quinta de São Gonçalo<br>
+                2775-369 Carcavelos
+              </p>
+            </div>
+          </div>
+          <div class="location-detail">
+            <div class="location-detail-icon" aria-hidden="true">🌐</div>
+            <div class="location-detail-text">
+              <strong>Espaço parceiro</strong>
+              <a href="https://senteconsultorios.pt" target="_blank" rel="noopener" aria-label="Visitar site do SENTE - Cowork Terapêutico">senteconsultorios.pt ↗</a>
+            </div>
+          </div>
+          <div class="location-detail">
+            <div class="location-detail-icon" aria-hidden="true">💻</div>
+            <div class="location-detail-text">
+              <strong>Consultas online</strong>
+              <p>Também disponível à distância,<br>onde estiveres.</p>
+            </div>
+          </div>
+          <div class="location-detail">
+            <div class="location-detail-icon" aria-hidden="true">📱</div>
+            <div class="location-detail-text">
+              <strong>Marcar consulta</strong>
+              <a href="https://wa.me/351927384304" target="_blank" rel="noopener" aria-label="Contactar via WhatsApp">WhatsApp: +351 927 384 304</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps?q=Praceta+De+Portugal+63A,+2775-369+Carcavelos,+Portugal&output=embed"
+            title="Mapa com localização do consultório em Carcavelos"
+            loading="lazy"
+            allowfullscreen
+            aria-label="Mapa Google Maps — SENTE Cowork Terapêutico, Carcavelos"
+          ></iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA FINAL ══════════════════════════════════════════ -->
+  <section id="contacto" class="section" aria-labelledby="cta-title">
+
+    <div class="blob-deco cta-blob-1" aria-hidden="true">
+      <svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
+        <path fill="var(--white)" d="M240,60 C300,40 380,80 420,150 C460,220 450,310 410,370 C370,430 290,450 220,440 C150,430 90,380 70,310 C50,240 70,170 110,120 C150,70 180,80 240,60 Z"/>
+      </svg>
+    </div>
+    <div class="blob-deco cta-blob-2" aria-hidden="true">
+      <svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg">
+        <path fill="var(--white)" d="M180,50 C230,35 290,65 320,120 C350,175 340,245 310,285 C280,325 220,335 165,325 C110,315 65,275 50,220 C35,165 55,105 90,75 C125,45 130,65 180,50 Z"/>
+      </svg>
+    </div>
+
+    <div class="container">
+      <div class="cta-inner">
+        <span class="section-label reveal">Vamos começar?</span>
+        <h2 id="cta-title" class="reveal reveal-delay-1">Pronta para começar?</h2>
+        <p class="reveal reveal-delay-2">O primeiro passo é a escuta. Marque a sua Consulta Integrativa Inicial e dê início a um cuidado verdadeiramente personalizado.</p>
+
+        <div class="cta-actions reveal reveal-delay-3">
+          <a href="https://wa.me/351927384304" class="btn btn-white" target="_blank" rel="noopener" aria-label="Falar no WhatsApp para marcar consulta">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Falar comigo no WhatsApp
+          </a>
+          <a href="mailto:comunicacao@juliaassuncao.com" class="btn btn-ghost-white" aria-label="Enviar email">
+            comunicacao@juliaassuncao.com
+          </a>
+        </div>
+
+        <div class="cta-contacts reveal">
+          <a href="https://www.instagram.com/juterapiasnaturais" class="cta-contact-item" target="_blank" rel="noopener" aria-label="Instagram @juterapiasnaturais">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            @juterapiasnaturais
+          </a>
+          <a href="https://www.facebook.com/Juliaterapiasnaturais" class="cta-contact-item" target="_blank" rel="noopener" aria-label="Facebook @Juliaterapiasnaturais">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            @Juliaterapiasnaturais
+          </a>
+          <a href="https://www.juliaassuncao.com" class="cta-contact-item" target="_blank" rel="noopener" aria-label="Website www.juliaassuncao.com">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            www.juliaassuncao.com
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ═════════════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          Júlia Assunção
+          <span>Terapias Naturais</span>
+        </div>
+
+        <nav class="footer-social" aria-label="Redes sociais">
+          <a href="https://www.instagram.com/juterapiasnaturais" target="_blank" rel="noopener" aria-label="Instagram de Júlia Assunção">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/Juliaterapiasnaturais" target="_blank" rel="noopener" aria-label="Facebook de Júlia Assunção">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://wa.me/351927384304" target="_blank" rel="noopener" aria-label="WhatsApp de Júlia Assunção">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </nav>
+
+      </div>
+      <p class="footer-copy">© 2025 Júlia Assunção. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ══ WHATSAPP FLOAT ══════════════════════════════════════ -->
+  <a href="https://wa.me/351927384304" class="wa-float" target="_blank" rel="noopener" aria-label="Contactar via WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- ══ SCRIPTS ═════════════════════════════════════════════ -->
+  <script>
+    /* ── NAV scroll state ─────────────────────────────────── */
+    const nav = document.getElementById('nav');
+    const onScroll = () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    /* ── Hamburger menu ───────────────────────────────────── */
+    const hamburger   = document.getElementById('hamburger');
+    const mobileMenu  = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function toggleMenu(open) {
+      hamburger.classList.toggle('open', open);
+      mobileMenu.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.contains('open');
+      toggleMenu(!isOpen);
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => toggleMenu(false));
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') toggleMenu(false);
+    });
+
+    /* ── Smooth scroll for anchor links ───────────────────── */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        const offset = 68;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
+
+    /* ── Intersection Observer (reveal on scroll) ─────────── */
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer  = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    /* ── Percursos accordion ──────────────────────────────── */
+    function togglePercurso(btn, expandId) {
+      const expand  = document.getElementById(expandId);
+      const isOpen  = expand.classList.contains('open');
+
+      // close all others
+      document.querySelectorAll('.percurso-expand.open').forEach(el => {
+        el.classList.remove('open');
+      });
+      document.querySelectorAll('.percurso-btn.open').forEach(b => {
+        b.classList.remove('open');
+        b.setAttribute('aria-expanded', 'false');
+        b.firstChild.textContent = 'Saber mais';
+      });
+
+      if (!isOpen) {
+        expand.classList.add('open');
+        btn.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.childNodes[0].textContent = 'Fechar ';
+      }
+    }
+  </script>
+
+</body>
+</html>

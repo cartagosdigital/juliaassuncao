@@ -938,13 +938,14 @@
     @media (max-width: 900px) {
       .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
-      .hamburger span { background: var(--terracotta); }
+      #hamburger span { background: #4a3b4a !important; }
       #nav { background: rgba(250, 247, 243, 1); }
       .hero-inner { grid-template-columns: 1fr; text-align: center; padding-block: 3rem 2rem; }
       .hero-name { white-space: nowrap; font-size: clamp(2.8rem, 11vw, 4.5rem); }
       .hero-visual { order: -1; }
       .hero-tagline { margin-inline: auto; }
-      .hero-actions { justify-content: center; flex-wrap: nowrap; }
+      .hero-actions { justify-content: center; flex-wrap: nowrap; gap: 0.625rem; }
+      .hero-actions .btn { padding: 0.75rem 1.1rem; font-size: 0.82rem; }
       .hero-badge { display: none; }
       .hero-photo-wrap { width: min(280px, 70vw); }
       .about-grid { grid-template-columns: 1fr; }

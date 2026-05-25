@@ -266,21 +266,21 @@
 
     .hamburger {
       display: none;
-      flex-direction: column;
-      gap: 5px;
-      width: 32px;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
       padding: 4px;
+      color: var(--old-lavender);
     }
-    .hamburger span {
-      display: block;
-      height: 2px;
-      background: var(--old-lavender);
-      border-radius: 2px;
-      transition: var(--transition);
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .hamburger svg { display: block; }
+    .hamburger .ham-open { display: block; }
+    .hamburger .ham-close { display: none; }
+    .hamburger.open .ham-open { display: none; }
+    .hamburger.open .ham-close { display: block; }
 
     .mobile-menu {
       position: fixed;
@@ -938,7 +938,6 @@
     @media (max-width: 900px) {
       .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
-      #hamburger span { background: #4a3b4a !important; }
       #nav { background: rgba(250, 247, 243, 1); }
       .hero-inner { grid-template-columns: 1fr; text-align: center; padding-block: 3rem 2rem; }
       .hero-name { white-space: nowrap; font-size: clamp(2.8rem, 11vw, 4.5rem); }
@@ -1010,7 +1009,12 @@
           Marcar Consulta
         </a>
         <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
-          <span></span><span></span><span></span>
+          <svg class="ham-open" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+          <svg class="ham-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/>
+          </svg>
         </button>
       </div>
     </div>

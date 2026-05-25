@@ -323,165 +323,90 @@
       overflow: hidden;
       position: relative;
     }
-    .hero-blob-1 {
-      top: -8%;
-      right: -6%;
-      width: min(580px, 70vw);
-      opacity: 0.14;
-    }
-    .hero-blob-2 {
-      bottom: -12%;
-      left: -10%;
-      width: min(440px, 60vw);
-      opacity: 0.10;
-    }
+    .hero-blob-1 { top: -8%; right: -8%; width: min(520px, 62vw); opacity: 0.14; }
+    .hero-blob-2 { bottom: -12%; left: -8%; width: min(420px, 55vw); opacity: 0.10; }
+    .hero-hand-l { left: 2%; top: 20%; width: min(160px, 16vw); opacity: 0.09; transform: rotate(-14deg); }
+    .hero-hand-r { right: 3%; bottom: 10%; width: min(190px, 18vw); opacity: 0.08; transform: rotate(6deg) scaleX(-1); }
+    .hero-line-deco { right: 9%; top: 14%; width: min(64px, 7vw); opacity: 0.20; }
+
     .hero-inner {
       position: relative;
       z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      text-align: center;
+      justify-content: center;
       min-height: calc(100svh - 68px);
-      padding-block: 4rem;
+      padding-block: 5rem 4rem;
+      max-width: 760px;
+      margin-inline: auto;
+      width: 100%;
     }
-    .hero-content { max-width: 560px; }
     .hero-eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      font-size: 0.75rem;
+      gap: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 700;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--sage-green);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
     }
-    .hero-eyebrow::before {
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
       content: '';
       display: block;
-      width: 24px;
-      height: 2px;
+      width: 28px;
+      height: 1.5px;
       background: var(--sage-green);
       border-radius: 2px;
+      flex-shrink: 0;
     }
     .hero-name {
       font-family: var(--font-display);
-      font-size: clamp(3.5rem, 8vw, 6rem);
+      font-size: clamp(4.5rem, 13vw, 9rem);
       color: var(--old-lavender);
-      line-height: 1;
-      margin-bottom: 0.35rem;
+      line-height: 0.95;
+      margin-bottom: 0.75rem;
     }
     .hero-role {
-      font-size: clamp(0.9rem, 2vw, 1.1rem);
-      font-weight: 500;
+      font-size: clamp(0.75rem, 1.6vw, 0.95rem);
+      font-weight: 700;
       color: var(--terracotta);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.25rem;
     }
+    .hero-years-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--warm-mustard);
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.28);
+      padding: 0.375rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 2rem;
+    }
+    .hero-years-chip strong { font-weight: 800; }
     .hero-tagline {
-      font-size: clamp(1rem, 1.8vw, 1.1rem);
+      font-size: clamp(0.95rem, 1.8vw, 1.1rem);
       color: var(--text-mid);
-      max-width: 46ch;
+      max-width: 50ch;
       margin-bottom: 2.5rem;
       font-style: italic;
-      line-height: 1.8;
-      border-left: 3px solid var(--terracotta);
-      padding-left: 1rem;
+      line-height: 1.85;
     }
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
-    }
-    .hero-visual {
-      display: flex;
       justify-content: center;
-      align-items: center;
-      position: relative;
     }
-    .hero-photo-wrap {
-      position: relative;
-      width: min(360px, 68vw);
-    }
-    .hero-photo-shape {
-      width: 100%;
-      aspect-ratio: 3/4;
-      border-radius: 55% 45% 52% 48% / 58% 52% 48% 42%;
-      overflow: hidden;
-      background: linear-gradient(155deg, var(--terracotta-md) 0%, var(--terracotta) 100%);
-      animation: morphPhoto 9s ease-in-out infinite;
-      box-shadow: var(--shadow-card);
-    }
-    .hero-photo-shape img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
-    .hero-photo-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      color: rgba(255,255,255,0.8);
-      font-size: 0.85rem;
-      text-align: center;
-      padding: 1rem;
-    }
-    .hero-photo-placeholder span { font-size: 2.5rem; }
-    @keyframes morphPhoto {
-      0%, 100% { border-radius: 55% 45% 52% 48% / 58% 52% 48% 42%; }
-      33%       { border-radius: 45% 55% 48% 52% / 52% 48% 55% 45%; }
-      66%       { border-radius: 52% 48% 55% 45% / 48% 56% 44% 52%; }
-    }
-    .hero-badge {
-      position: absolute;
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 0.875rem 1.125rem;
-      box-shadow: var(--shadow-card);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.8rem;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-    .badge-icon-green { color: var(--sage-green); }
-    .badge-icon-terra { color: var(--terracotta); }
-    .hero-badge-tl {
-      top: 8%;
-      left: -10%;
-      color: var(--sage-green);
-    }
-    .hero-badge-br {
-      bottom: 10%;
-      right: -8%;
-      color: var(--old-lavender);
-    }
-    .hero-years {
-      position: absolute;
-      bottom: -16px;
-      right: 10%;
-      width: 86px;
-      height: 86px;
-      background: var(--warm-mustard);
-      border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--white);
-      box-shadow: var(--shadow-card);
-    }
-    .hero-years strong { font-size: 1.5rem; font-weight: 800; line-height: 1; }
-    .hero-years span   { font-size: 0.62rem; text-align: center; font-weight: 500; }
 
     /* ─── ABOUT ───────────────────────────────────────────── */
     #sobre { background: var(--cream); }
@@ -1112,54 +1037,33 @@
     </div>
 
     <div class="container">
+      <!-- mãos decorativas da identidade visual -->
+      <div class="hand-deco hero-hand-l" aria-hidden="true">
+        <img src="assets/maos/maos-03.svg" alt="">
+      </div>
+      <div class="hand-deco hero-hand-r" aria-hidden="true">
+        <img src="assets/maos/maos-06.svg" alt="">
+      </div>
+      <!-- linha vertical decorativa da marca -->
+      <div class="blob-deco hero-line-deco" aria-hidden="true">
+        <img src="assets/abstratos/elem-21.svg" alt="">
+      </div>
+
       <div class="hero-inner">
-
-        <div class="hero-content">
-          <span class="hero-eyebrow">Terapias Naturais · Carcavelos, Portugal</span>
-          <h1 class="hero-name">Júlia Assunção</h1>
-          <p class="hero-role">Terapeuta Natural</p>
-          <blockquote class="hero-tagline">"Promovo bem-estar e equilíbrio através de uma abordagem integrativa, natural e personalizada."</blockquote>
-          <div class="hero-actions">
-            <a href="https://wa.me/351927384304" class="btn btn-primary" target="_blank" rel="noopener" aria-label="Marcar consulta via WhatsApp">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Marcar Consulta
-            </a>
-            <a href="#servicos" class="btn btn-outline">Conhecer os Serviços</a>
-          </div>
+        <span class="hero-eyebrow">Terapias Naturais · Carcavelos, Portugal</span>
+        <h1 class="hero-name">Júlia Assunção</h1>
+        <p class="hero-role">Terapeuta Natural</p>
+        <div class="hero-years-chip" aria-label="10 anos de experiência">
+          <strong>10 anos</strong> de experiência
         </div>
-
-        <div class="hero-visual" aria-hidden="true">
-          <!-- mão decorativa da identidade visual -->
-          <div class="hand-deco" style="width:min(180px,28vw);bottom:-5%;left:-8%;opacity:0.10;transform:rotate(-15deg);">
-            <img src="assets/maos/maos-01.svg" alt="">
-          </div>
-          <div class="hero-badge hero-badge-tl">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="badge-icon-green" aria-hidden="true"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zM2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-            Carcavelos · Online
-          </div>
-
-          <div class="hero-photo-wrap">
-            <div class="hero-photo-shape">
-              <!-- Foto: coloca assets/foto.jpg para aparecer a imagem -->
-              <img src="assets/foto.webp" alt="Júlia Assunção, Terapeuta Natural"
-                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
-              <div class="hero-photo-placeholder">
-                <img src="assets/icones/icon-05.svg" alt="" style="width:48px;opacity:0.5;filter:brightness(0) invert(1);">
-                foto.webp
-              </div>
-            </div>
-            <div class="hero-years" aria-label="10 anos de experiência">
-              <strong>10</strong>
-              <span>anos de<br>experiência</span>
-            </div>
-          </div>
-
-          <div class="hero-badge hero-badge-br">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" class="badge-icon-terra" aria-hidden="true"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/></svg>
-            Abordagem Integrativa
-          </div>
+        <blockquote class="hero-tagline">"Promovo bem-estar e equilíbrio através de uma abordagem integrativa, natural e personalizada."</blockquote>
+        <div class="hero-actions">
+          <a href="https://wa.me/351927384304" class="btn btn-primary" target="_blank" rel="noopener" aria-label="Marcar consulta via WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Marcar Consulta
+          </a>
+          <a href="#servicos" class="btn btn-outline">Conhecer os Serviços</a>
         </div>
-
       </div>
     </div>
   </section>

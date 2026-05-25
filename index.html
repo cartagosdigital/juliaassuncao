@@ -948,7 +948,9 @@
       .hero-badge { display: none; }
       .hero-photo-wrap { width: min(280px, 70vw); }
       .about-grid { grid-template-columns: 1fr; }
-      .about-aside { display: none; }
+      .about-aside { display: block; order: 1; }
+      .about-aside .hand-deco, .about-aside .about-deco-1, .about-aside .about-deco-2, .about-aside .about-quote { display: none; }
+      .about-photo-wrap { max-width: 260px; margin-inline: auto; }
       .oque-inner { grid-template-columns: 1fr; }
       .location-grid { grid-template-columns: 1fr; }
       .timeline { padding-inline-start: 2.5rem; }
@@ -1503,13 +1505,6 @@
     <div class="container">
       <div class="footer-inner">
         <div>
-          <!-- Logo no footer: usa imagem se existir, fallback em texto -->
-          <img src="assets/logo.png" alt="Júlia Assunção Terapias Naturais" class="footer-brand-logo"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
-          <div class="footer-brand-text" style="display:none;">
-            Júlia Assunção
-            <span>Terapias Naturais</span>
-          </div>
         </div>
 
         <nav class="footer-social" aria-label="Redes sociais">

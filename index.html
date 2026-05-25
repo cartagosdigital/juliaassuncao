@@ -187,18 +187,18 @@
     }
     .blob-deco svg, .blob-deco img { display: block; width: 100%; height: auto; }
 
-    /* brand icons inside oque grid (inverted for dark bg) */
+    /* brand icons no painel "O que faço" — brancos sobre fundo colorido */
     .oque-icon-img {
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
       object-fit: contain;
       filter: brightness(0) invert(1);
-      opacity: 0.88;
+      opacity: 1;
     }
-    /* brand icons in percurso cards (natural colour) */
+    /* brand icons nos cards dos percursos */
     .percurso-icon-img {
-      width: 32px;
-      height: 32px;
+      width: 44px;
+      height: 44px;
       object-fit: contain;
     }
     /* hand illustrations — decorative, floating */
@@ -613,27 +613,34 @@
     .oque-item {
       display: flex;
       align-items: center;
-      gap: 1.125rem;
-      padding: 1.125rem 1.625rem;
+      gap: 1.25rem;
+      padding: 1.25rem 1.625rem;
       border-bottom: 1px solid rgba(255,255,255,0.07);
       transition: background 0.22s;
     }
     .oque-item:last-child { border-bottom: none; }
-    .oque-item:hover { background: rgba(255,255,255,0.09); }
+    .oque-item:hover { background: rgba(255,255,255,0.07); }
     .oque-item-icon {
-      width: 42px;
-      height: 42px;
+      width: 64px;
+      height: 64px;
       flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255,255,255,0.10);
-      border-radius: 10px;
+      border-radius: 14px;
     }
+    /* ícones com fundos sólidos coloridos para contraste claro */
+    .oque-item:nth-child(1) .oque-item-icon,
+    .oque-item:nth-child(5) .oque-item-icon { background: var(--terracotta); }
+    .oque-item:nth-child(2) .oque-item-icon,
+    .oque-item:nth-child(6) .oque-item-icon { background: var(--sage-green); }
+    .oque-item:nth-child(3) .oque-item-icon,
+    .oque-item:nth-child(7) .oque-item-icon { background: var(--dusty-blue); }
+    .oque-item:nth-child(4) .oque-item-icon  { background: var(--warm-mustard); }
     .oque-item-label {
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 600;
-      color: rgba(255,255,255,0.90);
+      color: rgba(255,255,255,0.92);
       line-height: 1.3;
     }
 
@@ -752,13 +759,12 @@
     .percurso-top-bar--terra { background: var(--terracotta); }
     .percurso-top-bar--green { background: var(--sage-green); }
     .percurso-icon {
-      width: 58px;
-      height: 58px;
+      width: 72px;
+      height: 72px;
       border-radius: var(--radius-md);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.7rem;
       margin-bottom: 1rem;
     }
     .percurso-icon--lav   { background: #EDE8F0; }

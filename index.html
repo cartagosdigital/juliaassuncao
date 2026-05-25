@@ -185,7 +185,29 @@
       pointer-events: none;
       z-index: 0;
     }
-    .blob-deco svg { display: block; }
+    .blob-deco svg, .blob-deco img { display: block; width: 100%; height: auto; }
+
+    /* brand icons inside oque grid (inverted for dark bg) */
+    .oque-icon-img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.88;
+    }
+    /* brand icons in percurso cards (natural colour) */
+    .percurso-icon-img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+    /* hand illustrations — decorative, floating */
+    .hand-deco {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hand-deco img { display: block; width: 100%; height: auto; }
 
     /* ─── NAV ─────────────────────────────────────────────── */
     #nav {
@@ -1075,15 +1097,13 @@
   <!-- ══ HERO ══════════════════════════════════════════════ -->
   <section id="hero" aria-label="Introdução">
 
+    <!-- blob terracota da marca -->
     <div class="blob-deco hero-blob-1" aria-hidden="true">
-      <svg viewBox="0 0 580 580" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#C17A5B" d="M290,72 C360,52 445,95 478,168 C511,241 498,328 458,390 C418,452 335,472 262,462 C189,452 118,402 95,332 C72,262 92,184 133,132 C174,80 220,92 290,72 Z"/>
-      </svg>
+      <img src="assets/abstratos/elem-13.svg" alt="">
     </div>
+    <!-- blob old lavender da marca -->
     <div class="blob-deco hero-blob-2" aria-hidden="true">
-      <svg viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#6B7F5E" d="M220,58 C278,40 348,78 382,148 C416,218 406,304 368,362 C330,420 252,438 182,428 C112,418 56,370 38,302 C20,234 42,162 82,114 C122,66 162,76 220,58 Z"/>
-      </svg>
+      <img src="assets/abstratos/elem-15.svg" alt="">
     </div>
 
     <div class="container">
@@ -1104,6 +1124,10 @@
         </div>
 
         <div class="hero-visual" aria-hidden="true">
+          <!-- mão decorativa da identidade visual -->
+          <div class="hand-deco" style="width:min(180px,28vw);bottom:-5%;left:-8%;opacity:0.10;transform:rotate(-15deg);">
+            <img src="assets/maos/maos-01.svg" alt="">
+          </div>
           <div class="hero-badge hero-badge-tl">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="badge-icon-green" aria-hidden="true"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zM2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
             Carcavelos · Online
@@ -1141,6 +1165,10 @@
       <div class="about-grid">
 
         <aside class="about-aside" aria-hidden="true">
+          <!-- mão decorativa de fundo -->
+          <div class="hand-deco" style="width:160px;top:-30px;right:-40px;opacity:0.07;transform:rotate(20deg);">
+            <img src="assets/maos/maos-04.svg" alt="">
+          </div>
           <div class="about-photo-wrap">
             <!-- Foto: coloca assets/foto.jpg -->
             <img src="assets/foto.webp" alt="Júlia Assunção, Terapeota Natural"
@@ -1182,10 +1210,9 @@
   <!-- ══ O QUE FAÇO ═════════════════════════════════════════ -->
   <section id="oque-faco" class="section" aria-labelledby="oque-title">
 
-    <div class="blob-deco" style="top:-8%;right:-4%;width:min(400px,50vw);opacity:0.06;" aria-hidden="true">
-      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#C17A5B" d="M200,52 C258,35 328,72 360,140 C392,208 382,292 344,348 C306,404 228,422 162,412 C96,402 42,358 26,292 C10,226 30,158 70,110 C110,62 142,69 200,52 Z"/>
-      </svg>
+    <!-- elemento abstrato thistle da marca -->
+    <div class="blob-deco" style="top:-8%;right:-4%;width:min(400px,50vw);opacity:0.08;" aria-hidden="true">
+      <img src="assets/abstratos/elem-16.svg" alt="">
     </div>
 
     <div class="container" style="position:relative;z-index:1;">
@@ -1195,31 +1222,45 @@
 
       <div class="oque-grid reveal reveal-delay-3">
         <div class="oque-card">
-          <div class="oque-icon oque-icon--terra" role="img" aria-label="Técnicas complementares">🌸</div>
+          <div class="oque-icon oque-icon--terra">
+            <img src="assets/icones/icon-04.svg" alt="" class="oque-icon-img">
+          </div>
           <h3>Técnicas complementares</h3>
         </div>
         <div class="oque-card">
-          <div class="oque-icon oque-icon--green" role="img" aria-label="Recursos naturais">🌿</div>
+          <div class="oque-icon oque-icon--green">
+            <img src="assets/icones/icon-05.svg" alt="" class="oque-icon-img">
+          </div>
           <h3>Recursos naturais</h3>
         </div>
         <div class="oque-card">
-          <div class="oque-icon oque-icon--blue" role="img" aria-label="Aromaterapia">💧</div>
+          <div class="oque-icon oque-icon--blue">
+            <img src="assets/icones/icon-06.svg" alt="" class="oque-icon-img">
+          </div>
           <h3>Aromaterapia</h3>
         </div>
         <div class="oque-card">
-          <div class="oque-icon oque-icon--gold" role="img" aria-label="Auriculoterapia">👂</div>
+          <div class="oque-icon oque-icon--gold">
+            <img src="assets/icones/icon-07.svg" alt="" class="oque-icon-img">
+          </div>
           <h3>Auriculoterapia</h3>
         </div>
         <div class="oque-card">
-          <div class="oque-icon oque-icon--terra" role="img" aria-label="Suplementação ortomolecular">💊</div>
+          <div class="oque-icon oque-icon--terra">
+            <img src="assets/icones/icon-08.svg" alt="" class="oque-icon-img">
+          </div>
           <h3>Suplementação ortomolecular</h3>
         </div>
         <div class="oque-card">
-          <div class="oque-icon oque-icon--green" role="img" aria-label="Ajustes alimentares">🥗</div>
+          <div class="oque-icon oque-icon--green">
+            <img src="assets/icones/icon-09.svg" alt="" class="oque-icon-img">
+          </div>
           <h3>Ajustes alimentares</h3>
         </div>
         <div class="oque-card">
-          <div class="oque-icon oque-icon--gold" role="img" aria-label="Mudanças no estilo de vida">☀️</div>
+          <div class="oque-icon oque-icon--gold">
+            <img src="assets/icones/icon-10.svg" alt="" class="oque-icon-img">
+          </div>
           <h3>Mudanças no estilo de vida</h3>
         </div>
       </div>
@@ -1279,10 +1320,9 @@
   <!-- ══ PERCURSOS ══════════════════════════════════════════ -->
   <section id="percursos" class="section" aria-labelledby="percursos-title">
 
-    <div class="blob-deco" style="bottom:-10%;right:-6%;width:min(460px,55vw);opacity:0.20;" aria-hidden="true">
-      <svg viewBox="0 0 460 460" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#6B7F5E" d="M230,62 C292,44 368,82 402,152 C436,222 426,310 388,368 C350,426 270,444 200,434 C130,424 72,376 54,308 C36,240 58,168 98,118 C138,68 168,80 230,62 Z"/>
-      </svg>
+    <!-- elemento abstrato mostarda da marca -->
+    <div class="blob-deco" style="bottom:-10%;right:-6%;width:min(460px,55vw);opacity:0.22;" aria-hidden="true">
+      <img src="assets/abstratos/elem-14.svg" alt="">
     </div>
 
     <div class="container" style="position:relative;z-index:1;">
@@ -1295,7 +1335,9 @@
         <article class="percurso-card reveal reveal-delay-1">
           <div class="percurso-header">
             <div class="percurso-top-bar percurso-top-bar--lav"></div>
-            <div class="percurso-icon percurso-icon--lav" role="img" aria-label="Mulher em Equilíbrio">🌷</div>
+            <div class="percurso-icon percurso-icon--lav" aria-hidden="true">
+              <img src="assets/icones/icon-11.svg" alt="" class="percurso-icon-img">
+            </div>
             <h3>Percurso Mulher em Equilíbrio</h3>
             <p class="percurso-short">Para mulheres que sentem necessidade de cuidar melhor do corpo, da energia, das emoções e da rotina — considerando o ciclo feminino na sua totalidade.</p>
           </div>
@@ -1319,7 +1361,9 @@
         <article class="percurso-card reveal reveal-delay-2">
           <div class="percurso-header">
             <div class="percurso-top-bar percurso-top-bar--green"></div>
-            <div class="percurso-icon percurso-icon--green" role="img" aria-label="Bem-estar Infantil">🌱</div>
+            <div class="percurso-icon percurso-icon--green" aria-hidden="true">
+              <img src="assets/icones/icon-12.svg" alt="" class="percurso-icon-img">
+            </div>
             <h3>Percurso Bem-estar Infantil</h3>
             <p class="percurso-short">Para crianças que apresentam sinais como cansaço frequente, falta de foco, imunidade baixa ou necessidade de maior equilíbrio no dia a dia. A partir dos 3 anos.</p>
           </div>
@@ -1343,7 +1387,9 @@
         <article class="percurso-card reveal reveal-delay-3">
           <div class="percurso-header">
             <div class="percurso-top-bar percurso-top-bar--terra"></div>
-            <div class="percurso-icon percurso-icon--terra" role="img" aria-label="Gestante em Equilíbrio">🌙</div>
+            <div class="percurso-icon percurso-icon--terra" aria-hidden="true">
+              <img src="assets/icones/icon-13.svg" alt="" class="percurso-icon-img">
+            </div>
             <h3>Percurso Gestante em Equilíbrio</h3>
             <p class="percurso-short">Para gestantes que desejam viver esta fase única com mais consciência, bem-estar e cuidado natural — preparando o corpo para oferecer ao bebé as melhores condições possíveis.</p>
           </div>
@@ -1370,6 +1416,10 @@
 
   <!-- ══ COMO FUNCIONA ═══════════════════════════════════════ -->
   <section id="como-funciona" class="section" aria-labelledby="como-title">
+    <!-- linha/pontos verticais mostarda da marca -->
+    <div class="blob-deco" style="top:5%;right:2%;width:min(120px,16vw);opacity:0.18;" aria-hidden="true">
+      <img src="assets/abstratos/elem-21.svg" alt="">
+    </div>
     <div class="container">
       <span class="section-label reveal">Como funciona</span>
       <h2 id="como-title" class="section-heading reveal reveal-delay-1">Estrutura do<br>acompanhamento</h2>
@@ -1424,6 +1474,10 @@
 
   <!-- ══ LOCALIZAÇÃO ════════════════════════════════════════ -->
   <section id="localizacao" class="section" aria-labelledby="local-title">
+    <!-- pontos flutuantes azul da marca -->
+    <div class="blob-deco" style="top:0;left:-2%;width:min(200px,28vw);opacity:0.12;" aria-hidden="true">
+      <img src="assets/abstratos/elem-20.svg" alt="">
+    </div>
     <div class="container">
       <span class="section-label reveal">Onde me encontrar</span>
       <h2 id="local-title" class="section-heading reveal reveal-delay-1">Presencial em Carcavelos</h2>
@@ -1481,15 +1535,17 @@
   <!-- ══ CTA FINAL ══════════════════════════════════════════ -->
   <section id="contacto" class="section" aria-labelledby="cta-title">
 
+    <!-- elemento abstrato terracota da marca -->
     <div class="blob-deco cta-blob-1" aria-hidden="true">
-      <svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#C17A5B" d="M240,60 C300,40 380,80 420,150 C460,220 450,310 410,370 C370,430 290,450 220,440 C150,430 90,380 70,310 C50,240 70,170 110,120 C150,70 180,80 240,60 Z"/>
-      </svg>
+      <img src="assets/abstratos/elem-17.svg" alt="">
     </div>
+    <!-- elemento abstrato azul da marca -->
     <div class="blob-deco cta-blob-2" aria-hidden="true">
-      <svg viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#6B7F5E" d="M190,50 C242,34 306,68 336,130 C366,192 356,270 318,316 C280,362 210,370 148,356 C86,342 36,298 22,240 C8,182 26,118 64,82 C102,46 138,66 190,50 Z"/>
-      </svg>
+      <img src="assets/abstratos/elem-10.svg" alt="">
+    </div>
+    <!-- mão decorativa da identidade visual -->
+    <div class="hand-deco" style="width:min(220px,30vw);bottom:0;right:5%;opacity:0.08;transform:rotate(10deg);" aria-hidden="true">
+      <img src="assets/maos/maos-06.svg" alt="">
     </div>
 
     <div class="container">

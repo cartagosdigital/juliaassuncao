@@ -730,6 +730,98 @@
     /* ─── COMO FUNCIONA ───────────────────────────────────── */
     #como-funciona { background: var(--cream-warm); }
     #como-funciona .section-label { color: var(--old-lavender); }
+    .como-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 5rem);
+      align-items: start;
+    }
+    .como-visual {
+      position: sticky;
+      top: calc(84px + 2rem);
+    }
+    .como-visual-card {
+      background: var(--old-lavender);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .como-visual-hand {
+      position: absolute;
+      bottom: -20px; right: -20px;
+      width: 160px; opacity: 0.10;
+      pointer-events: none;
+      filter: brightness(10);
+    }
+    .como-stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .como-stat {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1rem;
+      text-align: center;
+    }
+    .como-stat-num {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .como-stat-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.35;
+    }
+    .como-stat--wide {
+      grid-column: 1 / -1;
+    }
+    .como-visual-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.15);
+      margin-block: 1.75rem;
+    }
+    .como-visual-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+    }
+    .como-visual-step {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+    }
+    .como-visual-step-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      color: var(--white);
+    }
+    .como-visual-step-dot--terra { background: var(--terracotta); }
+    .como-visual-step-dot--lav   { background: rgba(255,255,255,0.25); }
+    .como-visual-step-dot--green { background: var(--sage-green); }
+    .como-visual-step-text {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.35;
+    }
     .timeline {
       position: relative;
       display: flex;
@@ -1021,6 +1113,8 @@
       .location-grid { grid-template-columns: 1fr; }
       .timeline { padding-inline-start: 2.5rem; }
       .como-note { flex-direction: column; text-align: center; }
+      .como-grid { grid-template-columns: 1fr; }
+      .como-visual { position: static; }
     }
     @media (max-width: 600px) {
       .services-grid { grid-template-columns: 1fr; }
@@ -1406,6 +1500,8 @@
       <h2 id="como-title" class="section-heading reveal reveal-delay-1">Estrutura do<br>acompanhamento</h2>
       <p class="section-lead reveal reveal-delay-2">Um processo pensado para que cada passo faça sentido e o corpo tenha tempo de responder, adaptar-se e evoluir ao seu ritmo.</p>
 
+      <div class="como-grid">
+      <div>
       <div class="timeline reveal reveal-delay-2">
 
         <div class="timeline-item">
@@ -1451,6 +1547,50 @@
         </div>
         <p>Entre sessões, tens suporte por mensagem para dúvidas relacionadas com o plano e pequenos ajustes necessários — porque o acompanhamento não termina quando a sessão acaba.</p>
       </div>
+      </div><!-- end left col -->
+
+      <!-- coluna direita: painel visual -->
+      <div class="como-visual reveal reveal-delay-3">
+        <div class="como-visual-card">
+          <div class="como-visual-hand" aria-hidden="true">
+            <img src="assets/maos/maos-05.svg" alt="">
+          </div>
+
+          <div class="como-stat-grid">
+            <div class="como-stat">
+              <span class="como-stat-num">10</span>
+              <span class="como-stat-label">Anos de experiência</span>
+            </div>
+            <div class="como-stat">
+              <span class="como-stat-num">4+</span>
+              <span class="como-stat-label">Meses recomendados</span>
+            </div>
+            <div class="como-stat como-stat--wide">
+              <span class="como-stat-num" style="font-size:1.3rem;">Presencial & Online</span>
+              <span class="como-stat-label">Carcavelos · Portugal</span>
+            </div>
+          </div>
+
+          <div class="como-visual-divider"></div>
+
+          <div class="como-visual-steps">
+            <div class="como-visual-step">
+              <div class="como-visual-step-dot como-visual-step-dot--terra">1</div>
+              <span class="como-visual-step-text">Consulta integrativa inicial</span>
+            </div>
+            <div class="como-visual-step">
+              <div class="como-visual-step-dot como-visual-step-dot--lav">2</div>
+              <span class="como-visual-step-text">Sessões mensais de acompanhamento</span>
+            </div>
+            <div class="como-visual-step">
+              <div class="como-visual-step-dot como-visual-step-dot--green">3</div>
+              <span class="como-visual-step-text">Evolução contínua ao seu ritmo</span>
+            </div>
+          </div>
+        </div>
+      </div><!-- end right col -->
+
+      </div><!-- end como-grid -->
 
     </div>
   </section>

@@ -734,11 +734,12 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: clamp(3rem, 6vw, 5rem);
-      align-items: start;
+      align-items: stretch;
     }
     .como-visual {
-      position: sticky;
-      top: calc(84px + 2rem);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .como-visual-card {
       background: var(--old-lavender);
@@ -1541,20 +1542,21 @@
 
       </div>
 
+      </div><!-- end left col -->
+
+      <!-- coluna direita: ilustração da marca -->
+      <div class="como-visual reveal reveal-delay-3" aria-hidden="true">
+        <img src="assets/maos/maos-02.svg" alt="" style="width:100%;max-width:480px;margin-inline:auto;opacity:0.6;">
+      </div><!-- end right col -->
+
+      </div><!-- end como-grid -->
+
       <div class="como-note reveal">
         <div class="como-note-icon" aria-hidden="true">
           <img src="assets/icones/icon-05.svg" alt="" style="width:36px;height:36px;filter:saturate(0) brightness(0.4) sepia(1) hue-rotate(70deg) saturate(2);">
         </div>
         <p>Entre sessões, tens suporte por mensagem para dúvidas relacionadas com o plano e pequenos ajustes necessários — porque o acompanhamento não termina quando a sessão acaba.</p>
       </div>
-      </div><!-- end left col -->
-
-      <!-- coluna direita: ilustração da marca -->
-      <div class="como-visual reveal reveal-delay-3" aria-hidden="true">
-        <img src="assets/maos/maos-02.svg" alt="" style="width:100%;max-width:420px;margin-inline:auto;opacity:0.55;">
-      </div><!-- end right col -->
-
-      </div><!-- end como-grid -->
 
     </div>
   </section>

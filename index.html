@@ -935,6 +935,62 @@
     .reveal-delay-3 { transition-delay: 0.30s; }
     .reveal-delay-4 { transition-delay: 0.40s; }
 
+    /* ─── BLOG ───────────────────────────────────────────── */
+    #blog { background: var(--cream-warm); }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .blog-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+    .blog-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
+    .blog-card-body { padding: 1.75rem; display: flex; flex-direction: column; flex: 1; }
+    .blog-card-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      background: var(--terracotta-lt);
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+      align-self: flex-start;
+    }
+    .blog-card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--old-lavender);
+      line-height: 1.45;
+      margin-bottom: 0.75rem;
+    }
+    .blog-card-excerpt {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 1.5rem;
+    }
+    .blog-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--terracotta);
+      transition: gap 0.2s;
+    }
+    .blog-card-link:hover { gap: 0.7rem; }
+
     /* ─── RESPONSIVE ──────────────────────────────────────── */
     @media (max-width: 900px) {
       .nav-links, .nav-cta { display: none; }
@@ -960,6 +1016,7 @@
     @media (max-width: 600px) {
       .services-grid { grid-template-columns: 1fr; }
       .percursos-grid { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
       .oque-grid { grid-template-columns: repeat(2, 1fr); }
       .cta-contacts { flex-direction: column; align-items: center; }
       .footer-inner { justify-content: center; text-align: center; }
@@ -1007,6 +1064,7 @@
           <li><a href="#percursos">Percursos</a></li>
           <li><a href="#como-funciona">Como funciona</a></li>
           <li><a href="#localizacao">Localização</a></li>
+          <li><a href="#blog">Artigos</a></li>
         </ul>
         <a href="https://wa.me/351927384304" class="btn btn-primary nav-cta" target="_blank" rel="noopener" aria-label="Marcar consulta via WhatsApp">
           Marcar Consulta
@@ -1029,6 +1087,7 @@
     <a href="#percursos"     class="mobile-link">Percursos</a>
     <a href="#como-funciona" class="mobile-link">Como funciona</a>
     <a href="#localizacao"   class="mobile-link">Localização</a>
+    <a href="#blog"          class="mobile-link">Artigos</a>
     <a href="https://wa.me/351927384304" target="_blank" rel="noopener" style="color:var(--terracotta);font-weight:800;">Marcar Consulta →</a>
   </nav>
 
@@ -1451,6 +1510,50 @@
             aria-label="Mapa — SENTE Cowork Terapêutico, Carcavelos"
           ></iframe>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BLOG ══════════════════════════════════════════════ -->
+  <section id="blog" class="section" aria-labelledby="blog-title">
+    <div class="container">
+      <span class="section-label reveal">Artigos</span>
+      <h2 id="blog-title" class="section-heading reveal reveal-delay-1">Conhecimento que<br>transforma</h2>
+      <p class="section-lead reveal reveal-delay-2">Reflexões, estudos e orientações sobre saúde integrativa, suplementação e bem-estar — para que tome decisões mais conscientes sobre a sua saúde.</p>
+
+      <div class="blog-grid">
+        <article class="blog-card reveal reveal-delay-1">
+          <div class="blog-card-body">
+            <span class="blog-card-tag">Suplementação</span>
+            <h3 class="blog-card-title">Toxicidade e Benefícios da Suplementação: Orientação para o Uso Seguro e Eficaz</h3>
+            <p class="blog-card-excerpt">Os suplementos alimentares podem ser aliados poderosos — mas sem orientação adequada, os riscos são reais. Descubra como usar suplementos de forma segura e eficaz.</p>
+            <a href="blog/toxicidade-suplementar.html" class="blog-card-link">
+              Ler artigo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="blog-card reveal reveal-delay-2">
+          <div class="blog-card-body">
+            <span class="blog-card-tag">Saúde Infantil</span>
+            <h3 class="blog-card-title">Obesidade Infantil: Um Desafio do Século XXI e Soluções Nutritivas para um Futuro Saudável</h3>
+            <p class="blog-card-excerpt">A correria do dia a dia não deve ser obstáculo para uma alimentação infantil saudável. Conheça os riscos da obesidade infantil e receitas nutritivas e práticas.</p>
+            <a href="blog/obesidade-infantil.html" class="blog-card-link">
+              Ler artigo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="blog-card reveal reveal-delay-3">
+          <div class="blog-card-body">
+            <span class="blog-card-tag">Aromaterapia</span>
+            <h3 class="blog-card-title">A Psicologia do Olfato e o Crescimento da Aromaterapia no Século XXI</h3>
+            <p class="blog-card-excerpt">O olfato é o sentido mais diretamente ligado às emoções. Entenda como os óleos essenciais interagem com o sistema nervoso e o potencial terapêutico da aromaterapia.</p>
+            <a href="blog/psicologia-do-olfato.html" class="blog-card-link">
+              Ler artigo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </article>
       </div>
     </div>
   </section>

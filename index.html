@@ -749,30 +749,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
-    }
-    .como-pattern {
-      position: absolute;
-      pointer-events: none;
-    }
-    .como-pattern--dots {
-      width: 85%;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0.18;
-    }
-    .como-pattern--lines {
-      width: 70%;
-      bottom: 0; right: -5%;
-      opacity: 0.12;
-    }
-    .como-hand-img {
-      position: relative;
-      width: 100%;
-      max-width: 480px;
-      margin-inline: auto;
-      opacity: 0.65;
-      z-index: 1;
     }
     .como-visual-card {
       background: var(--old-lavender);
@@ -1526,8 +1502,16 @@
 
   <!-- ══ COMO FUNCIONA ═══════════════════════════════════════ -->
   <section id="como-funciona" class="section" aria-labelledby="como-title">
-    <!-- linha/pontos verticais mostarda da marca -->
-    <div class="blob-deco" style="top:5%;right:2%;width:min(120px,16vw);opacity:0.18;" aria-hidden="true">
+    <!-- padrão de bolhas canto superior esquerdo -->
+    <div class="blob-deco" style="top:-6%;left:-4%;width:min(420px,45vw);opacity:0.13;" aria-hidden="true">
+      <img src="assets/abstratos/elem-19.svg" alt="">
+    </div>
+    <!-- traços decorativos canto inferior direito -->
+    <div class="blob-deco" style="bottom:-5%;right:-3%;width:min(380px,40vw);opacity:0.14;" aria-hidden="true">
+      <img src="assets/abstratos/elem-18.svg" alt="">
+    </div>
+    <!-- linha vertical mostarda existente -->
+    <div class="blob-deco" style="top:5%;right:2%;width:min(100px,12vw);opacity:0.16;" aria-hidden="true">
       <img src="assets/abstratos/elem-21.svg" alt="">
     </div>
     <div class="container">
@@ -1580,12 +1564,7 @@
 
       <!-- coluna direita: ilustração da marca -->
       <div class="como-visual reveal reveal-delay-3" aria-hidden="true">
-        <!-- padrão de bolhas de fundo -->
-        <img src="assets/abstratos/elem-19.svg" alt="" class="como-pattern como-pattern--dots">
-        <!-- traços lineares -->
-        <img src="assets/abstratos/elem-18.svg" alt="" class="como-pattern como-pattern--lines">
-        <!-- mão principal -->
-        <img src="assets/maos/maos-02.svg" alt="" class="como-hand-img">
+        <img src="assets/maos/maos-02.svg" alt="" style="width:100%;max-width:480px;margin-inline:auto;opacity:0.6;position:relative;z-index:1;">
       </div><!-- end right col -->
 
       </div><!-- end como-grid -->

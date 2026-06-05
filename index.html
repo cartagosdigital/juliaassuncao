@@ -749,6 +749,30 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+    }
+    .como-pattern {
+      position: absolute;
+      pointer-events: none;
+    }
+    .como-pattern--dots {
+      width: 85%;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.18;
+    }
+    .como-pattern--lines {
+      width: 70%;
+      bottom: 0; right: -5%;
+      opacity: 0.12;
+    }
+    .como-hand-img {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      margin-inline: auto;
+      opacity: 0.65;
+      z-index: 1;
     }
     .como-visual-card {
       background: var(--old-lavender);
@@ -1556,7 +1580,12 @@
 
       <!-- coluna direita: ilustração da marca -->
       <div class="como-visual reveal reveal-delay-3" aria-hidden="true">
-        <img src="assets/maos/maos-02.svg" alt="" style="width:100%;max-width:480px;margin-inline:auto;opacity:0.6;">
+        <!-- padrão de bolhas de fundo -->
+        <img src="assets/abstratos/elem-19.svg" alt="" class="como-pattern como-pattern--dots">
+        <!-- traços lineares -->
+        <img src="assets/abstratos/elem-18.svg" alt="" class="como-pattern como-pattern--lines">
+        <!-- mão principal -->
+        <img src="assets/maos/maos-02.svg" alt="" class="como-hand-img">
       </div><!-- end right col -->
 
       </div><!-- end como-grid -->

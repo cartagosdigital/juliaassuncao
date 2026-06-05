@@ -1102,6 +1102,31 @@
     }
     .blog-card-link:hover { gap: 0.7rem; }
 
+    .cv-card {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+      background: var(--white); border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft); padding: 2rem 2.5rem;
+      margin-top: 2.5rem;
+      border-left: 4px solid var(--old-lavender);
+    }
+    .cv-card-info { display: flex; align-items: center; gap: 1.25rem; }
+    .cv-card-icon {
+      flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%;
+      background: rgba(115,93,120,0.10); display: flex; align-items: center;
+      justify-content: center; color: var(--old-lavender);
+    }
+    .cv-card-text h3 { font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.25rem; }
+    .cv-card-text p { font-size: 0.88rem; color: var(--text-soft); text-align: left; }
+    .btn-cv {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--font-body); font-weight: 700; font-size: 0.88rem;
+      padding: 0.75rem 1.5rem; border-radius: 100px;
+      background: var(--old-lavender); color: var(--white);
+      transition: var(--transition); white-space: nowrap;
+    }
+    .btn-cv:hover { background: #5e4962; transform: translateY(-2px); }
+
     /* ─── RESPONSIVE ──────────────────────────────────────── */
     @media (max-width: 900px) {
       .nav-links, .nav-cta { display: none; }
@@ -1687,6 +1712,23 @@
             </a>
           </div>
         </article>
+      </div>
+
+      <!-- Currículo -->
+      <div class="cv-card reveal">
+        <div class="cv-card-info">
+          <div class="cv-card-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div class="cv-card-text">
+            <h3>Currículo da Júlia Assunção</h3>
+            <p>Formação académica, certificações e experiência profissional em terapias integrativas.</p>
+          </div>
+        </div>
+        <a href="assets/JuliaCV.pdf" download="JuliaAssuncao_CV.pdf" class="btn-cv">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Descarregar CV
+        </a>
       </div>
     </div>
   </section>

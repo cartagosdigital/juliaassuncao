@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A Psicologia do Olfato e a Aromaterapia — Júlia Assunção</title>
-  <meta name="description" content="O olfato é o sentido mais diretamente ligado às emoções. Entenda como os óleos essenciais interagem com o sistema nervoso e o potencial terapêutico da aromaterapia." />
+  <title>Artigos — Júlia Assunção</title>
+  <meta name="description" content="Reflexões, estudos e orientações sobre saúde integrativa, suplementação e bem-estar. Artigos escritos por Júlia Assunção, terapeuta integrativa." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet" />
@@ -28,7 +28,6 @@
     a { color: inherit; text-decoration: none; }
     ul { list-style: none; }
     button { font-family: var(--font-body); cursor: pointer; border: none; background: none; }
-    p { text-align: justify; }
 
     .container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: clamp(1.25rem, 5vw, 3rem); }
 
@@ -41,8 +40,8 @@
     .nav-links { display: flex; gap: 2rem; }
     .nav-links a { font-size: 0.88rem; font-weight: 500; color: var(--text-mid); letter-spacing: 0.02em; position: relative; padding-bottom: 2px; }
     .nav-links a::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px; background:var(--terracotta); transition: width 0.3s; }
-    .nav-links a:hover { color: var(--terracotta); }
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover, .nav-links a.active { color: var(--terracotta); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
     .nav-cta { margin-inline-start: 0.5rem; }
     .btn { display:inline-flex; align-items:center; gap:0.5rem; font-family:var(--font-body); font-weight:700; font-size:0.95rem; padding:0.875rem 1.75rem; border-radius:100px; transition:var(--transition); white-space:nowrap; letter-spacing:0.02em; }
     .btn-primary { background:var(--terracotta); color:var(--white); box-shadow:0 4px 18px rgba(193,122,91,0.30); }
@@ -55,26 +54,63 @@
     .mobile-menu.open { transform: translateY(0); }
     .mobile-link { font-size: 1.05rem; font-weight: 600; color: var(--text-dark); padding: 0.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
 
-    .article-hero { background: var(--dusty-blue); padding-block: 7rem 4rem; margin-top: 84px; }
-    .article-breadcrumb { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.65); margin-bottom: 1.5rem; transition: color 0.2s; }
-    .article-breadcrumb:hover { color: rgba(255,255,255,0.9); }
-    .article-tag { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--terracotta); background: var(--terracotta-lt); padding: 0.25rem 0.75rem; border-radius: 100px; margin-bottom: 1.25rem; }
-    .article-title { font-family: var(--font-body); font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 800; color: var(--white); line-height: 1.25; max-width: 760px; }
+    /* Page header */
+    .page-header {
+      background: var(--cream-warm);
+      padding-block: 7rem 3.5rem;
+      margin-top: 84px;
+      border-bottom: 1px solid var(--terracotta-md);
+    }
+    .page-label {
+      display: inline-block; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--terracotta); background: var(--terracotta-lt);
+      padding: 0.25rem 0.75rem; border-radius: 100px; margin-bottom: 1.25rem;
+    }
+    .page-title {
+      font-family: var(--font-display); font-size: clamp(2.8rem, 7vw, 4.5rem);
+      color: var(--old-lavender); line-height: 1.1; margin-bottom: 1rem;
+    }
+    .page-lead {
+      font-size: 1rem; color: var(--text-mid); max-width: 560px; line-height: 1.7;
+    }
 
-    .article-body-wrap { background: var(--white); }
-    .article-body { max-width: 740px; margin-inline: auto; padding-block: 3.5rem 4rem; padding-inline: clamp(1.25rem, 5vw, 2rem); }
-    .article-body h2 { font-size: 1.3rem; font-weight: 800; color: var(--old-lavender); margin-block: 2.5rem 0.75rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--terracotta-lt); }
-    .article-body p { margin-bottom: 1.1rem; color: var(--text-dark); font-size: 1rem; line-height: 1.75; }
-    .article-body ul.ref-list { padding: 0; }
-    .article-body ul.ref-list li { padding: 0.75rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; list-style: none; padding-inline-start: 1.25rem; position: relative; }
-    .article-body ul.ref-list li::before { content: '•'; position: absolute; left: 0; color: var(--terracotta); }
+    /* Blog grid */
+    .blog-section { padding-block: 4rem; }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .blog-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft); display: flex; flex-direction: column;
+      transition: var(--transition);
+    }
+    .blog-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
+    .blog-card-body { padding: 1.75rem; display: flex; flex-direction: column; flex: 1; }
+    .blog-card-tag {
+      display: inline-block; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--terracotta);
+      background: var(--terracotta-lt); padding: 0.25rem 0.75rem;
+      border-radius: 100px; margin-bottom: 1rem; align-self: flex-start;
+    }
+    .blog-card-title {
+      font-size: 1rem; font-weight: 700; color: var(--old-lavender);
+      line-height: 1.45; margin-bottom: 0.75rem;
+    }
+    .blog-card-excerpt {
+      font-size: 0.88rem; color: var(--text-mid); line-height: 1.65;
+      flex: 1; margin-bottom: 1.5rem; text-align: justify;
+    }
+    .blog-card-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.85rem; font-weight: 700; color: var(--terracotta);
+      transition: gap 0.2s;
+    }
+    .blog-card-link:hover { gap: 0.7rem; }
 
-    .article-cta { background: var(--old-lavender); padding-block: 3.5rem; text-align: center; }
-    .article-cta h2 { font-family: var(--font-body); font-weight: 800; font-size: clamp(2rem, 5vw, 3rem); color: var(--white); margin-bottom: 0.75rem; }
-    .article-cta p { color: rgba(255,255,255,0.8); margin-bottom: 2rem; max-width: 500px; margin-inline: auto; }
-    .btn-white { background: var(--white); color: var(--old-lavender); font-weight: 800; }
-    .btn-white:hover { background: var(--cream-warm); transform: translateY(-2px); }
-
+    /* Footer */
     footer { background: var(--text-dark); padding-block: 2.5rem; }
     .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1.5rem; }
     .footer-social { display: flex; gap: 1.25rem; }
@@ -89,9 +125,12 @@
     @media (max-width: 900px) {
       .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
-      .article-hero { padding-block: 6rem 3rem; }
+      .blog-grid { grid-template-columns: 1fr 1fr; }
     }
-    @media (max-width: 600px) { .footer-inner { justify-content: center; text-align: center; } }
+    @media (max-width: 600px) {
+      .blog-grid { grid-template-columns: 1fr; }
+      .footer-inner { justify-content: center; text-align: center; }
+    }
   </style>
 </head>
 <body>
@@ -99,16 +138,16 @@
   <nav id="nav" role="navigation" aria-label="Navegação principal">
     <div class="container">
       <div class="nav-inner">
-        <a href="../" class="nav-logo" aria-label="Júlia Assunção — Início">
-          <img src="../assets/logo.png" alt="Júlia Assunção Terapias Naturais" class="nav-logo-img" onerror="this.style.display='none'" />
+        <a href="/" class="nav-logo" aria-label="Júlia Assunção — Início">
+          <img src="/assets/logo.png" alt="Júlia Assunção Terapias Naturais" class="nav-logo-img" onerror="this.style.display='none'" />
           <span class="nav-logo-text">Júlia Assunção</span>
         </a>
         <ul class="nav-links" role="list">
-          <li><a href="../#sobre">Quem sou</a></li>
-          <li><a href="../#servicos">Serviços</a></li>
-          <li><a href="../#percursos">Percursos</a></li>
-          <li><a href="../#como-funciona">Como funciona</a></li>
-          <li><a href="/blog">Artigos</a></li>
+          <li><a href="/#sobre">Quem sou</a></li>
+          <li><a href="/#servicos">Serviços</a></li>
+          <li><a href="/#percursos">Percursos</a></li>
+          <li><a href="/#como-funciona">Como funciona</a></li>
+          <li><a href="/blog" class="active">Artigos</a></li>
         </ul>
         <a href="https://wa.me/351935816417" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Marcar Consulta</a>
         <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -120,67 +159,64 @@
   </nav>
 
   <nav class="mobile-menu" id="mobile-menu" aria-label="Menu mobile">
-    <a href="../#sobre"         class="mobile-link">Quem sou</a>
-    <a href="../#servicos"      class="mobile-link">Serviços</a>
-    <a href="../#percursos"     class="mobile-link">Percursos</a>
-    <a href="../#como-funciona" class="mobile-link">Como funciona</a>
-    <a href="/blog"          class="mobile-link">Artigos</a>
+    <a href="/#sobre"         class="mobile-link">Quem sou</a>
+    <a href="/#servicos"      class="mobile-link">Serviços</a>
+    <a href="/#percursos"     class="mobile-link">Percursos</a>
+    <a href="/#como-funciona" class="mobile-link">Como funciona</a>
+    <a href="/blog"           class="mobile-link" style="color:var(--terracotta);">Artigos</a>
     <a href="https://wa.me/351935816417" target="_blank" rel="noopener" style="color:var(--terracotta);font-weight:800;">Marcar Consulta →</a>
   </nav>
 
-  <header class="article-hero">
+  <header class="page-header">
     <div class="container">
-      <a href="/blog" class="article-breadcrumb">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-        Voltar aos artigos
-      </a>
-      <div class="article-tag">Aromaterapia</div>
-      <h1 class="article-title">A Psicologia do Olfato e o Crescimento da Aromaterapia no Século XXI</h1>
+      <span class="page-label">Todos os artigos</span>
+      <h1 class="page-title">Conhecimento que<br>transforma</h1>
+      <p class="page-lead">Reflexões, estudos e orientações sobre saúde integrativa, suplementação e bem-estar — para que tome decisões mais conscientes sobre a sua saúde.</p>
     </div>
   </header>
 
-  <div class="article-body-wrap">
-    <div class="article-body">
+  <main>
+    <section class="blog-section" aria-label="Lista de artigos">
+      <div class="container">
+        <div class="blog-grid">
 
-      <p>A conexão entre olfato e emoções é uma área crescente de pesquisa, revelando como os cheiros influenciam nosso bem-estar mental e físico. A "psicologia do olfato" examina como as respostas emocionais são desencadeadas pelos aromas que sentimos, refletindo o papel central do olfato em nossas vidas. A aromaterapia, prática que utiliza óleos essenciais (OEs) para promover a saúde e o equilíbrio emocional, vem ganhando destaque por seus efeitos positivos, como comprovado em diversos estudos.</p>
+          <article class="blog-card">
+            <div class="blog-card-body">
+              <span class="blog-card-tag">Suplementação</span>
+              <h2 class="blog-card-title">Toxicidade e Benefícios da Suplementação: Orientação para o Uso Seguro e Eficaz</h2>
+              <p class="blog-card-excerpt">Os suplementos alimentares podem ser aliados poderosos — mas sem orientação adequada, os riscos são reais. Descubra como usar suplementos de forma segura e eficaz.</p>
+              <a href="/blog/toxicidade-suplementar" class="blog-card-link">
+                Ler artigo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </article>
 
-      <h2>A Conexão Emocional com Aromas</h2>
-      <p>Quando sentimos um cheiro, ocorre um processo chamado transdução, em que moléculas odoríferas entram no nosso sistema olfativo e se ligam a receptores específicos, como peças de um quebra-cabeça. Isso cria um impulso elétrico que é transmitido pelo nervo olfatório ao Sistema Nervoso Central (SNC), onde o cheiro é processado e provoca uma resposta emocional (Fung, T.K.H., et al., 2021). Um exemplo claro é o de Catarina, que perdeu a mãe, associando o cheiro de rosas, presente no funeral, a um sentimento de tristeza profunda. Cada vez que ela sente o aroma de rosas, o sistema límbico, responsável pelas emoções e memória, é ativado, reproduzindo o estado emocional original.</p>
+          <article class="blog-card">
+            <div class="blog-card-body">
+              <span class="blog-card-tag">Saúde Infantil</span>
+              <h2 class="blog-card-title">Obesidade Infantil: Um Desafio do Século XXI e Soluções Nutritivas para um Futuro Saudável</h2>
+              <p class="blog-card-excerpt">A correria do dia a dia não deve ser obstáculo para uma alimentação infantil saudável. Conheça os riscos da obesidade infantil e receitas nutritivas e práticas.</p>
+              <a href="/blog/obesidade-infantil" class="blog-card-link">
+                Ler artigo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </article>
 
-      <h2>Efeitos Terapêuticos dos Óleos Essenciais</h2>
-      <p>Os óleos essenciais possuem efeitos terapêuticos que interagem com neurotransmissores, como a serotonina, dopamina e GABA, regulando emoções e promovendo equilíbrio mental. Estudo publicado no International Journal of Molecular Sciences destaca que essas moléculas dos OEs têm propriedades psicofarmacológicas, capazes de induzir fatores neurotróficos e promover a neurogênese, além de regular o sistema endócrino (Fung, T.K.H., et al., 2021). Substâncias como o linalol e o limoneno, encontradas em óleos essenciais de lavanda, cítricos e Cananga odorata, têm efeitos ansiolíticos e antidepressivos comprovados, atuando diretamente no sistema nervoso e respiratório (Zhang, N., et al., 2016).</p>
+          <article class="blog-card">
+            <div class="blog-card-body">
+              <span class="blog-card-tag">Aromaterapia</span>
+              <h2 class="blog-card-title">A Psicologia do Olfato e o Crescimento da Aromaterapia no Século XXI</h2>
+              <p class="blog-card-excerpt">O olfato é o sentido mais diretamente ligado às emoções. Entenda como os óleos essenciais interagem com o sistema nervoso e o potencial terapêutico da aromaterapia.</p>
+              <a href="/blog/psicologia-do-olfato" class="blog-card-link">
+                Ler artigo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </article>
 
-      <h2>O Olfato e o Sistema Límbico</h2>
-      <p>A interação entre o sistema límbico e os óleos essenciais permite que a aromaterapia atue de forma integrada no organismo, promovendo relaxamento, alívio de estresse e melhora da qualidade de vida. O sistema límbico inclui estruturas como o hipocampo e o hipotálamo, que processam emoções, memória e comportamento. Ao inalarmos um óleo essencial, as moléculas aromáticas atingem diretamente essa região, ativando uma resposta emocional que pode influenciar o humor e o comportamento social (Buck &amp; Axel, 2004).</p>
-
-      <h2>Avanços Científicos na Aromaterapia e Uso dos Óleos Essenciais</h2>
-      <p>Os estudos de Linda Buck e Richard Axel sobre receptores olfativos, que lhes renderam o Prêmio Nobel em 2004, revolucionaram o conhecimento sobre o olfato. Eles descobriram que possuímos mais de 400 tipos de receptores olfativos, cada um sensível a diferentes moléculas odoríferas, criando uma "linguagem de cheiros" complexa (Buck &amp; Axel, 2004).</p>
-      <p>A farmacologia moderna também reconhece a eficácia dos OEs em desordens emocionais. Um estudo recente mostrou que o Silexan, preparado com 80mg de óleo essencial de lavanda, é tão eficaz quanto o lorazepam e a paroxetina para tratar ansiedade generalizada e depressão, porém sem os efeitos colaterais dos medicamentos convencionais (Kasper, S., et al., 2018).</p>
-
-      <h2>Considerações Finais</h2>
-      <p>Aromaterapia e psicologia do olfato caminham juntas para promover o bem-estar, fornecendo uma abordagem holística que envolve corpo e mente. A utilização de OEs integra um conhecimento milenar à ciência contemporânea, oferecendo uma alternativa segura e eficaz para o tratamento de transtornos emocionais, como ansiedade e estresse, sem os riscos associados a tratamentos convencionais. Ao estimular a homeostase e a qualidade de vida, a aromaterapia amplia sua relevância como prática de saúde complementar.</p>
-
-      <h2>Referências</h2>
-      <ul class="ref-list">
-        <li>Fung, T.K.H., Lau, B.W.M., Ngai, S.P.C., Tsang, H.W.H. (2021). "Therapeutic Effects and Mechanisms of Essential Oils in Mood Disorders: Interaction Between Nervous and Respiratory Systems." <em>International Journal of Molecular Sciences</em>, 22(4844).</li>
-        <li>Zhang, N., Zhang, L., Feng, L., Yao, L. (2016). "The anxiolytic effect of essential oil of Cananga odorata exposure on mice and determination of its major active constituents." <em>Phytomedicine</em>, 23, 1727–1734.</li>
-        <li>Kasper, S., Müller, W.E., Volz, H.P., Möller, H.J., Koch, E., Dienel, A. (2018). "Silexan in anxiety disorders: Clinical data and pharmacological background." <em>World Journal of Biological Psychiatry</em>, 19(6), 412–420.</li>
-        <li>Buck, L., Axel, R. (2004). "The Nobel Prize in Physiology or Medicine 2004."</li>
-      </ul>
-
-    </div>
-  </div>
-
-  <section class="article-cta">
-    <div class="container">
-      <h2>Experimente a aromaterapia</h2>
-      <p>Descubra como os óleos essenciais podem integrar o seu protocolo de bem-estar, de forma personalizada e segura.</p>
-      <a href="https://wa.me/351935816417" class="btn btn-white" target="_blank" rel="noopener">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Marcar Consulta no WhatsApp
-      </a>
-    </div>
-  </section>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer role="contentinfo">
     <div class="container">

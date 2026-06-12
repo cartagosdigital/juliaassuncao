@@ -232,7 +232,7 @@
       </article>`;
     }
 
-    fetch('/blog/posts.json')
+    fetch('/api/posts')
       .then(r => { if (!r.ok) throw new Error(); return r.json(); })
       .then(posts => {
         document.getElementById('blog-grid').innerHTML = posts.length

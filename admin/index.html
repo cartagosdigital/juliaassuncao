@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Painel Admin — Júlia Assunção</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --old-lavender: #735D78; --sage-green: #6B7F5E; --sage-light: #EDF2EA;
+      --warm-mustard: #C9A84C; --dusty-blue: #7C9BAD; --dusty-blue-lt: #EBF2F6;
+      --terracotta: #C17A5B; --terracotta-lt: #F7EDE6; --terracotta-md: #E8C4B0;
+      --white: #FFFFFF; --cream: #FAF7F3; --cream-warm: #F5EDE3;
+      --text-dark: #2A221E; --text-mid: #5A4A3A; --text-soft: #8A7468;
+      --font-display: 'Great Vibes', cursive; --font-body: 'DM Sans', sans-serif;
+      --radius-sm: 8px; --radius-md: 16px; --radius-lg: 28px;
+      --shadow-soft: 0 4px 24px rgba(80,50,30,0.08);
+      --shadow-card: 0 8px 40px rgba(80,50,30,0.13);
+      --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); color: var(--text-dark); background: var(--cream); min-height: 100vh; }
+
+    /* ── Login ── */
+    #login-screen {
+      min-height: 100vh; display: flex; align-items: center;
+      justify-content: center; padding: 1.5rem;
+    }
+    .login-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 2.75rem 2.25rem; width: 100%; max-width: 400px;
+      box-shadow: var(--shadow-card); text-align: center;
+    }
+    .login-brand {
+      font-family: var(--font-display); font-size: 2.6rem;
+      color: var(--old-lavender); line-height: 1; margin-bottom: 0.25rem;
+    }
+    .login-sub { font-size: 0.82rem; color: var(--text-soft); margin-bottom: 2rem; }
+    .login-label {
+      display: block; text-align: left; font-size: 0.78rem; font-weight: 700;
+      color: var(--text-mid); margin-bottom: 0.4rem;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .login-input {
+      width: 100%; padding: 0.875rem 1rem;
+      border: 1.5px solid var(--terracotta-md); border-radius: var(--radius-md);
+      font-family: var(--font-body); font-size: 1rem; color: var(--text-dark);
+      background: var(--cream); outline: none; transition: border-color 0.2s;
+      margin-bottom: 1.25rem;
+    }
+    .login-input:focus { border-color: var(--old-lavender); background: var(--white); }
+    .login-btn {
+      width: 100%; padding: 0.9rem; background: var(--terracotta);
+      color: var(--white); border: none; border-radius: 100px;
+      font-family: var(--font-body); font-size: 1rem; font-weight: 700;
+      cursor: pointer; transition: var(--transition);
+      box-shadow: 0 4px 16px rgba(193,122,91,0.28);
+    }
+    .login-btn:hover { background: #a8654a; transform: translateY(-2px); }
+    .login-error {
+      color: #c0392b; font-size: 0.82rem;
+      margin-top: 0.75rem; display: none;
+    }
+    .login-error.show { display: block; }
+
+    /* ── Admin shell ── */
+    #admin-panel { display: none; }
+    .admin-header {
+      background: var(--old-lavender); padding: 1.1rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 16px rgba(115,93,120,0.2);
+    }
+    .admin-header-brand { font-family: var(--font-display); font-size: 1.7rem; color: var(--white); }
+    .admin-header-sub { font-size: 0.75rem; color: rgba(255,255,255,0.65); margin-top: 0.1rem; }
+    .logout-btn {
+      background: rgba(255,255,255,0.12); color: var(--white);
+      border: 1px solid rgba(255,255,255,0.28); border-radius: 100px;
+      padding: 0.45rem 1rem; font-family: var(--font-body);
+      font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: background 0.2s;
+    }
+    .logout-btn:hover { background: rgba(255,255,255,0.22); }
+
+    .admin-main { max-width: 760px; margin: 2.5rem auto 4rem; padding: 0 1.5rem; }
+
+    /* ── Form cards ── */
+    .form-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 1.75rem; box-shadow: var(--shadow-soft); margin-bottom: 1.25rem;
+    }
+    .card-title {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--terracotta);
+      margin-bottom: 1.25rem; padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--terracotta-lt);
+    }
+    .form-group { margin-bottom: 1.1rem; }
+    .form-group:last-child { margin-bottom: 0; }
+
+    label {
+      display: block; font-size: 0.82rem; font-weight: 700;
+      color: var(--text-mid); margin-bottom: 0.35rem; letter-spacing: 0.01em;
+    }
+    label .hint { font-weight: 400; color: var(--text-soft); font-size: 0.78rem; }
+
+    input[type="text"], textarea, select {
+      width: 100%; padding: 0.7rem 0.9rem;
+      border: 1.5px solid var(--terracotta-md); border-radius: var(--radius-md);
+      font-family: var(--font-body); font-size: 0.95rem;
+      color: var(--text-dark); background: var(--cream);
+      outline: none; transition: border-color 0.2s, background 0.2s;
+      -webkit-appearance: none;
+    }
+    input[type="text"]:focus, textarea:focus, select:focus {
+      border-color: var(--old-lavender); background: var(--white);
+    }
+    textarea { resize: vertical; line-height: 1.6; }
+
+    .char-counter { font-size: 0.75rem; color: var(--text-soft); text-align: right; margin-top: 0.25rem; }
+    .char-counter.warn { color: #e67e22; }
+    .char-counter.over { color: #c0392b; font-weight: 700; }
+
+    /* ── Color picker ── */
+    .color-options { display: flex; gap: 0.65rem; flex-wrap: wrap; }
+    .color-opt { flex: 1; min-width: 130px; }
+    .color-opt input[type="radio"] { display: none; }
+    .color-opt label {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.55rem 0.9rem; border: 2px solid var(--terracotta-md);
+      border-radius: var(--radius-md); cursor: pointer; font-size: 0.85rem;
+      font-weight: 500; color: var(--text-mid);
+      transition: border-color 0.2s, background 0.2s;
+      text-transform: none; letter-spacing: 0; margin-bottom: 0;
+    }
+    .color-opt input:checked + label {
+      border-color: var(--old-lavender); background: rgba(115,93,120,0.07);
+      font-weight: 700; color: var(--text-dark);
+    }
+    .swatch {
+      width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+    }
+
+    /* ── Content editor ── */
+    .editor-toolbar {
+      display: flex; gap: 0.35rem; padding: 0.45rem 0.6rem;
+      background: var(--cream); border: 1.5px solid var(--terracotta-md);
+      border-bottom: none; border-radius: var(--radius-md) var(--radius-md) 0 0;
+      flex-wrap: wrap;
+    }
+    .tbtn {
+      padding: 0.28rem 0.65rem; border: 1px solid var(--terracotta-md);
+      border-radius: var(--radius-sm); background: var(--white);
+      font-family: var(--font-body); font-size: 0.8rem; font-weight: 700;
+      color: var(--text-mid); cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s;
+      line-height: 1.4;
+    }
+    .tbtn:hover { background: var(--old-lavender); color: var(--white); border-color: var(--old-lavender); }
+    .tbtn-sep { width: 1px; background: var(--terracotta-md); align-self: stretch; margin: 0.15rem 0.1rem; }
+
+    #editor {
+      min-height: 280px; padding: 1rem 1rem;
+      border: 1.5px solid var(--terracotta-md);
+      border-radius: 0 0 var(--radius-md) var(--radius-md);
+      font-family: var(--font-body); font-size: 0.95rem;
+      color: var(--text-dark); background: var(--white);
+      outline: none; line-height: 1.75;
+    }
+    #editor:focus { border-color: var(--old-lavender); }
+    #editor h2 {
+      font-size: 1.05rem; font-weight: 800; color: var(--old-lavender);
+      margin-block: 1.1rem 0.4rem; padding-bottom: 0.3rem;
+      border-bottom: 2px solid var(--terracotta-lt);
+    }
+    #editor p { margin-bottom: 0.65rem; }
+    #editor:empty::before { content: 'Clica aqui e começa a escrever o artigo…'; color: var(--text-soft); }
+    .editor-hint { font-size: 0.75rem; color: var(--text-soft); margin-top: 0.4rem; }
+
+    /* ── Generate button ── */
+    .btn-generate {
+      display: block; width: 100%; padding: 1.1rem;
+      background: var(--sage-green); color: var(--white); border: none;
+      border-radius: 100px; font-family: var(--font-body); font-size: 1.05rem;
+      font-weight: 800; cursor: pointer; transition: var(--transition);
+      letter-spacing: 0.02em; box-shadow: 0 4px 18px rgba(107,127,94,0.3);
+      margin-bottom: 2rem;
+    }
+    .btn-generate:hover { background: #576749; transform: translateY(-2px); }
+
+    /* ── Steps (post-download) ── */
+    #steps-section { display: none; margin-bottom: 3rem; }
+    #steps-section.show { display: block; }
+
+    .steps-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      border: 2px solid var(--sage-green); box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+    .steps-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 1.5rem; cursor: pointer;
+      user-select: none;
+    }
+    .steps-header-text { font-size: 0.95rem; font-weight: 700; color: var(--sage-green); }
+    .steps-chevron { color: var(--sage-green); transition: transform 0.3s; flex-shrink: 0; }
+    .steps-header.open .steps-chevron { transform: rotate(180deg); }
+    .steps-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease;
+      border-top: 0px solid var(--sage-light);
+    }
+    .steps-body.open { max-height: 900px; border-top-width: 1px; }
+    .steps-inner { padding: 0.75rem 1.5rem 1.5rem; }
+
+    .step {
+      display: flex; gap: 0.9rem; align-items: flex-start;
+      padding: 0.7rem 0; border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      flex-shrink: 0; width: 26px; height: 26px; background: var(--sage-green);
+      color: var(--white); border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 800; margin-top: 0.1rem;
+    }
+    .step-text { font-size: 0.875rem; color: var(--text-mid); line-height: 1.6; }
+    .step-text strong { color: var(--text-dark); }
+    .step-text code {
+      background: var(--cream); padding: 0.1rem 0.4rem;
+      border-radius: 5px; font-family: monospace; font-size: 0.8rem;
+      color: var(--old-lavender); word-break: break-all;
+    }
+
+    @media (max-width: 600px) {
+      .admin-header { padding: 1rem 1.25rem; }
+      .admin-main { padding: 0 1rem; margin-top: 1.5rem; }
+      .form-card { padding: 1.25rem; }
+      .color-options { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ LOGIN ═══════════════════ -->
+<div id="login-screen">
+  <div class="login-card">
+    <div class="login-brand">Júlia Assunção</div>
+    <p class="login-sub">Painel de criação de artigos</p>
+    <label class="login-label" for="pwd">Palavra-passe</label>
+    <input type="password" id="pwd" class="login-input" placeholder="••••••••" autocomplete="current-password" />
+    <button class="login-btn" id="login-btn">Entrar</button>
+    <p class="login-error" id="login-error">Palavra-passe incorreta. Tenta novamente.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ ADMIN ═══════════════════ -->
+<div id="admin-panel">
+
+  <header class="admin-header">
+    <div>
+      <div class="admin-header-brand">Júlia Assunção</div>
+      <div class="admin-header-sub">Painel de criação de artigos</div>
+    </div>
+    <button class="logout-btn" id="logout-btn">Sair</button>
+  </header>
+
+  <main class="admin-main">
+
+    <!-- Informações -->
+    <div class="form-card">
+      <div class="card-title">Informações do Artigo</div>
+
+      <div class="form-group">
+        <label for="f-title">Título do artigo</label>
+        <input type="text" id="f-title" placeholder="Ex: Os benefícios da aromaterapia na saúde" />
+      </div>
+
+      <div class="form-group">
+        <label for="f-slug">URL do artigo <span class="hint">(auto-gerado do título, editável)</span></label>
+        <input type="text" id="f-slug" placeholder="beneficios-da-aromaterapia" />
+      </div>
+
+      <div class="form-group">
+        <label for="f-category">Categoria <span class="hint">(ex: Saúde Infantil, Aromaterapia)</span></label>
+        <input type="text" id="f-category" placeholder="Saúde e Bem-estar" />
+      </div>
+
+      <div class="form-group">
+        <label for="f-meta">Meta descrição <span class="hint">(resumo para o Google — máx. 160 caracteres)</span></label>
+        <textarea id="f-meta" rows="3" placeholder="Uma frase apelativa que resume o artigo e aparece nos resultados de pesquisa…"></textarea>
+        <div class="char-counter" id="meta-counter">0 / 160</div>
+      </div>
+    </div>
+
+    <!-- Aparência -->
+    <div class="form-card">
+      <div class="card-title">Aparência do Cabeçalho</div>
+      <div class="form-group">
+        <label>Cor de fundo do cabeçalho</label>
+        <div class="color-options">
+          <div class="color-opt">
+            <input type="radio" name="hero-color" id="c-sage" value="sage-green" checked />
+            <label for="c-sage">
+              <span class="swatch" style="background:#6B7F5E"></span>
+              Sage Green
+            </label>
+          </div>
+          <div class="color-opt">
+            <input type="radio" name="hero-color" id="c-lav" value="old-lavender" />
+            <label for="c-lav">
+              <span class="swatch" style="background:#735D78"></span>
+              Old Lavender
+            </label>
+          </div>
+          <div class="color-opt">
+            <input type="radio" name="hero-color" id="c-blue" value="dusty-blue" />
+            <label for="c-blue">
+              <span class="swatch" style="background:#7C9BAD"></span>
+              Dusty Blue
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conteúdo -->
+    <div class="form-card">
+      <div class="card-title">Conteúdo do Artigo</div>
+      <div class="form-group">
+        <label>Texto do artigo</label>
+        <div class="editor-toolbar">
+          <button class="tbtn" id="tbtn-h2" title="Título de secção (H2)">H2</button>
+          <button class="tbtn" id="tbtn-p"  title="Parágrafo normal">¶&nbsp;Parágrafo</button>
+          <div class="tbtn-sep"></div>
+          <button class="tbtn" id="tbtn-b"  title="Negrito"><strong>N</strong></button>
+          <button class="tbtn" id="tbtn-i"  title="Itálico"><em>I</em></button>
+        </div>
+        <div id="editor" contenteditable="true" spellcheck="true" lang="pt"></div>
+        <p class="editor-hint">Usa H2 para os títulos de cada secção e ¶ Parágrafo para o texto normal.</p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="form-card">
+      <div class="card-title">Chamada para Ação (CTA)</div>
+
+      <div class="form-group">
+        <label for="f-cta-title">Título do CTA</label>
+        <input type="text" id="f-cta-title" placeholder="Ex: Cuide da sua saúde" />
+      </div>
+
+      <div class="form-group">
+        <label for="f-cta-sub">Subtítulo do CTA</label>
+        <textarea id="f-cta-sub" rows="2" placeholder="Ex: Acompanhamento personalizado para o seu bem-estar."></textarea>
+      </div>
+    </div>
+
+    <button class="btn-generate" id="btn-generate">
+      ↓ &nbsp; Gerar e descarregar artigo
+    </button>
+
+    <!-- Passos pós-download -->
+    <div id="steps-section">
+      <div class="steps-card">
+        <div class="steps-header" id="steps-header">
+          <span class="steps-header-text">✅ &nbsp;Ficheiro gerado! — Como publicar no site?</span>
+          <svg class="steps-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="steps-body" id="steps-body">
+          <div class="steps-inner">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-text">Guarda o ficheiro <code id="step-filename">artigo.html</code> numa pasta fácil de encontrar no teu computador.</div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-text">Acede ao <strong>GitHub</strong> e abre o repositório do site <code>cartagosdigital/juliaassuncao</code>.</div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-text">Entra na pasta <code>blog/</code> e clica em <strong>"Add file"</strong> → <strong>"Upload files"</strong>.</div>
+            </div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <div class="step-text">Arrasta o ficheiro <code id="step-filename2">artigo.html</code> para a área de upload e aguarda que carregue.</div>
+            </div>
+            <div class="step">
+              <div class="step-num">5</div>
+              <div class="step-text">No campo <em>"Commit message"</em>, escreve: <code id="step-commit">Blog: add artigo</code></div>
+            </div>
+            <div class="step">
+              <div class="step-num">6</div>
+              <div class="step-text">Clica no botão verde <strong>"Commit changes"</strong>. O artigo fica disponível no site em menos de um minuto! 🎉</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  /* ── Session ── */
+  const PASS = 'julia2025';
+
+  function checkSession() {
+    if (sessionStorage.getItem('ja_admin') === '1') showAdmin();
+  }
+
+  function showAdmin() {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('admin-panel').style.display = 'block';
+  }
+
+  document.getElementById('login-btn').addEventListener('click', tryLogin);
+  document.getElementById('pwd').addEventListener('keydown', e => { if (e.key === 'Enter') tryLogin(); });
+
+  function tryLogin() {
+    if (document.getElementById('pwd').value === PASS) {
+      sessionStorage.setItem('ja_admin', '1');
+      showAdmin();
+    } else {
+      document.getElementById('login-error').classList.add('show');
+      document.getElementById('pwd').focus();
+    }
+  }
+
+  document.getElementById('logout-btn').addEventListener('click', () => {
+    sessionStorage.removeItem('ja_admin');
+    location.reload();
+  });
+
+  checkSession();
+
+  /* ── Slug ── */
+  let slugEdited = false;
+
+  function toSlug(str) {
+    return str
+      .normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-');
+  }
+
+  document.getElementById('f-title').addEventListener('input', function () {
+    if (!slugEdited) document.getElementById('f-slug').value = toSlug(this.value);
+  });
+
+  document.getElementById('f-slug').addEventListener('input', function () {
+    slugEdited = this.value.length > 0;
+  });
+
+  /* ── Meta counter ── */
+  const metaTA = document.getElementById('f-meta');
+  const metaCounter = document.getElementById('meta-counter');
+  metaTA.addEventListener('input', function () {
+    const n = this.value.length;
+    metaCounter.textContent = `${n} / 160`;
+    metaCounter.className = 'char-counter' + (n > 160 ? ' over' : n > 130 ? ' warn' : '');
+  });
+
+  /* ── Editor toolbar ── */
+  const editor = document.getElementById('editor');
+  document.execCommand('defaultParagraphSeparator', false, 'p');
+
+  function editorCmd(cmd, val) {
+    editor.focus();
+    document.execCommand(cmd, false, val || null);
+  }
+
+  document.getElementById('tbtn-h2').addEventListener('click', () => editorCmd('formatBlock', 'h2'));
+  document.getElementById('tbtn-p').addEventListener('click',  () => editorCmd('formatBlock', 'p'));
+  document.getElementById('tbtn-b').addEventListener('click',  () => editorCmd('bold'));
+  document.getElementById('tbtn-i').addEventListener('click',  () => editorCmd('italic'));
+
+  /* ── HTML escape ── */
+  function esc(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  /* ── Clean editor output ── */
+  function cleanContent(html) {
+    return html
+      .replace(/<div>/gi, '<p>').replace(/<\/div>/gi, '</p>')
+      .replace(/<p>\s*<br\s*\/?>\s*<\/p>/gi, '')
+      .replace(/<p>\s*<\/p>/gi, '')
+      .trim();
+  }
+
+  /* ── Generate & download ── */
+  document.getElementById('btn-generate').addEventListener('click', () => {
+    const title    = document.getElementById('f-title').value.trim();
+    const slug     = document.getElementById('f-slug').value.trim() || 'artigo';
+    const category = document.getElementById('f-category').value.trim();
+    const meta     = document.getElementById('f-meta').value.trim();
+    const heroVar  = document.querySelector('input[name="hero-color"]:checked').value;
+    const content  = cleanContent(editor.innerHTML);
+    const ctaTitle = document.getElementById('f-cta-title').value.trim();
+    const ctaSub   = document.getElementById('f-cta-sub').value.trim();
+
+    if (!title)   { alert('Por favor, preenche o título do artigo.'); document.getElementById('f-title').focus(); return; }
+    if (!content) { alert('Por favor, adiciona conteúdo ao artigo.'); editor.focus(); return; }
+
+    const html = buildPost({ title, category, meta, heroVar, content, ctaTitle, ctaSub });
+    const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href = url; a.download = `${slug}.html`;
+    document.body.appendChild(a); a.click();
+    document.body.removeChild(a); URL.revokeObjectURL(url);
+
+    /* Show steps */
+    document.getElementById('step-filename').textContent  = `${slug}.html`;
+    document.getElementById('step-filename2').textContent = `${slug}.html`;
+    document.getElementById('step-commit').textContent    = `Blog: add ${slug}`;
+    const sec = document.getElementById('steps-section');
+    sec.classList.add('show');
+    openSteps(true);
+    setTimeout(() => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+  });
+
+  /* ── Steps toggle ── */
+  function openSteps(force) {
+    const hdr  = document.getElementById('steps-header');
+    const body = document.getElementById('steps-body');
+    const open = force === true || !hdr.classList.contains('open');
+    hdr.classList.toggle('open', open);
+    body.classList.toggle('open', open);
+  }
+  document.getElementById('steps-header').addEventListener('click', () => openSteps());
+
+  /* ══════════════════════════════════════════════
+     BUILD POST HTML
+     Replicates exactly the template used in /blog/
+  ══════════════════════════════════════════════ */
+  function buildPost({ title, category, meta, heroVar, content, ctaTitle, ctaSub }) {
+    const pageTitle  = title ? `${esc(title)} — Júlia Assunção` : 'Júlia Assunção';
+    const catEsc     = esc(category || '');
+    const titleEsc   = esc(title    || '');
+    const metaEsc    = esc(meta     || '');
+    const ctaTitleEsc = esc(ctaTitle || 'Cuide da sua saúde');
+    const ctaSubEsc   = esc(ctaSub  || 'Acompanhamento personalizado para o seu bem-estar.');
+
+    const waIconPath = `M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z`;
+
+    return `<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${pageTitle}</title>
+  <meta name="description" content="${metaEsc}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --old-lavender: #735D78; --sage-green: #6B7F5E; --sage-light: #EDF2EA;
+      --warm-mustard: #C9A84C; --dusty-blue: #7C9BAD; --dusty-blue-lt: #EBF2F6;
+      --terracotta: #C17A5B; --terracotta-lt: #F7EDE6; --terracotta-md: #E8C4B0;
+      --white: #FFFFFF; --cream: #FAF7F3; --cream-warm: #F5EDE3;
+      --text-dark: #2A221E; --text-mid: #5A4A3A; --text-soft: #8A7468;
+      --font-display: 'Great Vibes', cursive; --font-body: 'DM Sans', sans-serif;
+      --radius-sm: 8px; --radius-md: 16px; --radius-lg: 28px;
+      --shadow-soft: 0 4px 24px rgba(80,50,30,0.08);
+      --shadow-card: 0 8px 40px rgba(80,50,30,0.11);
+      --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); font-weight: 400; color: var(--text-dark); background: var(--cream); overflow-x: hidden; line-height: 1.7; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { font-family: var(--font-body); cursor: pointer; border: none; background: none; }
+    p { text-align: justify; }
+
+    .container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: clamp(1.25rem, 5vw, 3rem); }
+
+    #nav { position: fixed; inset-block-start: 0; inset-inline: 0; z-index: 900; background: rgba(250,247,243,1); border-bottom: 1px solid transparent; transition: border-color 0.3s, box-shadow 0.3s; }
+    #nav.scrolled { border-color: var(--terracotta-md); box-shadow: 0 2px 20px rgba(80,50,30,0.07); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 84px; }
+    .nav-logo { display: flex; align-items: center; gap: 0.625rem; }
+    .nav-logo-img { height: 78px; width: auto; object-fit: contain; }
+    .nav-logo-text { display: none; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-size: 0.88rem; font-weight: 500; color: var(--text-mid); letter-spacing: 0.02em; position: relative; padding-bottom: 2px; }
+    .nav-links a::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px; background:var(--terracotta); transition: width 0.3s; }
+    .nav-links a:hover { color: var(--terracotta); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta { margin-inline-start: 0.5rem; }
+    .btn { display:inline-flex; align-items:center; gap:0.5rem; font-family:var(--font-body); font-weight:700; font-size:0.95rem; padding:0.875rem 1.75rem; border-radius:100px; transition:var(--transition); white-space:nowrap; letter-spacing:0.02em; }
+    .btn-primary { background:var(--terracotta); color:var(--white); box-shadow:0 4px 18px rgba(193,122,91,0.30); }
+    .btn-primary:hover { background:#a8654a; transform:translateY(-2px); }
+    .hamburger { display:none; align-items:center; justify-content:center; width:40px; height:40px; cursor:pointer; padding:4px; color:var(--old-lavender); }
+    .hamburger svg { display:block; }
+    .hamburger .ham-open { display:block; } .hamburger .ham-close { display:none; }
+    .hamburger.open .ham-open { display:none; } .hamburger.open .ham-close { display:block; }
+    .mobile-menu { position: fixed; inset-block-start: 84px; inset-inline: 0; z-index: 899; background: var(--cream); padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; border-bottom: 1px solid var(--terracotta-md); box-shadow: 0 8px 24px rgba(80,50,30,0.08); transform: translateY(-110%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); }
+    .mobile-menu.open { transform: translateY(0); }
+    .mobile-link { font-size: 1.05rem; font-weight: 600; color: var(--text-dark); padding: 0.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+
+    .article-hero { background: var(--${heroVar}); padding-block: 7rem 4rem; margin-top: 84px; }
+    .article-breadcrumb { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.65); margin-bottom: 1.5rem; transition: color 0.2s; }
+    .article-breadcrumb:hover { color: rgba(255,255,255,0.9); }
+    .article-tag { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--terracotta); background: var(--terracotta-lt); padding: 0.25rem 0.75rem; border-radius: 100px; margin-bottom: 1.25rem; }
+    .article-title { font-family: var(--font-body); font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 800; color: var(--white); line-height: 1.25; max-width: 760px; }
+
+    .article-body-wrap { background: var(--white); }
+    .article-body { max-width: 740px; margin-inline: auto; padding-block: 3.5rem 4rem; padding-inline: clamp(1.25rem, 5vw, 2rem); }
+    .article-body h2 { font-size: 1.3rem; font-weight: 800; color: var(--old-lavender); margin-block: 2.5rem 0.75rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--terracotta-lt); }
+    .article-body p { margin-bottom: 1.1rem; color: var(--text-dark); font-size: 1rem; line-height: 1.75; }
+    .article-body ul.ref-list { padding: 0; }
+    .article-body ul.ref-list li { padding: 0.75rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; list-style: none; padding-inline-start: 1.25rem; position: relative; }
+    .article-body ul.ref-list li::before { content: '•'; position: absolute; left: 0; color: var(--terracotta); }
+
+    .article-cta { background: var(--old-lavender); padding-block: 3.5rem; text-align: center; }
+    .article-cta h2 { font-family: var(--font-body); font-weight: 800; font-size: clamp(2rem, 5vw, 3rem); color: var(--white); margin-bottom: 0.75rem; }
+    .article-cta p { color: rgba(255,255,255,0.8); margin-bottom: 2rem; max-width: 500px; margin-inline: auto; }
+    .btn-white { background: var(--white); color: var(--old-lavender); font-weight: 800; }
+    .btn-white:hover { background: var(--cream-warm); transform: translateY(-2px); }
+
+    footer { background: var(--text-dark); padding-block: 2.5rem; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social { display: flex; gap: 1.25rem; }
+    .footer-social a { color: rgba(255,255,255,0.55); transition: color 0.25s; }
+    .footer-social a:hover { color: var(--terracotta); }
+    .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.35); text-align: center; }
+
+    .wa-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 800; width: 56px; height: 56px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; color: #fff; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.25s, box-shadow 0.25s; }
+    .wa-float:hover { transform: scale(1.08); }
+    .wa-float svg { width: 30px; height: 30px; }
+
+    @media (max-width: 900px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .article-hero { padding-block: 6rem 3rem; }
+    }
+    @media (max-width: 600px) { .footer-inner { justify-content: center; text-align: center; } }
+  </style>
+</head>
+<body>
+
+  <nav id="nav" role="navigation" aria-label="Navegação principal">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo" aria-label="Júlia Assunção — Início">
+          <img src="../assets/logo.png" alt="Júlia Assunção Terapias Naturais" class="nav-logo-img" onerror="this.style.display='none'" />
+          <span class="nav-logo-text">Júlia Assunção</span>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="../index.html#sobre">Quem sou</a></li>
+          <li><a href="../index.html#servicos">Serviços</a></li>
+          <li><a href="../index.html#percursos">Percursos</a></li>
+          <li><a href="../index.html#como-funciona">Como funciona</a></li>
+          <li><a href="../index.html#blog">Artigos</a></li>
+        </ul>
+        <a href="https://wa.me/351935816417" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Marcar Consulta</a>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="ham-open" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <svg class="ham-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Menu mobile">
+    <a href="../index.html#sobre"         class="mobile-link">Quem sou</a>
+    <a href="../index.html#servicos"      class="mobile-link">Serviços</a>
+    <a href="../index.html#percursos"     class="mobile-link">Percursos</a>
+    <a href="../index.html#como-funciona" class="mobile-link">Como funciona</a>
+    <a href="../index.html#blog"          class="mobile-link">Artigos</a>
+    <a href="https://wa.me/351935816417" target="_blank" rel="noopener" style="color:var(--terracotta);font-weight:800;">Marcar Consulta →</a>
+  </nav>
+
+  <header class="article-hero">
+    <div class="container">
+      <a href="../index.html#blog" class="article-breadcrumb">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Voltar aos artigos
+      </a>
+      <div class="article-tag">${catEsc}</div>
+      <h1 class="article-title">${titleEsc}</h1>
+    </div>
+  </header>
+
+  <div class="article-body-wrap">
+    <div class="article-body">
+      ${content}
+    </div>
+  </div>
+
+  <section class="article-cta">
+    <div class="container">
+      <h2>${ctaTitleEsc}</h2>
+      <p>${ctaSubEsc}</p>
+      <a href="https://wa.me/351935816417" class="btn btn-white" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="${waIconPath}"/></svg>
+        Marcar Consulta no WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div></div>
+        <nav class="footer-social" aria-label="Redes sociais">
+          <a href="https://www.instagram.com/julia_terapiaintegrativa" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="https://www.facebook.com/Juliaterapiasnaturais" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://wa.me/351935816417" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="${waIconPath}"/></svg></a>
+        </nav>
+      </div>
+      <p class="footer-copy">© 2025 Júlia Assunção. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/351935816417" class="wa-float" target="_blank" rel="noopener" aria-label="Contactar via WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="${waIconPath}"/></svg>
+  </a>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function toggleMenu(open) { mobileMenu.classList.toggle('open', open); hamburger.classList.toggle('open', open); hamburger.setAttribute('aria-expanded', open); }
+    hamburger.addEventListener('click', () => toggleMenu(!hamburger.classList.contains('open')));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+  <\/script>
+</body>
+</html>`;
+  }
+</script>
+</body>
+</html>

@@ -374,27 +374,23 @@
           <div class="steps-inner">
             <div class="step">
               <div class="step-num">1</div>
-              <div class="step-text">Guarda o ficheiro <code id="step-filename">artigo.html</code> numa pasta fácil de encontrar.</div>
+              <div class="step-text">Guarda o ficheiro <code id="step-filename">artigo.html</code> no computador.</div>
             </div>
             <div class="step">
               <div class="step-num">2</div>
-              <div class="step-text">Acede ao <strong>GitHub</strong> e abre o repositório do site <code>cartagosdigital/juliaassuncao</code>.</div>
+              <div class="step-text">Acede ao painel da <strong>Hostinger</strong> e abre o <strong>Gestor de Ficheiros</strong>.</div>
             </div>
             <div class="step">
               <div class="step-num">3</div>
-              <div class="step-text">Entra na pasta <code>blog/</code> e clica em <strong>"Add file"</strong> → <strong>"Upload files"</strong>.</div>
+              <div class="step-text">Navega até à pasta <code>public_html/blog/</code> do teu site.</div>
             </div>
             <div class="step">
               <div class="step-num">4</div>
-              <div class="step-text">Arrasta o ficheiro <code id="step-filename2">artigo.html</code> para a área de upload e aguarda que carregue.</div>
+              <div class="step-text">Clica em <strong>"Carregar"</strong> e seleciona o ficheiro <code id="step-filename2">artigo.html</code>.</div>
             </div>
             <div class="step">
               <div class="step-num">5</div>
-              <div class="step-text">No campo <em>"Commit message"</em>, escreve: <code id="step-commit">Blog: add artigo</code></div>
-            </div>
-            <div class="step">
-              <div class="step-num">6</div>
-              <div class="step-text">Clica no botão verde <strong>"Commit changes"</strong>. O artigo fica disponível no site em menos de um minuto! 🎉</div>
+              <div class="step-text">Aguarda o upload terminar. O artigo fica disponível no site de imediato! 🎉</div>
             </div>
           </div>
         </div>
@@ -520,7 +516,6 @@
     /* Show steps */
     document.getElementById('step-filename').textContent  = `${slug}.html`;
     document.getElementById('step-filename2').textContent = `${slug}.html`;
-    document.getElementById('step-commit').textContent    = `Blog: add ${slug}`;
     const sec = document.getElementById('steps-section');
     sec.classList.add('show');
     openSteps(true);

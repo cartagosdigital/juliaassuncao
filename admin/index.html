@@ -374,7 +374,7 @@
           <div class="steps-inner">
             <div class="step">
               <div class="step-num">1</div>
-              <div class="step-text">Guarda o ficheiro <code id="step-filename">artigo.html</code> numa pasta fácil de encontrar no teu computador.</div>
+              <div class="step-text">Foram descarregados <strong>dois ficheiros</strong>: <code id="step-filename">artigo.html</code> e <code>posts.json</code>. Guarda-os na mesma pasta.</div>
             </div>
             <div class="step">
               <div class="step-num">2</div>
@@ -386,7 +386,7 @@
             </div>
             <div class="step">
               <div class="step-num">4</div>
-              <div class="step-text">Arrasta o ficheiro <code id="step-filename2">artigo.html</code> para a área de upload e aguarda que carregue.</div>
+              <div class="step-text">Arrasta os <strong>dois ficheiros</strong> (<code id="step-filename2">artigo.html</code> e <code>posts.json</code>) para a área de upload. O <code>posts.json</code> substitui o anterior automaticamente.</div>
             </div>
             <div class="step">
               <div class="step-num">5</div>
@@ -495,8 +495,18 @@
       .trim();
   }
 
+  /* ── Download helper ── */
+  function downloadBlob(filename, content, type) {
+    const blob = new Blob([content], { type });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click();
+    document.body.removeChild(a); URL.revokeObjectURL(url);
+  }
+
   /* ── Generate & download ── */
-  document.getElementById('btn-generate').addEventListener('click', () => {
+  document.getElementById('btn-generate').addEventListener('click', async () => {
     const title    = document.getElementById('f-title').value.trim();
     const slug     = document.getElementById('f-slug').value.trim() || 'artigo';
     const category = document.getElementById('f-category').value.trim();
@@ -509,13 +519,20 @@
     if (!title)   { alert('Por favor, preenche o título do artigo.'); document.getElementById('f-title').focus(); return; }
     if (!content) { alert('Por favor, adiciona conteúdo ao artigo.'); editor.focus(); return; }
 
+    /* 1 — Post HTML */
     const html = buildPost({ title, category, meta, heroVar, content, ctaTitle, ctaSub });
-    const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
-    const url  = URL.createObjectURL(blob);
-    const a    = document.createElement('a');
-    a.href = url; a.download = `${slug}.html`;
-    document.body.appendChild(a); a.click();
-    document.body.removeChild(a); URL.revokeObjectURL(url);
+    downloadBlob(`${slug}.html`, html, 'text/html;charset=utf-8');
+
+    /* 2 — posts.json atualizado */
+    const newEntry = { slug, title, category, excerpt: meta || title };
+    let posts = [];
+    try {
+      const res = await fetch('/blog/posts.json', { cache: 'no-cache' });
+      if (res.ok) posts = await res.json();
+    } catch {}
+    posts = posts.filter(p => p.slug !== slug); // remove se já existir (update)
+    posts.unshift(newEntry);                     // adiciona no início (mais recente primeiro)
+    setTimeout(() => downloadBlob('posts.json', JSON.stringify(posts, null, 2), 'application/json'), 400);
 
     /* Show steps */
     document.getElementById('step-filename').textContent  = `${slug}.html`;

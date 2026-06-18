@@ -99,11 +99,15 @@
     }
     .section-label {
       display: inline-block;
-      font-size: 0.72rem;
+      font-size: 0.82rem;
       font-weight: 700;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--terracotta);
+      background: var(--terracotta-lt);
+      border: 1px solid rgba(193, 122, 91, 0.35);
+      padding: 0.4rem 1.1rem;
+      border-radius: 100px;
       margin-bottom: 0.75rem;
     }
     .section-heading { margin-bottom: 1.25rem; }
@@ -665,7 +669,7 @@
 
     /* ─── PERCURSOS ───────────────────────────────────────── */
     #percursos { background: var(--sage-light); }
-    #percursos .section-label { color: var(--sage-green); }
+    #percursos .section-label { color: var(--sage-green); background: rgba(107,127,94,0.13); border-color: rgba(107,127,94,0.3); }
     #percursos h2 { color: var(--old-lavender); }
     .percursos-grid {
       display: grid;
@@ -738,7 +742,7 @@
 
     /* ─── COMO FUNCIONA ───────────────────────────────────── */
     #como-funciona { background: var(--cream-warm); }
-    #como-funciona .section-label { color: var(--old-lavender); }
+    #como-funciona .section-label { color: var(--old-lavender); background: #EDE8F0; border-color: rgba(115,93,120,0.3); }
     .como-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -945,7 +949,7 @@
       max-width: 640px;
       margin: 0 auto;
     }
-    .cta-inner .section-label { color: var(--terracotta-md); }
+    .cta-inner .section-label { color: var(--terracotta-md); background: rgba(193,122,91,0.22); border-color: rgba(193,122,91,0.4); }
     .cta-inner h2 { color: var(--white); font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem; }
     .cta-inner > p { color: rgba(255,255,255,0.78); font-size: 1.05rem; margin-bottom: 2.5rem; }
     .cta-actions {

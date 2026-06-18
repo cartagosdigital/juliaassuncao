@@ -753,6 +753,35 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+    }
+    .como-deco-1 {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 260px; height: 260px;
+      background: var(--old-lavender);
+      border-radius: 50%;
+      opacity: 0.10;
+      z-index: 0;
+    }
+    .como-deco-2 {
+      position: absolute;
+      bottom: 8%; right: 10%;
+      width: 100px; height: 100px;
+      background: var(--terracotta);
+      border-radius: 50%;
+      opacity: 0.14;
+      z-index: 0;
+    }
+    .como-deco-3 {
+      position: absolute;
+      top: 10%; left: 8%;
+      width: 56px; height: 56px;
+      background: var(--sage-green);
+      border-radius: 50%;
+      opacity: 0.18;
+      z-index: 0;
     }
     .como-visual-card {
       background: var(--old-lavender);
@@ -1593,6 +1622,9 @@
 
       <!-- coluna direita: ilustração da marca -->
       <div class="como-visual reveal reveal-delay-3" aria-hidden="true">
+        <div class="como-deco-1"></div>
+        <div class="como-deco-2"></div>
+        <div class="como-deco-3"></div>
         <img src="assets/maos/maos-02.svg" alt="" style="width:100%;max-width:480px;margin-inline:auto;opacity:0.6;position:relative;z-index:1;">
       </div><!-- end right col -->
 

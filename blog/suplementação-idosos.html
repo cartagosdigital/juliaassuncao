@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vigilância da suplementação em idosos: quando a solução pode tornarse problema — Júlia Assunção</title>
+  <meta name="description" content="Suplementos em idosos: saiba como a internet, a memória e as interações medicamentosas podem trazer riscos reais." />
+  <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --old-lavender: #735D78; --sage-green: #6B7F5E; --sage-light: #EDF2EA;
+      --warm-mustard: #C9A84C; --dusty-blue: #7C9BAD; --dusty-blue-lt: #EBF2F6;
+      --terracotta: #C17A5B; --terracotta-lt: #F7EDE6; --terracotta-md: #E8C4B0;
+      --white: #FFFFFF; --cream: #FAF7F3; --cream-warm: #F5EDE3;
+      --text-dark: #2A221E; --text-mid: #5A4A3A; --text-soft: #8A7468;
+      --font-display: 'Great Vibes', cursive; --font-body: 'DM Sans', sans-serif;
+      --radius-sm: 8px; --radius-md: 16px; --radius-lg: 28px;
+      --shadow-soft: 0 4px 24px rgba(80,50,30,0.08);
+      --shadow-card: 0 8px 40px rgba(80,50,30,0.11);
+      --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-body); font-weight: 400; color: var(--text-dark); background: var(--cream); overflow-x: hidden; line-height: 1.7; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { font-family: var(--font-body); cursor: pointer; border: none; background: none; }
+    p { text-align: justify; }
+
+    .container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: clamp(1.25rem, 5vw, 3rem); }
+
+    #nav { position: fixed; inset-block-start: 0; inset-inline: 0; z-index: 900; background: rgba(250,247,243,1); border-bottom: 1px solid transparent; transition: border-color 0.3s, box-shadow 0.3s; }
+    #nav.scrolled { border-color: var(--terracotta-md); box-shadow: 0 2px 20px rgba(80,50,30,0.07); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 84px; }
+    .nav-logo { display: flex; align-items: center; gap: 0.625rem; }
+    .nav-logo-img { height: 78px; width: auto; object-fit: contain; }
+    .nav-logo-text { display: none; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-size: 0.88rem; font-weight: 500; color: var(--text-mid); letter-spacing: 0.02em; position: relative; padding-bottom: 2px; }
+    .nav-links a::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px; background:var(--terracotta); transition: width 0.3s; }
+    .nav-links a:hover { color: var(--terracotta); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta { margin-inline-start: 0.5rem; }
+    .btn { display:inline-flex; align-items:center; gap:0.5rem; font-family:var(--font-body); font-weight:700; font-size:0.95rem; padding:0.875rem 1.75rem; border-radius:100px; transition:var(--transition); white-space:nowrap; letter-spacing:0.02em; }
+    .btn-primary { background:var(--terracotta); color:var(--white); box-shadow:0 4px 18px rgba(193,122,91,0.30); }
+    .btn-primary:hover { background:#a8654a; transform:translateY(-2px); }
+    .hamburger { display:none; align-items:center; justify-content:center; width:40px; height:40px; cursor:pointer; padding:4px; color:var(--old-lavender); }
+    .hamburger svg { display:block; }
+    .hamburger .ham-open { display:block; } .hamburger .ham-close { display:none; }
+    .hamburger.open .ham-open { display:none; } .hamburger.open .ham-close { display:block; }
+    .mobile-menu { position: fixed; inset-block-start: 84px; inset-inline: 0; z-index: 899; background: var(--cream); padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; border-bottom: 1px solid var(--terracotta-md); box-shadow: 0 8px 24px rgba(80,50,30,0.08); transform: translateY(-110%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); }
+    .mobile-menu.open { transform: translateY(0); }
+    .mobile-link { font-size: 1.05rem; font-weight: 600; color: var(--text-dark); padding: 0.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+
+    .article-hero { background: var(--sage-green); padding-block: 7rem 4rem; margin-top: 84px; }
+    .article-breadcrumb { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.65); margin-bottom: 1.5rem; transition: color 0.2s; }
+    .article-breadcrumb:hover { color: rgba(255,255,255,0.9); }
+    .article-tag { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--terracotta); background: var(--terracotta-lt); padding: 0.25rem 0.75rem; border-radius: 100px; margin-bottom: 1.25rem; }
+    .article-title { font-family: var(--font-body); font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 800; color: var(--white); line-height: 1.25; max-width: 760px; }
+
+    .article-body-wrap { background: var(--white); }
+    .article-body { max-width: 740px; margin-inline: auto; padding-block: 3.5rem 4rem; padding-inline: clamp(1.25rem, 5vw, 2rem); }
+    .article-body h2 { font-size: 1.3rem; font-weight: 800; color: var(--old-lavender); margin-block: 2.5rem 0.75rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--terracotta-lt); }
+    .article-body p { margin-bottom: 1.1rem; color: var(--text-dark); font-size: 1rem; line-height: 1.75; }
+    .article-body ul.ref-list { padding: 0; }
+    .article-body ul.ref-list li { padding: 0.75rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; list-style: none; padding-inline-start: 1.25rem; position: relative; }
+    .article-body ul.ref-list li::before { content: '•'; position: absolute; left: 0; color: var(--terracotta); }
+
+    .article-cta { background: var(--old-lavender); padding-block: 3.5rem; text-align: center; }
+    .article-cta h2 { font-family: var(--font-body); font-weight: 800; font-size: clamp(2rem, 5vw, 3rem); color: var(--white); margin-bottom: 0.75rem; }
+    .article-cta p { color: rgba(255,255,255,0.8); margin-bottom: 2rem; max-width: 500px; margin-inline: auto; }
+    .btn-white { background: var(--white); color: var(--old-lavender); font-weight: 800; }
+    .btn-white:hover { background: var(--cream-warm); transform: translateY(-2px); }
+
+    footer { background: var(--text-dark); padding-block: 2.5rem; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .footer-social { display: flex; gap: 1.25rem; }
+    .footer-social a { color: rgba(255,255,255,0.55); transition: color 0.25s; }
+    .footer-social a:hover { color: var(--terracotta); }
+    .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.35); text-align: center; }
+
+    .wa-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 800; width: 56px; height: 56px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; color: #fff; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.25s, box-shadow 0.25s; }
+    .wa-float:hover { transform: scale(1.08); }
+    .wa-float svg { width: 30px; height: 30px; }
+
+    @media (max-width: 900px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .article-hero { padding-block: 6rem 3rem; }
+    }
+    @media (max-width: 600px) { .footer-inner { justify-content: center; text-align: center; } }
+  </style>
+</head>
+<body>
+
+  <nav id="nav" role="navigation" aria-label="Navegação principal">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="../" class="nav-logo" aria-label="Júlia Assunção — Início">
+          <img src="../assets/logo.png" alt="Júlia Assunção Terapias Naturais" class="nav-logo-img" onerror="this.style.display='none'" />
+          <span class="nav-logo-text">Júlia Assunção</span>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="../#sobre">Quem sou</a></li>
+          <li><a href="../#servicos">Serviços</a></li>
+          <li><a href="../#percursos">Percursos</a></li>
+          <li><a href="../#como-funciona">Como funciona</a></li>
+          <li><a href="/blog">Artigos</a></li>
+        </ul>
+        <a href="https://wa.me/351935816417" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Marcar Consulta</a>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="ham-open" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <svg class="ham-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Menu mobile">
+    <a href="../#sobre"         class="mobile-link">Quem sou</a>
+    <a href="../#servicos"      class="mobile-link">Serviços</a>
+    <a href="../#percursos"     class="mobile-link">Percursos</a>
+    <a href="../#como-funciona" class="mobile-link">Como funciona</a>
+    <a href="/blog"          class="mobile-link">Artigos</a>
+    <a href="https://wa.me/351935816417" target="_blank" rel="noopener" style="color:var(--terracotta);font-weight:800;">Marcar Consulta →</a>
+  </nav>
+
+  <header class="article-hero">
+    <div class="container">
+      <a href="/blog" class="article-breadcrumb">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Voltar aos artigos
+      </a>
+      <div class="article-tag">Saúde, Bem - estar, Suplementação, Saúde feminina, Saúde infantil</div>
+      <h1 class="article-title">Vigilância da suplementação em idosos: quando a solução pode tornarse problema</h1>
+    </div>
+  </header>
+
+  <div class="article-body-wrap">
+    <div class="article-body">
+      <p style="margin-bottom: 0px; font-style: normal; font-variant-caps: normal; font-width: normal; font-size: 11.5px; line-height: normal; font-family: Times; font-size-adjust: none; font-kerning: auto; font-variant-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-position: normal; font-variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; font-variation-settings: normal;"><span style="font-style: normal; font-variant-caps: normal; font-width: normal; font-size: 14px; line-height: normal; font-size-adjust: none; font-kerning: auto; font-variant-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-position: normal; font-variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; font-variation-settings: normal;"><b>Vigilância da suplementação em idosos: quando a solução pode tornar-se problema&nbsp;</b></span></p><p style="margin-bottom: 0px; font-style: normal; font-variant-caps: normal; font-width: normal; font-size: 11.5px; line-height: normal; font-family: Times; font-size-adjust: none; font-kerning: auto; font-variant-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-position: normal; font-variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; font-variation-settings: normal;"><br></p><p style="margin-bottom: 0px; font-style: normal; font-variant-caps: normal; font-width: normal; font-size: 11.5px; line-height: normal; font-family: Times; font-size-adjust: none; font-kerning: auto; font-variant-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-position: normal; font-variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; font-variation-settings: normal;">A toma de suplementos entre pessoas idosas tornou-se cada vez mais comum. Muitas vezes, a intenção é legítima: melhorar a energia, corrigir carências ou reforçar a saúde. No entanto, o uso destes produtos exige atenção, sobretudo quando existe polimedicação, memória fragilizada e pouca supervisão no dia a dia.&nbsp;</p><p style="margin-bottom: 0px; font-style: normal; font-variant-caps: normal; font-width: normal; font-size: 11.5px; line-height: normal; font-family: Times; font-size-adjust: none; font-kerning: auto; font-variant-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-position: normal; font-variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; font-variation-settings: normal;">Hoje, este fenómeno é também alimentado pela proliferação de informação disponível na internet. Há conteúdos úteis, mas há igualmente muita desinformação. Vídeos curtos, publicações apelativas e promessas de resultados rápidos fazem com que muitos acreditem em tudo o que veem. Isso é especialmente preocupante quando aparecem supostos 'terapeutas' ou 'coaches de saúde' que falam com segurança, mas nem sempre têm prática clínica, formação sólida ou responsabilidade técnica. O problema é que a aparência de credibilidade pode enganar quem procura ajuda, principalmente idosos.&nbsp;</p><p style="margin-bottom: 0px; font-style: normal; font-variant-caps: normal; font-width: normal; font-size: 11.5px; line-height: normal; font-family: Times; font-size-adjust: none; font-kerning: auto; font-variant-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-position: normal; font-variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; font-variation-settings: normal;">Os idosos estão entre os mais expostos a esta realidade. Muitos usam a internet com frequência, mas nem sempre sabem distinguir informação científica de publicidade, opinião pessoal ou até conteúdo gerado por inteligência artificial. Assim, acabam por comprar suplementos apresentados como milagrosos, naturais e sem risco. O resultado pode ser o oposto do esperado: produtos tomados sem acompanhamento, sem avaliação das interações medicamentosas e sem controlo da dose ou do horário de administração. Um caso ilustrativo é o de um idoso que já fazia uso de AAS (ácido acetilsalicílico) e vitamina D. Depois de iniciar um fitoterápico por conta própria, passou a apresentar INR (Razão Normalizada Internacional) instável. O exemplo mostra bem como algo aparentemente inofensivo pode interferir com um tratamento estável. Em doentes com anticoagulação, este tipo de situação deve ser encarado com seriedade.&nbsp;</p><p style="margin-bottom: 0px; font-style: normal; font-variant-caps: normal; font-width: normal; font-size: 11.5px; line-height: normal; font-family: Times; font-size-adjust: none; font-kerning: auto; font-variant-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-position: normal; font-variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; font-variation-settings: normal;">Entre as interações mais relevantes, destaca-se a associação entre varfarina e Ginkgo biloba, que pode aumentar o risco de hemorragia e alterar o INR (Razão Normalizada Internacional). Também merece atenção a combinação de ISRS (inibidores seletivos da recaptação da serotonina) com Hypericum perforatum (erva-de-são-joão), que pode reduzir a eficácia terapêutica e, em alguns casos, aumentar o risco de síndrome serotoninérgica. Outro exemplo frequente é o de levotiroxina com suplementos de cálcio, ferro ou magnésio, substâncias que podem reduzir a absorção do fármaco quando administradas em simultâneo. Além das interações, há ainda o risco de sobredosagem, de duplicação de produtos e de uso sem orientação profissional.&nbsp;</p><p style="margin-bottom: 0px; font-style: normal; font-variant-caps: normal; font-width: normal; font-size: 11.5px; line-height: normal; font-family: Times; font-size-adjust: none; font-kerning: auto; font-variant-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-position: normal; font-variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; font-variation-settings: normal;">Em idosos, o problema agrava-se porque a memória pode falhar. Nem sempre se recordam de tudo o que tomam; às vezes misturam medicamentos com suplementos que não deviam ser administrados juntos. Outras vezes, repetem doses sem perceber. Por isso, a supervisão é essencial. Na prática, a vigilância deve ser simples, mas constante. É importante perguntar sempre pelos suplementos, chás e produtos naturais; registar tudo na reconciliação medicamentosa; confirmar horários e doses; e envolver o cuidador quando necessário. Em doentes com anticoagulantes, antidepressivos ou levotiroxina, a atenção deve ser redobrada.&nbsp;</p><p style="margin-bottom: 0px; font-style: normal; font-variant-caps: normal; font-width: normal; font-size: 11.5px; line-height: normal; font-family: Times; font-size-adjust: none; font-kerning: auto; font-variant-alternates: normal; font-variant-ligatures: normal; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-position: normal; font-variant-emoji: normal; font-feature-settings: normal; font-optical-sizing: auto; font-variation-settings: normal;">O que começa como uma tentativa de ajudar a saúde pode transformar-se num problema, por vezes grave, se não houver acompanhamento. A mensagem final é clara: informação não é sinónimo de segurança. Nem tudo o que circula na internet merece confiança, e nem todo suplemento é inofensivo. Em pessoas idosas, especialmente quando há vários medicamentos em simultâneo, o uso de suplementos deve ser sempre supervisionado, explicado de forma simples e revisto com regularidade.&nbsp;</p>
+    </div>
+  </div>
+
+  <section class="article-cta">
+    <div class="container">
+      <h2>Antes de iniciar qualquer suplemento, descubra porque a supervisão clínica pode fazer toda a diferença.</h2>
+      <p>Acompanhamento personalizado faz toda diferença.</p>
+      <a href="https://wa.me/351935816417" class="btn btn-white" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Marcar Consulta no WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div></div>
+        <nav class="footer-social" aria-label="Redes sociais">
+          <a href="https://www.instagram.com/julia_terapiaintegrativa" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="https://www.facebook.com/Juliaterapiasnaturais" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://wa.me/351935816417" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        </nav>
+      </div>
+      <p class="footer-copy">© 2025 Júlia Assunção. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/351935816417" class="wa-float" target="_blank" rel="noopener" aria-label="Contactar via WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function toggleMenu(open) { mobileMenu.classList.toggle('open', open); hamburger.classList.toggle('open', open); hamburger.setAttribute('aria-expanded', open); }
+    hamburger.addEventListener('click', () => toggleMenu(!hamburger.classList.contains('open')));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+  </script>
+</body>
+</html>

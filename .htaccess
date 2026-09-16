@@ -1,6 +1,34 @@
 Options -MultiViews
 RewriteEngine On
 
+# ═══════════════════════════════════════════════════════════════
+# MODO MANUTENÇÃO — INÍCIO
+# Para repor o site normal, apagar APENAS este bloco (até ao "FIM").
+# Nenhum ficheiro do site foi removido; ficam todos intactos.
+# ═══════════════════════════════════════════════════════════════
+ErrorDocument 503 /manutencao.html
+
+# A própria página de manutenção e os assets continuam acessíveis
+RewriteCond %{REQUEST_URI} !^/manutencao(\.html)?$
+RewriteCond %{REQUEST_URI} !^/assets/
+# Tudo o resto responde 503 e mostra a página de manutenção
+# (503 = "indisponível temporariamente"; evita que o Google desindexe o site)
+RewriteRule ^ - [R=503,L]
+
+# ALTERNATIVA: se por algum motivo o 503 não funcionar no servidor
+# (p.ex. a CDN mostrar uma página de erro própria), comentar a linha
+# acima com um # e descomentar a linha abaixo — passa a responder 200.
+# RewriteRule ^ /manutencao.html [L]
+
+<IfModule mod_headers.c>
+  Header always set Retry-After "3600"
+  Header always set Cache-Control "no-store, must-revalidate"
+  Header always set X-Robots-Tag "noindex"
+</IfModule>
+# ═══════════════════════════════════════════════════════════════
+# MODO MANUTENÇÃO — FIM
+# ═══════════════════════════════════════════════════════════════
+
 # Redireciona /pagina.html → /pagina (remove .html do URL)
 RewriteCond %{THE_REQUEST} \s/+([^?]*?)\.html[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L,NE]

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Júlia Assunção — Site em manutenção</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="O site está temporariamente indisponível para melhorias. Voltamos em breve." />
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <meta property="og:title" content="Júlia Assunção — Site em manutenção" />
+  <meta property="og:description" content="O site está temporariamente indisponível. Estamos a fazer melhorias." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --green-deep:  #2C4A33;
+      --green-deep-2:#26412D;
+      --sage:        #93AD80;
+      --sage-soft:   #A8BE97;
+      --gold:        #E0B14B;
+      --gold-soft:   #D9A845;
+      --cream:       #E9EFE1;
+      --cream-dim:   #CBD8BE;
+
+      --font-serif: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+      --font-sans:  'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--green-deep);
+      color: var(--cream);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100svh;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding:
+        calc(env(safe-area-inset-top, 0px) + 7vh) 24px
+        calc(env(safe-area-inset-bottom, 0px) + 7vh);
+      background:
+        radial-gradient(120% 80% at 50% 40%, #31513896 0%, #00000000 70%),
+        var(--green-deep);
+      overflow: hidden;
+    }
+
+    /* ─── decoração ─────────────────────────────────────── */
+    .deco {
+      position: absolute;
+      pointer-events: none;
+      user-select: none;
+      height: auto;
+      z-index: 0;
+    }
+    .deco--tl    { top: 0;    left: 0;  width: min(46vw, 660px); }
+    .deco--bl    { bottom: 0; left: 0;  width: min(22vw, 300px); }
+    .deco--br    { bottom: 0; right: 0; width: min(42vw, 600px); }
+    .deco--dots-tr { top: 2vh;    right: 0; width: min(24vw, 270px); }
+    .deco--dots-br { bottom: 10vh; right: 0; width: min(18vw, 200px); }
+
+    /* ─── conteúdo ──────────────────────────────────────── */
+    .content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 660px;
+      text-align: center;
+    }
+
+    .brand {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: clamp(0.62rem, 1.5vw, 0.75rem);
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: clamp(28px, 5vh, 52px);
+    }
+
+    .message {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(1.65rem, 5.6vw, 2.9rem);
+      line-height: 1.32;
+      color: var(--cream);
+      text-wrap: balance;
+      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    .thanks {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      line-height: 1.32;
+      color: var(--cream);
+      margin-top: clamp(26px, 4.5vh, 48px);
+      text-wrap: balance;
+      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    .rule {
+      width: 64px;
+      height: 1px;
+      margin: clamp(30px, 5vh, 54px) auto 0;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0.85;
+    }
+
+    .contact {
+      margin-top: clamp(18px, 3vh, 28px);
+      font-size: clamp(0.78rem, 2.4vw, 0.9rem);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--cream-dim);
+    }
+    .contact a {
+      color: var(--cream);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(224, 177, 75, 0.55);
+      padding-bottom: 2px;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+    .contact a:hover,
+    .contact a:focus-visible { color: var(--gold); border-color: var(--gold); }
+
+    @media (max-width: 720px) {
+      .deco--tl { width: 96vw; }
+      .deco--bl { width: 52vw; }
+      .deco--br { width: 80vw; }
+      .deco--dots-tr { width: 38vw; }
+      .deco--dots-br { width: 30vw; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .content > * { animation: rise 1s cubic-bezier(0.22, 1, 0.36, 1) both; }
+      .brand   { animation-delay: 0.05s; }
+      .message { animation-delay: 0.18s; }
+      .thanks  { animation-delay: 0.34s; }
+      .rule    { animation-delay: 0.46s; }
+      .contact { animation-delay: 0.54s; }
+      @keyframes rise {
+        from { opacity: 0; transform: translateY(14px); }
+        to   { opacity: 1; transform: none; }
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+
+    <!-- canto superior esquerdo: forma orgânica + linha dourada -->
+    <svg class="deco deco--tl" viewBox="0 0 800 480" fill="none" aria-hidden="true" focusable="false">
+      <path d="M0 0H470C440 58 400 96 344 124C286 152 232 148 186 176C142 202 124 246 88 278C60 302 32 316 0 326V0Z"
+            fill="#93AD80" opacity="0.92"/>
+      <path d="M498 0C466 66 424 108 366 138C306 168 250 164 204 192C160 218 142 262 106 294C78 318 40 336 0 346"
+            stroke="#E0B14B" stroke-width="6" stroke-linecap="round"/>
+    </svg>
+
+    <!-- canto inferior esquerdo: ondas douradas concêntricas -->
+    <svg class="deco deco--bl" viewBox="0 0 420 560" fill="none" aria-hidden="true" focusable="false">
+      <g stroke="#D9A845" stroke-width="5" stroke-linecap="round" fill="none">
+        <path d="M-200 292C-80 300 14 348 46 420C78 492 44 560 60 700"/>
+        <path d="M-200 292C-80 300 14 348 46 420C78 492 44 560 60 700" transform="translate(30 -34)" opacity="0.95"/>
+        <path d="M-200 292C-80 300 14 348 46 420C78 492 44 560 60 700" transform="translate(60 -68)" opacity="0.9"/>
+        <path d="M-200 292C-80 300 14 348 46 420C78 492 44 560 60 700" transform="translate(90 -102)" opacity="0.85"/>
+        <path d="M-200 292C-80 300 14 348 46 420C78 492 44 560 60 700" transform="translate(120 -136)" opacity="0.8"/>
+      </g>
+    </svg>
+
+    <!-- canto inferior direito: forma orgânica -->
+    <svg class="deco deco--br" viewBox="0 0 700 320" fill="none" aria-hidden="true" focusable="false">
+      <path d="M700 320H0C70 288 140 250 224 226C312 200 392 210 462 182C528 156 570 106 618 70C646 48 672 30 700 16V320Z"
+            fill="#93AD80" opacity="0.9"/>
+    </svg>
+
+    <!-- pontos: topo direito -->
+    <svg class="deco deco--dots-tr" viewBox="0 0 330 520" fill="none" aria-hidden="true" focusable="false">
+      <g fill="#C4D6B4">
+        <circle cx="228" cy="26"  r="9"  opacity="0.95"/>
+        <circle cx="300" cy="62"  r="7"  opacity="0.8"/>
+        <circle cx="152" cy="96"  r="6"  opacity="0.85"/>
+        <circle cx="206" cy="116" r="10" opacity="0.7"/>
+        <circle cx="272" cy="146" r="7"  opacity="0.9"/>
+        <circle cx="180" cy="186" r="5"  opacity="0.75"/>
+        <circle cx="246" cy="210" r="8"  opacity="0.65"/>
+        <circle cx="312" cy="196" r="6"  opacity="0.85"/>
+        <circle cx="136" cy="238" r="11" opacity="0.8"/>
+        <circle cx="216" cy="276" r="6"  opacity="0.7"/>
+        <circle cx="288" cy="290" r="9"  opacity="0.9"/>
+        <circle cx="170" cy="330" r="7"  opacity="0.75"/>
+        <circle cx="252" cy="352" r="13" fill="#E4EDDD" opacity="0.95"/>
+        <circle cx="310" cy="380" r="6"  opacity="0.7"/>
+        <circle cx="200" cy="404" r="5"  opacity="0.6"/>
+        <circle cx="284" cy="436" r="8"  opacity="0.8"/>
+      </g>
+    </svg>
+
+    <!-- pontos: base direita -->
+    <svg class="deco deco--dots-br" viewBox="0 0 250 340" fill="none" aria-hidden="true" focusable="false">
+      <g fill="#C4D6B4">
+        <circle cx="206" cy="24"  r="8" opacity="0.85"/>
+        <circle cx="132" cy="70"  r="6" opacity="0.7"/>
+        <circle cx="188" cy="112" r="9" opacity="0.8"/>
+        <circle cx="96"  cy="150" r="5" opacity="0.65"/>
+        <circle cx="160" cy="184" r="7" opacity="0.9"/>
+        <circle cx="216" cy="216" r="6" opacity="0.7"/>
+        <circle cx="120" cy="248" r="9" opacity="0.8"/>
+        <circle cx="184" cy="292" r="5" opacity="0.6"/>
+      </g>
+    </svg>
+
+    <div class="content">
+      <p class="brand">Júlia Assunção</p>
+
+      <h1 class="message">
+        O meu site está temporariamente indisponível. Estamos a fazer melhorias
+        para te proporcionar uma experiência ainda melhor.
+      </h1>
+
+      <p class="thanks">Obrigada pela compreensão!</p>
+
+      <div class="rule"></div>
+
+      <p class="contact">
+        Para marcações ou questões:
+        <a href="https://wa.me/351935816417" target="_blank" rel="noopener">WhatsApp</a>
+        <span aria-hidden="true"> · </span>
+        <a href="https://www.instagram.com/julia_terapiaintegrativa" target="_blank" rel="noopener">Instagram</a>
+      </p>
+    </div>
+
+  </main>
+</body>
+</html>

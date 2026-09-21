@@ -480,6 +480,44 @@
       margin-bottom: 1.5rem;
     }
 
+    .materiais-note {
+      margin-top: 3rem;
+      background: var(--white);
+      border: 1.5px solid var(--sage-mid);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 2.25rem;
+    }
+    .materiais-note h3 {
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sage-green);
+      margin-bottom: 0.875rem;
+    }
+    .materiais-note p {
+      font-size: 0.93rem;
+      line-height: 1.75;
+      margin-bottom: 0.75rem;
+    }
+    .materiais-note p:last-child { margin-bottom: 0; }
+
+    /* Equilíbrio das duas colunas: o cartão leva mais largura (encurta-o)
+       e o texto narrativo mais corpo (alonga-o). O bloco "Materiais que
+       pode receber" saiu do cartão para a faixa .materiais-note, abaixo,
+       que é o que faz a diferença de alturas deixar de ser visível. */
+    @media (min-width: 901px) {
+      #servicos .split { grid-template-columns: 0.9fr 1.1fr; }
+      #servicos .prose p {
+        font-size: 1.05rem;
+        line-height: 1.9;
+      }
+      /* Em ecrã largo a faixa daria linhas de ~130 caracteres; duas
+         colunas trazem-nas para ~65, sem deixar meio cartão vazio. */
+      .materiais-note { columns: 2; column-gap: 3rem; }
+      .materiais-note h3 { column-span: all; }
+      .materiais-note p { break-inside: avoid; }
+    }
+
     /* ─── COMO FUNCIONA ───────────────────────────────────── */
     #como-funciona { background: var(--cream-warm); }
     #como-funciona .section-label {
@@ -1143,13 +1181,14 @@
             <li>Construção gradual de hábitos mais consistentes, sem a pressão de mudar tudo ao mesmo tempo</li>
           </ul>
 
-          <div class="info-card-note">
-            <strong>Materiais que pode receber</strong>
-            <p>Depois da avaliação inicial, recebe um documento com as recomendações e prioridades definidas. Quando apresenta análises laboratoriais, pode também receber uma síntese educativa dos resultados e uma tabela com a função geral dos principais marcadores analisados.</p>
-            <p>Estes materiais têm finalidade educativa: ajudam-na a compreender melhor o seu corpo e o sentido das orientações, sem substituir diagnóstico, tratamento ou acompanhamento médico.</p>
-          </div>
         </div>
 
+      </div>
+
+      <div class="materiais-note reveal">
+        <h3>Materiais que pode receber</h3>
+        <p>Depois da avaliação inicial, recebe um documento com as recomendações e prioridades definidas. Quando apresenta análises laboratoriais, pode também receber uma síntese educativa dos resultados e uma tabela com a função geral dos principais marcadores analisados.</p>
+        <p>Estes materiais têm finalidade educativa: ajudam-na a compreender melhor o seu corpo e o sentido das orientações, sem substituir diagnóstico, tratamento ou acompanhamento médico.</p>
       </div>
     </div>
   </section>

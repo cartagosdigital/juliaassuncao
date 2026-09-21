@@ -4,11 +4,24 @@
     {
       "src": "package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "." }
+      "config": {
+        "distDir": "."
+      }
     }
   ],
   "routes": [
-    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/preview-45fbbbd9/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/preview-45fbbbd9/?",
+      "dest": "/index.html"
+    },
     {
       "src": "/(.*)",
       "dest": "/manutencao.html",

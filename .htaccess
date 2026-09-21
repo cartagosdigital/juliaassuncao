@@ -8,9 +8,16 @@ RewriteEngine On
 # ═══════════════════════════════════════════════════════════════
 ErrorDocument 503 /manutencao.html
 
+# ─── Pré-visualização privada do site novo ───────────────────
+# URL secreto que contorna a manutenção. Só acede quem tiver o link:
+# não está ligado a partir de lado nenhum e responde com "noindex".
+RewriteRule ^preview-45fbbbd9/assets/(.*)$ /assets/$1 [END]
+RewriteRule ^preview-45fbbbd9/?$ /index.html [END]
+
 # A própria página de manutenção e os assets continuam acessíveis
 RewriteCond %{REQUEST_URI} !^/manutencao(\.html)?$
 RewriteCond %{REQUEST_URI} !^/assets/
+RewriteCond %{THE_REQUEST} !\s/+preview-45fbbbd9 [NC]
 # Tudo o resto responde 503 e mostra a página de manutenção
 # (503 = "indisponível temporariamente"; evita que o Google desindexe o site)
 RewriteRule ^ - [R=503,L]

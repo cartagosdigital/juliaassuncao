@@ -27,6 +27,7 @@
 
       --sage-green:    #6B7F5E;
       --sage-light:    #EDF2EA;
+      --sage-hero:     #DFE8D6;
       --sage-mid:      #B8C9B0;
       --warm-mustard:  #C9A84C;
       --dusty-blue:    #7C9BAD;
@@ -259,7 +260,7 @@
     /* ─── HERO ────────────────────────────────────────────── */
     #hero {
       min-height: 100svh;
-      background: var(--cream-warm);
+      background: var(--sage-hero);
       display: flex;
       align-items: center;
       padding-block-start: 84px;
@@ -294,7 +295,9 @@
       font-weight: 700;
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: rgba(107, 127, 94, 0.55);
+      /* lavanda em vez de sálvia: sobre o fundo verde do hero,
+         o sálvia a 55% perdia-se no fundo */
+      color: var(--old-lavender);
       margin-bottom: 0.625rem;
     }
     .hero-eyebrow::before,
@@ -303,7 +306,7 @@
       display: block;
       width: 28px;
       height: 1.5px;
-      background: rgba(107, 127, 94, 0.45);
+      background: rgba(115, 93, 120, 0.45);
       border-radius: 2px;
       flex-shrink: 0;
     }

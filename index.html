@@ -632,7 +632,14 @@
       background: linear-gradient(155deg, var(--sage-light) 0%, var(--sage-mid) 100%);
       box-shadow: var(--shadow-card);
     }
-    .about-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .about-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* a foto é 9:16 e a moldura 3/4, por isso há corte vertical:
+         20% mantém o rosto centrado no oval */
+      object-position: center 20%;
+    }
     .about-photo-placeholder {
       width: 100%;
       height: 100%;
@@ -1281,11 +1288,11 @@
             <img src="assets/maos/maos-04.svg" alt="">
           </div>
           <div class="about-photo-wrap">
-            <img src="assets/foto.webp" alt="Júlia Assunção, Terapeuta Integrativa"
+            <img src="assets/foto.jpeg" alt="Júlia Assunção, Terapeuta Integrativa"
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
             <div class="about-photo-placeholder">
               <img src="assets/icones/icon-05.svg" alt="" style="width:48px;opacity:0.45;">
-              <p>foto.webp</p>
+              <p>foto.jpeg</p>
             </div>
           </div>
           <div class="about-deco-1"></div>

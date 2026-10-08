@@ -17,6 +17,8 @@ RewriteRule ^preview-45fbbbd9/?$ /index.html [END]
 # A própria página de manutenção e os assets continuam acessíveis
 RewriteCond %{REQUEST_URI} !^/manutencao(\.html)?$
 RewriteCond %{REQUEST_URI} !^/assets/
+# As páginas legais ficam acessíveis: são ligadas a partir do rodapé
+RewriteCond %{REQUEST_URI} !^/(politica-de-privacidade|termos-de-utilizacao)(\.html)?$
 RewriteCond %{THE_REQUEST} !\s/+preview-45fbbbd9 [NC]
 # Tudo o resto responde 503 e mostra a página de manutenção
 # (503 = "indisponível temporariamente"; evita que o Google desindexe o site)

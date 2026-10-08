@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidade — Júlia Assunção</title>
+  <meta name="description" content="Como são tratados os dados pessoais recolhidos no site e no acompanhamento de Júlia Assunção, terapeuta integrativa em Carcavelos." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --old-lavender: #735D78;
+      --sage-green: #6B7F5E; --sage-light: #EDF2EA; --sage-mid: #B8C9B0;
+      --warm-mustard: #C9A84C;
+      --terracotta: #C17A5B; --terracotta-lt: #F7EDE6; --terracotta-md: #E8C4B0;
+      --white: #FFFFFF; --cream: #FAF7F3; --cream-warm: #F5EDE3;
+      --text-dark: #2A221E; --text-mid: #5A4A3A; --text-soft: #8A7468;
+      --font-body: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+      --radius-md: 16px; --radius-lg: 28px;
+      --shadow-soft: 0 4px 24px rgba(80,50,30,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-dark);
+      background: var(--cream);
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    ul { list-style: none; }
+
+    .topbar {
+      background: var(--white);
+      border-bottom: 1px solid var(--terracotta-md);
+      padding-block: 1rem;
+    }
+    .wrap { width: min(820px, 100%); margin-inline: auto; padding-inline: clamp(1.25rem, 5vw, 2rem); }
+    .topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .topbar img { height: 56px; width: auto; }
+    .back {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--terracotta);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .back:hover { text-decoration: underline; }
+
+    main { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--sage-green);
+      background: rgba(107,127,94,0.12);
+      border: 1px solid rgba(107,127,94,0.3);
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.18;
+      color: var(--old-lavender);
+      text-wrap: balance;
+    }
+    .updated { font-size: 0.85rem; color: var(--text-soft); margin-top: 0.75rem; }
+    h2 {
+      font-size: clamp(1.15rem, 3vw, 1.4rem);
+      font-weight: 800;
+      color: var(--old-lavender);
+      margin-top: 2.75rem;
+      margin-bottom: 0.875rem;
+      line-height: 1.3;
+    }
+    h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--sage-green);
+      margin-top: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+    p { color: var(--text-mid); margin-bottom: 1rem; }
+    main ul { display: flex; flex-direction: column; gap: 0.6rem; margin: 0 0 1.25rem; }
+    main li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+    main li::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--terracotta);
+      flex-shrink: 0;
+      margin-top: 0.62rem;
+    }
+    main a { color: var(--terracotta); font-weight: 600; }
+    strong { color: var(--text-dark); font-weight: 700; }
+
+    .callout {
+      background: var(--terracotta-lt);
+      border-left: 3px solid var(--terracotta);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .callout p:last-child { margin-bottom: 0; }
+
+    /* Campos que a Júlia tem de preencher antes de publicar */
+    .todo {
+      background: #FBF0CC;
+      color: #6B5410;
+      border: 1px dashed var(--warm-mustard);
+      border-radius: 5px;
+      padding: 0.1rem 0.45rem;
+      font-size: 0.9em;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .draft-note {
+      background: #FBF5E0;
+      border: 1.5px solid var(--warm-mustard);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .draft-note p { color: #6B5410; font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .draft-note p:last-child { margin-bottom: 0; }
+    .draft-note strong { color: #4F3E0B; }
+
+    footer {
+      background: var(--text-dark);
+      padding-block: 2rem;
+      margin-top: clamp(3rem, 7vw, 5rem);
+    }
+    footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center; }
+    footer a, footer p { color: rgba(255,255,255,0.5); font-size: 0.85rem; text-decoration: none; }
+    footer a:hover { color: var(--white); }
+    footer nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wrap">
+      <a href="/" aria-label="Júlia Assunção — Início">
+        <img src="/assets/logo.png" alt="Júlia Assunção — Terapeuta Integrativa" />
+      </a>
+      <a class="back" href="/">&larr; Voltar ao site</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <span class="eyebrow">Proteção de dados</span>
+      <h1>Política de Privacidade</h1>
+      <p class="updated">Última atualização: 8 de outubro de 2026</p>
+
+      <div class="draft-note">
+        <p><strong>Nota para a Júlia (apagar antes de publicar):</strong> este documento foi redigido a partir do funcionamento real do site e das condições descritas na página inicial. Os campos assinalados a amarelo têm de ser preenchidos por si.</p>
+        <p>Recomenda-se revisão por profissional de direito antes da publicação, sobretudo por estarem envolvidos dados de saúde.</p>
+      </div>
+
+      <h2>1. Quem trata os seus dados</h2>
+      <p>Os dados pessoais recolhidos através deste site e no âmbito dos serviços prestados são tratados por <strong>Júlia Assunção</strong>, terapeuta integrativa, com atividade em SENTE — Cowork Terapêutico, Praceta De Portugal, 63A, Quinta de São Gonçalo, 2775-369 Carcavelos, Portugal.</p>
+      <ul>
+        <li>Número de identificação fiscal: <span class="todo">NIF a preencher</span></li>
+        <li>Contacto para assuntos de proteção de dados: <span class="todo">e-mail a preencher</span> ou <a href="https://wa.me/351935816417" target="_blank" rel="noopener">WhatsApp +351 935 816 417</a></li>
+      </ul>
+
+      <h2>2. Que dados são recolhidos</h2>
+
+      <h3>a) Ao navegar neste site</h3>
+      <p>Este site é estático e <strong>não utiliza cookies próprios, ferramentas de analítica, pixels de publicidade nem qualquer sistema de rastreio</strong>. Não recolhemos dados de navegação para fins estatísticos ou de marketing.</p>
+      <p>O servidor que aloja o site regista automaticamente, como é habitual em qualquer alojamento web, o endereço IP, a data e hora do acesso, as páginas pedidas e o tipo de navegador. Estes registos destinam-se exclusivamente à segurança e ao funcionamento técnico do site.</p>
+
+      <h3>b) Ao pedir uma marcação</h3>
+      <p>O pedido de marcação é feito através de um formulário alojado no Google Forms. Nesse formulário são recolhidos os dados que a própria indica, nomeadamente nome, contacto, modalidade pretendida e preferências de horário.</p>
+
+      <h3>c) No âmbito do acompanhamento</h3>
+      <p>Durante as consultas são recolhidas informações sobre a sua história, rotina, hábitos, sinais apresentados, objetivos e, quando a própria os apresenta, exames ou outros documentos de saúde.</p>
+      <div class="callout">
+        <p>Estas informações constituem <strong>dados relativos à saúde</strong>, que o Regulamento Geral sobre a Proteção de Dados classifica como categoria especial de dados (artigo 9.º). São tratados com confidencialidade reforçada, apenas para a prestação do acompanhamento, e nunca utilizados para fins comerciais ou publicitários.</p>
+      </div>
+
+      <h2>3. Com que finalidades e com que fundamento</h2>
+      <ul>
+        <li><strong>Responder a pedidos de marcação e organizar a agenda</strong> — diligências pré-contratuais a seu pedido (artigo 6.º, n.º 1, alínea b) do RGPD).</li>
+        <li><strong>Prestar o acompanhamento contratado</strong> — execução do contrato (artigo 6.º, n.º 1, alínea b)).</li>
+        <li><strong>Tratar dados de saúde no âmbito do acompanhamento</strong> — o seu consentimento explícito (artigo 9.º, n.º 2, alínea a)).</li>
+        <li><strong>Cumprir obrigações fiscais e contabilísticas</strong> — obrigação jurídica (artigo 6.º, n.º 1, alínea c)).</li>
+        <li><strong>Garantir a segurança técnica do site</strong> — interesse legítimo (artigo 6.º, n.º 1, alínea f)).</li>
+      </ul>
+      <p>Quando o tratamento assenta no seu consentimento, pode retirá-lo a qualquer momento, sem que isso afete a licitude do tratamento efetuado até esse momento.</p>
+
+      <h2>4. Serviços de terceiros utilizados neste site</h2>
+      <p>Ao abrir este site, o seu navegador estabelece ligação com os seguintes serviços, que podem receber o seu endereço IP:</p>
+      <ul>
+        <li><strong>Google Fonts</strong> — carrega os tipos de letra do site.</li>
+        <li><strong>Google Maps</strong> — apresenta o mapa com a localização do consultório. Este conteúdo incorporado pode instalar cookies do Google no seu dispositivo.</li>
+        <li><strong>Google Forms</strong> — recebe e armazena os pedidos de marcação, quando a própria o utiliza.</li>
+        <li><strong>Alojamento Hostinger</strong> — serve as páginas do site e mantém os registos técnicos referidos acima.</li>
+      </ul>
+      <p>O site inclui ainda ligações para o WhatsApp, o Instagram, o Facebook e o site do espaço parceiro. Ao segui-las, passa a estar sujeita às políticas de privacidade dessas entidades, pelas quais não somos responsáveis.</p>
+
+      <h2>5. Transferências para fora da União Europeia</h2>
+      <p>Os serviços do Google e da Meta podem tratar dados em servidores localizados fora do Espaço Económico Europeu, designadamente nos Estados Unidos, ao abrigo dos mecanismos de transferência previstos no RGPD, como o Quadro de Privacidade de Dados UE–EUA e as cláusulas contratuais-tipo da Comissão Europeia.</p>
+
+      <h2>6. Durante quanto tempo guardamos os seus dados</h2>
+      <ul>
+        <li>Pedidos de marcação que não resultem em consulta: <span class="todo">prazo a definir</span></li>
+        <li>Registos do acompanhamento e informação de saúde: <span class="todo">prazo a definir</span></li>
+        <li>Documentos com relevância fiscal: 10 anos, conforme exigido pela legislação portuguesa.</li>
+        <li>Registos técnicos do servidor: pelo período definido pelo fornecedor de alojamento.</li>
+      </ul>
+
+      <h2>7. Quem tem acesso aos seus dados</h2>
+      <p>Os seus dados não são vendidos, cedidos nem partilhados com terceiros para fins comerciais. Podem ser acedidos por prestadores de serviços que atuam como subcontratantes, nomeadamente o fornecedor de alojamento do site e os serviços do Google acima identificados, e por autoridades públicas quando exista obrigação legal.</p>
+
+      <h2>8. Os seus direitos</h2>
+      <p>Enquanto titular dos dados, assistem-lhe os seguintes direitos:</p>
+      <ul>
+        <li>Aceder aos dados que lhe digam respeito e obter uma cópia;</li>
+        <li>Solicitar a retificação de dados inexatos ou incompletos;</li>
+        <li>Solicitar o apagamento dos dados, nos casos previstos na lei;</li>
+        <li>Solicitar a limitação do tratamento;</li>
+        <li>Opor-se a tratamentos fundados em interesse legítimo;</li>
+        <li>Solicitar a portabilidade dos dados que tenha fornecido;</li>
+        <li>Retirar o consentimento, quando o tratamento nele se baseie.</li>
+      </ul>
+      <p>Para exercer qualquer destes direitos, basta contactar-nos através dos meios indicados no ponto 1. Responderemos no prazo máximo de um mês.</p>
+
+      <h2>9. Reclamações</h2>
+      <p>Se entender que o tratamento dos seus dados não cumpre a legislação aplicável, pode apresentar reclamação junto da autoridade de controlo portuguesa: Comissão Nacional de Proteção de Dados (CNPD), <a href="https://www.cnpd.pt" target="_blank" rel="noopener">www.cnpd.pt</a>.</p>
+
+      <h2>10. Alterações a esta política</h2>
+      <p>Esta política pode ser atualizada sempre que se justifique. A data da última atualização encontra-se indicada no topo da página.</p>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>© 2026 Júlia Assunção. Todos os direitos reservados.</p>
+      <nav>
+        <a href="/politica-de-privacidade">Política de Privacidade</a>
+        <a href="/termos-de-utilizacao">Termos de Utilização</a>
+        <a href="/">Início</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -189,6 +189,9 @@
       border-bottom: 1px solid transparent;
       transition: border-color 0.3s, box-shadow 0.3s;
     }
+    /* O menu tem 8 itens + logótipo + botão: precisa de mais largura
+       do que os 1140px do corpo da página. */
+    #nav .container { width: min(1400px, 100%); }
     #nav.scrolled {
       border-color: var(--terracotta-md);
       box-shadow: 0 2px 20px rgba(80, 50, 30, 0.07);
@@ -200,11 +203,11 @@
       height: 84px;
       gap: 1rem;
     }
-    .nav-logo { display: flex; align-items: center; }
-    .nav-logo-img { height: 78px; width: auto; object-fit: contain; }
-    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-logo { display: flex; align-items: center; flex: none; }
+    .nav-logo-img { height: 68px; width: auto; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: 1.15rem; }
     .nav-links a {
-      font-size: 0.875rem;
+      font-size: 0.84rem;
       font-weight: 500;
       color: var(--text-mid);
       transition: color 0.2s;
@@ -1072,7 +1075,7 @@
     .footer-col a:hover { color: var(--white); }
 
     /* ─── RESPONSIVE ──────────────────────────────────────── */
-    @media (max-width: 1200px) {
+    @media (max-width: 1300px) {
       .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
       #nav { background: var(--cream); }
@@ -1126,7 +1129,7 @@
       <div class="nav-inner">
 
         <a href="#" class="nav-logo" aria-label="Júlia Assunção — Início">
-          <img src="assets/logo.png" alt="Júlia Assunção Terapias Naturais" class="nav-logo-img" onerror="this.style.display='none'" />
+          <img src="assets/logo-compacto.png" alt="Júlia Assunção — Saúde Feminina Personalizada" class="nav-logo-img" onerror="this.style.display='none'" />
         </a>
 
         <ul class="nav-links" role="list">
@@ -1185,7 +1188,7 @@
         <p class="hero-subline">Consultas presenciais em Carcavelos e acompanhamento online.</p>
 
         <h1 class="hero-name">
-          <img src="assets/logo.png" alt="Júlia Assunção" class="hero-name-logo" />
+          <img src="assets/logo-completo.png" alt="Júlia Assunção — Saúde Feminina Personalizada" class="hero-name-logo" />
         </h1>
 
         <div class="hero-years-chip" aria-label="10 anos de experiência">
@@ -1812,7 +1815,7 @@
       <div class="footer-grid">
 
         <div class="footer-logo">
-          <img src="assets/logo.png" alt="Júlia Assunção — Terapeuta Integrativa" />
+          <img src="assets/logo-compacto.png" alt="Júlia Assunção — Saúde Feminina Personalizada" />
           <p class="footer-tag">Terapeuta Integrativa. Consultas presenciais em Carcavelos, online ou em formato híbrido.</p>
         </div>
 

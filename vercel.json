@@ -1,40 +1,11 @@
 {
   "version": 2,
+  "cleanUrls": true,
   "builds": [
     {
       "src": "package.json",
       "use": "@vercel/static-build",
-      "config": {
-        "distDir": "."
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/(politica-de-privacidade|termos-de-utilizacao)/?",
-      "dest": "/$1.html"
-    },
-    {
-      "src": "/preview-45fbbbd9/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/preview-45fbbbd9/?",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/manutencao.html",
-      "status": 503,
-      "headers": {
-        "Cache-Control": "no-store, must-revalidate",
-        "Retry-After": "3600",
-        "X-Robots-Tag": "noindex"
-      }
+      "config": { "distDir": "." }
     }
   ]
 }

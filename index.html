@@ -162,6 +162,16 @@
       box-shadow: 0 4px 18px rgba(0,0,0,0.12);
     }
     .btn-white:hover { background: var(--cream-warm); transform: translateY(-2px); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255, 255, 255, 0.45);
+    }
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--white);
+      transform: translateY(-2px);
+    }
 
     /* ─── DECO ────────────────────────────────────────────── */
     .blob-deco, .hand-deco { position: absolute; pointer-events: none; z-index: 0; }
@@ -468,61 +478,29 @@
       line-height: 1.75;
     }
 
-    /* ─── PERCURSO ────────────────────────────────────────── */
-    #servicos { background: var(--sage-light); }
-    #servicos .section-label {
+    /* ─── MÉTODO PME / VALORES ────────────────────────────── */
+    #metodo-pme   { background: var(--cream-warm); }
+    #o-que-inclui { background: var(--sage-light); }
+    #valores      { background: var(--cream); }
+    #comparar     { background: var(--cream-warm); }
+    #informacoes  { background: var(--sage-light); }
+    #o-que-inclui .section-label,
+    #informacoes .section-label {
       color: var(--sage-green);
       background: rgba(107,127,94,0.13);
       border-color: rgba(107,127,94,0.3);
     }
-    .percurso-sub {
-      font-size: 1rem;
-      font-weight: 600;
-      font-style: italic;
-      color: var(--sage-green);
-      margin-bottom: 1.5rem;
-    }
+    .pme-opener .section-label { margin-bottom: 0; }
 
-    .materiais-note {
-      margin-top: 3rem;
-      background: var(--white);
-      border: 1.5px solid var(--sage-mid);
-      border-radius: var(--radius-lg);
-      padding: 1.75rem 2.25rem;
-    }
-    .materiais-note h3 {
-      font-size: 1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--sage-green);
-      margin-bottom: 0.875rem;
-    }
-    .materiais-note p {
-      font-size: 0.93rem;
-      line-height: 1.75;
-      margin-bottom: 0.75rem;
-    }
-    .materiais-note p:last-child { margin-bottom: 0; }
-
-    /* Equilíbrio das duas colunas: o cartão leva mais largura (encurta-o)
-       e o texto narrativo mais corpo (alonga-o). O bloco "Materiais que
-       pode receber" saiu do cartão para a faixa .materiais-note, abaixo,
-       que é o que faz a diferença de alturas deixar de ser visível. */
+    /* Em #metodo-pme a coluna do texto leva mais corpo e a do título
+       menos largura, para as duas acabarem a alturas próximas. */
     @media (min-width: 901px) {
-      #servicos .split { grid-template-columns: 0.9fr 1.1fr; }
-      #servicos .prose p {
-        font-size: 1.05rem;
-        line-height: 1.9;
-      }
-      /* Em ecrã largo a faixa daria linhas de ~130 caracteres; duas
-         colunas trazem-nas para ~65, sem deixar meio cartão vazio. */
-      .materiais-note { columns: 2; column-gap: 3rem; }
-      .materiais-note h3 { column-span: all; }
-      .materiais-note p { break-inside: avoid; }
+      #metodo-pme .split { grid-template-columns: 0.9fr 1.1fr; }
+      #metodo-pme .prose p { font-size: 1.05rem; line-height: 1.9; }
     }
 
     /* ─── COMO FUNCIONA ───────────────────────────────────── */
-    #como-funciona { background: var(--cream-warm); }
+    #como-funciona { background: var(--cream); }
     #como-funciona .section-label {
       color: var(--old-lavender);
       background: #EDE8F0;
@@ -971,8 +949,158 @@
     .wa-float:hover { transform: scale(1.1); box-shadow: 0 8px 32px rgba(37,211,102,0.50); }
     .wa-float svg { width: 28px; height: 28px; }
 
+    /* ─── MÉTODO PME: abertura ────────────────────────────── */
+    .pme-opener {
+      background: var(--white);
+      border: 1.5px solid var(--sage-mid);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: clamp(2rem, 5vw, 3.25rem);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      text-align: center;
+    }
+    .pme-opener h2 { font-size: clamp(1.65rem, 4vw, 2.5rem); text-wrap: balance; }
+    .pme-sub { max-width: 58ch; font-size: 1.05rem; line-height: 1.8; }
+    .pme-actions { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 0.5rem; }
+
+    /* ─── TABELAS ─────────────────────────────────────────── */
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 1.5rem; }
+    .price-table {
+      width: 100%;
+      min-width: 380px;
+      border-collapse: collapse;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.95rem;
+    }
+    .price-table th, .price-table td {
+      padding: 0.875rem 1.25rem;
+      text-align: left;
+      border-bottom: 1px solid var(--terracotta-md);
+    }
+    .price-table thead th {
+      background: var(--cream-warm);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--old-lavender);
+    }
+    .price-table tbody th { font-weight: 600; color: var(--text-dark); }
+    .price-table td { color: var(--text-mid); font-variant-numeric: tabular-nums; }
+    .price-table tbody tr:last-child th,
+    .price-table tbody tr:last-child td { border-bottom: none; }
+    .price-table .val { font-weight: 800; color: var(--terracotta); white-space: nowrap; }
+    .table-note {
+      margin-top: 1.25rem;
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--text-soft);
+      max-width: 70ch;
+    }
+
+    /* ─── TABELA COMPARATIVA ──────────────────────────────── */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.92rem;
+    }
+    .compare-table th, .compare-table td {
+      padding: 0.95rem 1.25rem;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--sage-mid);
+    }
+    .compare-table thead th {
+      background: var(--sage-light);
+      color: var(--sage-green);
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1.4;
+    }
+    .compare-table tbody th { font-weight: 700; color: var(--old-lavender); width: 22%; }
+    .compare-table td { color: var(--text-mid); line-height: 1.6; }
+    .compare-table tbody tr:last-child th,
+    .compare-table tbody tr:last-child td { border-bottom: none; }
+
+    /* ─── INFORMAÇÕES IMPORTANTES ─────────────────────────── */
+    .rules {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .rule-card {
+      background: var(--white);
+      border: 1.5px solid var(--sage-mid);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .rule-card h3 { font-size: 1.05rem; color: var(--sage-green); }
+    .rule-card p { font-size: 0.92rem; line-height: 1.72; }
+    .rule-card strong { color: var(--text-dark); font-weight: 700; }
+
+    /* ─── PEDIDO DE MARCAÇÃO ──────────────────────────────── */
+    #marcacao { background: var(--terracotta-lt); }
+    .form-cta {
+      max-width: 640px;
+      margin-inline: auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .form-cta p { font-size: 1rem; line-height: 1.8; }
+
+    /* ─── RODAPÉ ──────────────────────────────────────────── */
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 2.5rem;
+      padding-bottom: 2rem;
+    }
+    .footer-logo img {
+      height: 64px;
+      width: auto;
+      /* o logótipo é tinta preta: a branco sobre o rodapé escuro */
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+      margin-bottom: 0.875rem;
+    }
+    .footer-tag { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.7; }
+    .footer-col h3 {
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--terracotta-md);
+      margin-bottom: 0.875rem;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-col a, .footer-col li {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.58);
+      transition: color 0.2s;
+      line-height: 1.6;
+    }
+    .footer-col a:hover { color: var(--white); }
+
     /* ─── RESPONSIVE ──────────────────────────────────────── */
-    @media (max-width: 1000px) {
+    @media (max-width: 1200px) {
       .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
       #nav { background: var(--cream); }
@@ -988,6 +1116,27 @@
       .como-note { flex-direction: column; text-align: center; align-items: center; }
       .hero-inner { padding-block: 3rem 2rem; }
       .hero-name-logo { height: clamp(70px, 30vw, 120px); }
+    }
+    @media (max-width: 760px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      /* a comparativa tem texto longo: empilha em vez de rolar lateralmente */
+      .compare-table, .compare-table tbody, .compare-table tr,
+      .compare-table tbody th, .compare-table td { display: block; width: 100%; }
+      .compare-table thead { display: none; }
+      .compare-table tbody tr { border-bottom: 1px solid var(--sage-mid); padding: 0.75rem 0; }
+      .compare-table tbody tr:last-child { border-bottom: none; }
+      .compare-table tbody th { width: auto; border-bottom: none; padding-bottom: 0.35rem; }
+      .compare-table td { border-bottom: none; padding-top: 0.35rem; padding-bottom: 0.6rem; }
+      .compare-table td::before {
+        content: attr(data-col);
+        display: block;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--sage-green);
+        margin-bottom: 0.25rem;
+      }
     }
     @media (max-width: 600px) {
       .blog-grid { grid-template-columns: 1fr; }
@@ -1011,12 +1160,13 @@
 
         <ul class="nav-links" role="list">
           <li><a href="#para-quem">Para quem é</a></li>
-          <li><a href="#oque-faco">O que faço</a></li>
-          <li><a href="#servicos">Percurso</a></li>
+          <li><a href="#metodo-pme">Método PME</a></li>
           <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#o-que-inclui">O que inclui</a></li>
+          <li><a href="#valores">Valores</a></li>
           <li><a href="#sobre">Quem sou</a></li>
-          <li><a href="#localizacao">Localização</a></li>
           <li><a href="#blog">Artigos</a></li>
+          <li><a href="#localizacao">Onde me encontrar</a></li>
         </ul>
 
         <a href="https://wa.me/351935816417" class="btn btn-primary nav-cta" target="_blank" rel="noopener" aria-label="Marcar avaliação inicial via WhatsApp">
@@ -1037,12 +1187,14 @@
 
   <nav class="mobile-menu" id="mobile-menu" aria-label="Menu mobile">
     <a href="#para-quem"     class="mobile-link">Para quem é</a>
-    <a href="#oque-faco"     class="mobile-link">O que faço</a>
-    <a href="#servicos"      class="mobile-link">Percurso</a>
+    <a href="#metodo-pme"    class="mobile-link">Método PME</a>
     <a href="#como-funciona" class="mobile-link">Como funciona</a>
+    <a href="#o-que-inclui"  class="mobile-link">O que inclui</a>
+    <a href="#valores"       class="mobile-link">Valores e modalidades</a>
     <a href="#sobre"         class="mobile-link">Quem sou</a>
-    <a href="#localizacao"   class="mobile-link">Localização</a>
     <a href="#blog"          class="mobile-link">Artigos</a>
+    <a href="#localizacao"   class="mobile-link">Onde me encontrar</a>
+    <a href="#contacto"      class="mobile-link">Contacto</a>
     <a href="https://wa.me/351935816417" target="_blank" rel="noopener" style="color:var(--terracotta);font-weight:800;">Marcar avaliação inicial →</a>
   </nav>
 
@@ -1072,7 +1224,7 @@
         <p class="hero-tagline">Apoio mulheres a compreender melhor os sinais do próprio corpo e a construir estratégias individualizadas de estilo de vida, educação em saúde e suplementação responsável.</p>
 
         <div class="hero-actions">
-          <a href="#oque-faco" class="btn btn-outline">Conhecer os Serviços</a>
+          <a href="#metodo-pme" class="btn btn-outline">Conhecer o Método PME</a>
         </div>
       </div>
     </div>
@@ -1095,7 +1247,7 @@
 
           <p class="disclaimer reveal reveal-delay-3">O acompanhamento é complementar e educativo. Não substitui diagnóstico, tratamento ou acompanhamento médico.</p>
 
-          <a href="#oque-faco" class="btn btn-white reveal reveal-delay-3">Conhecer o acompanhamento</a>
+          <a href="#metodo-pme" class="btn btn-white reveal reveal-delay-3">Conhecer o acompanhamento</a>
         </div>
 
         <ul class="sinais-list reveal reveal-delay-2" role="list">
@@ -1113,97 +1265,41 @@
     </div>
   </section>
 
-  <!-- ══ 3. O QUE FAÇO ═════════════════════════════════════ -->
-  <section id="oque-faco" class="section" aria-labelledby="oque-title">
-    <div class="container">
-      <span class="section-label reveal">O que faço</span>
-      <h2 id="oque-title" class="section-heading reveal reveal-delay-1">Como posso acompanhá-la</h2>
+  <!-- ══ 3. MÉTODO PME ═════════════════════════════════════ -->
+  <section id="metodo-pme" class="section" aria-labelledby="pme-title">
 
-      <div class="split" style="margin-top:2.5rem;">
-
-        <div class="prose reveal reveal-delay-2">
-          <p>A minha abordagem começa por uma avaliação individualizada da sua história, rotina, hábitos, objectivos e principais sinais do corpo.</p>
-          <p>Procuro compreender o seu contexto de forma global, considerando aspectos como alimentação, sono, stress, energia, ciclo feminino, estilo de vida e informação clínica disponível.</p>
-          <p>Quando a cliente dispõe de análises laboratoriais ou outros exames relevantes, estes podem ser considerados em conjunto com o seu histórico e contexto pessoal. Esta leitura permite identificar prioridades e orientar o acompanhamento de forma mais fundamentada, sem substituir o diagnóstico, o tratamento ou o seguimento realizado por médicos e outros profissionais de saúde habilitados.</p>
-          <p>Quando considero que pode ser útil obter informação adicional, posso sugerir à cliente que converse com o seu médico sobre determinados exames laboratoriais. A decisão de solicitar, realizar e interpretar clinicamente esses exames cabe sempre ao médico que a acompanha.</p>
-          <p>A suplementação alimentar pode ser abordada quando existem carências nutricionais identificadas ou quando os exames, o histórico e o contexto individual indicam que poderá ser pertinente considerá-la. As recomendações têm em conta os resultados disponíveis, a alimentação, a medicação, as condições de saúde, a gravidez, a amamentação e outros factores relevantes para a segurança.</p>
-        </div>
-
-        <div class="info-card reveal reveal-delay-3">
-          <h3>O acompanhamento pode incluir</h3>
-          <ul class="info-list" role="list">
-            <li>Avaliação individualizada da história e da rotina</li>
-            <li>Educação em saúde</li>
-            <li>Revisão de hábitos e estilo de vida</li>
-            <li>Orientação educativa relacionada com alimentação</li>
-            <li>Leitura contextual de análises e exames apresentados</li>
-            <li>Documento escrito com recomendações e prioridades</li>
-            <li>Material educativo sobre os principais exames, quando aplicável</li>
-            <li>Orientação individualizada sobre suplementação alimentar</li>
-            <li>Aromaterapia</li>
-            <li>Auriculoterapia</li>
-            <li>Outros recursos naturais complementares</li>
-            <li>Apoio na implementação e revisão das estratégias definidas</li>
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="closing-note reveal">
-        <p>O objectivo é ajudá-la a compreender melhor o próprio corpo, tomar decisões mais conscientes e construir mudanças realistas e sustentáveis para o seu bem-estar.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ 4. PERCURSO MULHER EM EQUILÍBRIO ══════════════════ -->
-  <section id="servicos" class="section" aria-labelledby="servicos-title">
-
-    <div class="blob-deco" style="bottom:-10%;right:-6%;width:min(460px,55vw);opacity:0.22;" aria-hidden="true">
-      <img src="assets/abstratos/elem-14.svg" alt="">
+    <div class="blob-deco" style="top:-8%;right:-5%;width:min(420px,48vw);opacity:0.10;" aria-hidden="true">
+      <img src="assets/abstratos/elem-16.svg" alt="">
     </div>
 
     <div class="container" style="position:relative;z-index:1;">
-      <span class="section-label reveal">Serviços</span>
-      <h2 id="servicos-title" class="section-heading reveal reveal-delay-1">Percurso Mulher em Equilíbrio</h2>
-      <p class="percurso-sub reveal reveal-delay-1">O que percebi durante a minha jornada com nós, mulheres…</p>
 
-      <div class="split" style="margin-top:2.5rem;">
+      <div class="pme-opener reveal">
+        <span class="section-label">O percurso</span>
+        <h2 id="pme-title">Método PME — Percurso Mulher em Equilíbrio</h2>
+        <p class="pme-sub">Um acompanhamento individualizado de 90 dias para compreender o seu momento, organizar prioridades e construir estratégias adequadas à sua realidade.</p>
+        <div class="pme-actions">
+          <a href="#como-funciona" class="btn btn-primary">Conhecer o Método PME</a>
+          <a href="#valores" class="btn btn-outline">Descobrir as modalidades</a>
+        </div>
+      </div>
 
+      <div class="split" style="margin-top:clamp(3rem,6vw,4.5rem);">
+        <div>
+          <span class="section-label reveal">O método</span>
+          <h2 class="section-heading reveal reveal-delay-1">Um método criado para acompanhar o seu processo com mais clareza</h2>
+        </div>
         <div class="prose reveal reveal-delay-2">
-          <p>Talvez tenha passado tanto tempo a cuidar de tudo e de todos que deixou de perceber como está.</p>
-          <p>O corpo dá sinais, mas a rotina não pára: o cansaço acumula-se, o sono não chega para recuperar, a cabeça permanece ocupada e aquilo que antes era simples começa a exigir um esforço enorme.</p>
-          <p>Muitas vezes, não falta vontade. Falta espaço, orientação e uma forma realista de começar — sem listas intermináveis de mudanças, sem culpa e sem a sensação de que está a falhar outra vez.</p>
-          <p>O percurso Mulher em Equilíbrio é um espaço para parar, olhar para o seu momento com mais clareza e perceber o que precisa de ser cuidado primeiro. A partir daí, construímos mudanças possíveis para que volte a sentir mais presença, organização e espaço para si no dia-a-dia.</p>
+          <p>O PME — Percurso Mulher em Equilíbrio é um método criado para mulheres que procuram um acompanhamento individualizado, com tempo para compreender o seu momento, definir prioridades e ajustar estratégias de forma progressiva.</p>
+          <p>Ao longo de 90 dias, trabalhamos de forma próxima e estruturada, considerando a sua história, rotina, hábitos, sinais apresentados, objetivos e, quando aplicável, os exames ou documentos relevantes.</p>
+          <p>Não se trata de aplicar uma estratégia igual para todas. Trata-se de construir, em conjunto, um caminho que faça sentido para a sua realidade.</p>
         </div>
-
-        <div class="info-card info-card--green reveal reveal-delay-3">
-          <h3>O que leva deste percurso</h3>
-          <p style="font-size:0.92rem;line-height:1.7;margin-bottom:1.25rem;">Ao longo do percurso Mulher em Equilíbrio, terá um espaço para compreender melhor o seu momento, organizar prioridades e transformar informação em escolhas mais conscientes para o seu dia-a-dia.</p>
-          <ul class="info-list" role="list">
-            <li>Maior clareza sobre os sinais do seu corpo e os factores que podem influenciar o seu bem-estar</li>
-            <li>Recomendações organizadas e adaptadas à sua realidade</li>
-            <li>Melhor compreensão dos exames e da função dos principais marcadores, quando aplicável</li>
-            <li>Explicação clara sobre o motivo de cada orientação ou suplemento considerado</li>
-            <li>Maior segurança para utilizar suplementos de forma consciente e responsável</li>
-            <li>Capacidade para distinguir informação fundamentada de sugestões genéricas</li>
-            <li>Materiais educativos para consultar depois da sessão e apoiar a implementação das orientações</li>
-            <li>Mais confiança para conversar com o seu médico e participar nas decisões relacionadas com a sua saúde</li>
-            <li>Construção gradual de hábitos mais consistentes, sem a pressão de mudar tudo ao mesmo tempo</li>
-          </ul>
-
-        </div>
-
       </div>
 
-      <div class="materiais-note reveal">
-        <h3>Materiais que pode receber</h3>
-        <p>Depois da avaliação inicial, recebe um documento com as recomendações e prioridades definidas. Quando apresenta análises laboratoriais, pode também receber uma síntese educativa dos resultados e uma tabela com a função geral dos principais marcadores analisados.</p>
-        <p>Estes materiais têm finalidade educativa: ajudam-na a compreender melhor o seu corpo e o sentido das orientações, sem substituir diagnóstico, tratamento ou acompanhamento médico.</p>
-      </div>
     </div>
   </section>
 
-  <!-- ══ 5. COMO FUNCIONA O PERCURSO ═══════════════════════ -->
+  <!-- ══ 4. COMO FUNCIONA O PERCURSO ═══════════════════════ -->
   <section id="como-funciona" class="section" aria-labelledby="como-title">
 
     <div class="blob-deco" style="top:-6%;left:-4%;width:min(420px,45vw);opacity:0.13;" aria-hidden="true">
@@ -1215,73 +1311,233 @@
 
     <div class="container" style="position:relative;z-index:1;">
       <span class="section-label reveal">Como funciona</span>
-      <h2 id="como-title" class="section-heading reveal reveal-delay-1">Como funciona o percurso</h2>
-      <p class="section-lead reveal reveal-delay-2">O seu percurso começa com uma conversa. O acompanhamento Mulher em Equilíbrio começa com uma avaliação integrativa inicial, realizada presencialmente em Carcavelos ou online.</p>
+      <h2 id="como-title" class="section-heading reveal reveal-delay-1">Três encontros.<br>Um percurso com continuidade.</h2>
+      <p class="section-lead reveal reveal-delay-2">O Método PME é estruturado em três encontros individuais, realizados ao longo de 90 dias. Cada etapa dá continuidade à anterior, permitindo observar, ajustar e consolidar as estratégias de forma mais consistente.</p>
 
       <div class="timeline reveal reveal-delay-2">
 
         <div class="timeline-item">
           <div class="timeline-dot timeline-dot--terra" aria-hidden="true"></div>
-          <p class="timeline-num">1.º passo</p>
-          <h3>Avaliação Integrativa Inicial</h3>
-
-          <div class="price-row">
-            <span class="price-chip"><strong>80 €</strong> presencial · até 2 horas</span>
-            <span class="price-chip price-chip--alt"><strong>75 €</strong> online</span>
-          </div>
-
+          <p class="timeline-num">1.º encontro</p>
+          <h3>Investigar</h3>
           <div class="prose">
-            <p>Esta primeira consulta é uma conversa aprofundada para conhecer a sua história, a sua rotina, os seus hábitos, os seus objectivos e os aspectos que gostaria de compreender ou melhorar.</p>
-            <p>Durante a sessão, serão recolhidas informações relevantes sobre:</p>
-          </div>
-
-          <ul class="timeline-list" role="list">
-            <li>Histórico pessoal e familiar</li>
-            <li>Rotina, sono, stress e níveis de energia</li>
-            <li>Hábitos de vida</li>
-            <li>Alimentação, no âmbito educativo</li>
-            <li>Suplementos e medicamentos utilizados</li>
-            <li>Principais sinais e queixas apresentados</li>
-            <li>Exames laboratoriais ou outros documentos de saúde que queira trazer</li>
-          </ul>
-
-          <div class="prose">
-            <p>Quando existirem exames disponíveis, estes poderão ser considerados juntamente com o seu histórico e contexto pessoal. Se, durante a avaliação, surgir algum aspecto que mereça esclarecimento adicional, poderá ser orientada a conversar com o seu médico sobre a possibilidade de realizar determinados exames.</p>
-            <p>Após esta primeira consulta, receberá as recomendações e prioridades definidas para o seu momento, organizadas de forma clara e prática. Quando aplicável, poderá também receber o material educativo de contextualização dos exames apresentados.</p>
+            <p>Começamos por compreender o seu momento de forma individualizada. Observamos a sua história, rotina, hábitos, sono, energia, stress, objetivos e os sinais que o seu corpo tem apresentado.</p>
+            <p>Quando disponíveis, também podem ser considerados exames ou outros documentos relevantes. A partir desta investigação, identificamos as prioridades que merecem atenção primeiro.</p>
           </div>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-dot timeline-dot--lav" aria-hidden="true"></div>
-          <p class="timeline-num">2.º passo</p>
-          <h3>Acompanhamento pós-consulta</h3>
-
-          <div class="price-row">
-            <span class="price-chip"><strong>65 €</strong> presencial · até 1 hora</span>
-            <span class="price-chip price-chip--alt"><strong>55 €</strong> online</span>
-          </div>
-
+          <p class="timeline-num">2.º encontro</p>
+          <h3>Estruturar</h3>
           <div class="prose">
-            <p>O acompanhamento não termina na primeira consulta. Ao longo de aproximadamente quatro sessões, avaliamos a evolução, percebemos como o seu corpo e a sua rotina estão a responder e ajustamos as estratégias sempre que necessário. As sessões podem ter intervalos entre si e não precisam de ocorrer todos os meses.</p>
+            <p>Damos continuidade ao que foi identificado inicialmente. Olhamos para o que foi possível implementar, para as dificuldades encontradas e para o que precisa de ser reorganizado.</p>
+            <p>A partir daí, ajustamos as prioridades e estruturamos estratégias mais adequadas à sua rotina, incluindo recursos integrativos ou suplementação responsável, quando pertinente.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot" style="background:var(--sage-green);box-shadow:0 0 0 3px var(--sage-green);" aria-hidden="true"></div>
+          <p class="timeline-num">3.º encontro</p>
+          <h3>Consolidar</h3>
+          <div class="prose">
+            <p>Revemos o caminho realizado ao longo do percurso. Observamos as adaptações, os avanços e os pontos que ainda precisam de atenção.</p>
+            <p>Fazemos os ajustes finais necessários e organizamos os próximos passos para que possa seguir com mais clareza, segurança e consistência.</p>
           </div>
         </div>
 
       </div>
 
-      <div class="como-note reveal">
-        <div class="como-note-icon" aria-hidden="true">
-          <img src="assets/icones/icon-05.svg" alt="" style="width:36px;height:36px;">
+      <div class="reveal" style="margin-top:3rem;">
+        <a href="#valores" class="btn btn-primary">Conhecer as opções para iniciar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 5. O QUE ESTÁ INCLUÍDO ════════════════════════════ -->
+  <section id="o-que-inclui" class="section" aria-labelledby="inclui-title">
+
+    <div class="blob-deco" style="bottom:-10%;right:-6%;width:min(440px,52vw);opacity:0.20;" aria-hidden="true">
+      <img src="assets/abstratos/elem-14.svg" alt="">
+    </div>
+
+    <div class="container" style="position:relative;z-index:1;">
+      <span class="section-label reveal">O que inclui</span>
+      <h2 id="inclui-title" class="section-heading reveal reveal-delay-1">O que está incluído no percurso</h2>
+
+      <div class="info-card info-card--green reveal reveal-delay-2" style="margin-top:2.5rem;">
+        <ul class="info-list" role="list">
+          <li>Três encontros individuais, realizados ao longo de 90 dias</li>
+          <li>Avaliação integrativa inicial e definição de prioridades</li>
+          <li>Análise individualizada das informações partilhadas e dos exames apresentados, quando aplicável</li>
+          <li>Estratégia adaptada à sua rotina, objetivos e momento atual</li>
+          <li>Ajustes progressivos ao longo do acompanhamento</li>
+          <li>Documento com recomendações e prioridades, quando aplicável</li>
+          <li>Material educativo sobre exames e biomarcadores, quando aplicável</li>
+          <li>Orientação individualizada sobre suplementação, quando pertinente</li>
+          <li>Possibilidade de integrar aromaterapia, auriculoterapia e outros recursos complementares, quando adequados</li>
+          <li>Suporte entre os encontros para dúvidas relacionadas com as orientações definidas</li>
+          <li>Agendamento dos três encontros desde o início do percurso</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 6. VALORES E MODALIDADES ══════════════════════════ -->
+  <section id="valores" class="section" aria-labelledby="valores-title">
+    <div class="container">
+      <span class="section-label reveal">Valores e modalidades</span>
+      <h2 id="valores-title" class="section-heading reveal reveal-delay-1">O Método PME: valores e formas de pagamento</h2>
+      <p class="section-lead reveal reveal-delay-2">O Método PME — Percurso Mulher em Equilíbrio tem a duração de 90 dias e é contratado como um percurso completo.</p>
+
+      <div class="reveal">
+        <h3>Valor total do percurso</h3>
+        <div class="table-wrap">
+          <table class="price-table">
+            <thead>
+              <tr><th scope="col">Modalidade</th><th scope="col">Valor total</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Online</th><td class="val">235 €</td></tr>
+              <tr><th scope="row">Presencial</th><td class="val">265 €</td></tr>
+            </tbody>
+          </table>
         </div>
-        <div>
-          <h3>Contacto entre sessões</h3>
-          <p>Entre as sessões, terá acesso a um contacto directo para colocar dúvidas pontuais relacionadas com as orientações definidas. Este contacto está disponível durante o horário comercial e permite esclarecer questões que possam surgir durante a implementação, sem substituir a avaliação realizada numa consulta.</p>
+      </div>
+
+      <div class="reveal" style="margin-top:3rem;">
+        <h3>Formas de pagamento</h3>
+        <p style="margin-top:0.75rem;">Pode escolher uma das seguintes opções:</p>
+        <ul class="info-list" role="list" style="margin-top:1rem;">
+          <li>Pagamento do valor total no primeiro encontro; ou</li>
+          <li>Pagamento em duas etapas: 60% no primeiro encontro e 40% no terceiro e último encontro.</li>
+        </ul>
+        <div class="table-wrap">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th scope="col">Modalidade</th>
+                <th scope="col">1.ª etapa — 60%</th>
+                <th scope="col">2.ª etapa — 40%</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Online</th><td>141 €</td><td>94 €</td><td class="val">235 €</td></tr>
+              <tr><th scope="row">Presencial</th><td>159 €</td><td>106 €</td><td class="val">265 €</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note">Independentemente da forma de pagamento escolhida, o Método PME corresponde a um percurso completo de 90 dias. Os três encontros são agendados desde o início, porque cada etapa dá continuidade à anterior e permite observar, ajustar e consolidar a estratégia de forma individualizada.</p>
+      </div>
+
+      <div class="reveal" style="margin-top:4rem;">
+        <h2 class="section-heading">Avaliação Integrativa Inicial Avulsa</h2>
+        <div class="prose" style="max-width:66ch;">
+          <p>Indicada para quem deseja realizar uma consulta individual, compreender melhor o seu momento e receber orientações iniciais.</p>
+          <p>Esta modalidade corresponde a um atendimento pontual, com estrutura e condições próprias. Não inclui os encontros de acompanhamento, o suporte entre sessões nem os ajustes progressivos realizados ao longo do Método PME.</p>
+        </div>
+        <h3 style="margin-top:2rem;">Duração e valores</h3>
+        <p style="margin-top:0.75rem;">Cada Avaliação Integrativa Inicial Avulsa tem a duração aproximada de duas horas.</p>
+        <div class="table-wrap">
+          <table class="price-table">
+            <thead>
+              <tr><th scope="col">Modalidade</th><th scope="col">Duração</th><th scope="col">Valor</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Online</th><td>2 horas</td><td class="val">95 €</td></tr>
+              <tr><th scope="row">Presencial</th><td>2 horas</td><td class="val">110 €</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="reveal" style="margin-top:4rem;">
+        <h2 class="section-heading">E se decidir avançar para o Método PME após a consulta avulsa?</h2>
+        <div class="prose" style="max-width:66ch;">
+          <p>Caso, após a Avaliação Integrativa Inicial Avulsa, decida avançar para o Método PME — Percurso Mulher em Equilíbrio, a consulta já realizada poderá ser considerada como o primeiro encontro do percurso.</p>
+          <p>O valor pago pela consulta avulsa não é reembolsável, uma vez que corresponde a um atendimento já realizado.</p>
+          <p>A adesão ao método é formalizada no segundo encontro, momento em que é efetuado o pagamento correspondente aos dois encontros restantes e são organizadas as próximas etapas do percurso.</p>
+        </div>
+        <h3 style="margin-top:2rem;">Valor a pagar no 2.º encontro para aderir ao PME</h3>
+        <div class="table-wrap">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th scope="col">Modalidade</th>
+                <th scope="col">Consulta avulsa já realizada</th>
+                <th scope="col">Valor a pagar no 2.º encontro</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Online</th><td>95 €</td><td class="val">156,66 €</td></tr>
+              <tr><th scope="row">Presencial</th><td>110 €</td><td class="val">176,66 €</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ══ 6. QUEM SOU ═══════════════════════════════════════ -->
+  <!-- ══ 7. COMPARAÇÃO DE MODALIDADES ══════════════════════ -->
+  <section id="comparar" class="section" aria-labelledby="comparar-title">
+    <div class="container">
+      <span class="section-label reveal">Comparar</span>
+      <h2 id="comparar-title" class="section-heading reveal reveal-delay-1">Qual opção faz mais sentido para o seu momento?</h2>
+
+      <div class="table-wrap reveal reveal-delay-2" style="margin-top:2.5rem;">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <td></td>
+              <th scope="col">Avaliação Integrativa Inicial Avulsa</th>
+              <th scope="col">Método PME — Percurso Mulher em Equilíbrio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Objetivo</th>
+              <td data-col="Avaliação avulsa">Compreender o momento atual e receber orientações iniciais</td>
+              <td data-col="Método PME">Acompanhar, adaptar e consolidar uma estratégia ao longo de 90 dias</td>
+            </tr>
+            <tr>
+              <th scope="row">Encontros</th>
+              <td data-col="Avaliação avulsa">1 encontro</td>
+              <td data-col="Método PME">3 encontros mensais</td>
+            </tr>
+            <tr>
+              <th scope="row">Estratégia individualizada</th>
+              <td data-col="Avaliação avulsa">Inicial</td>
+              <td data-col="Método PME">Construída, observada e ajustada ao longo do percurso</td>
+            </tr>
+            <tr>
+              <th scope="row">Ajustes após a estratégia inicial</th>
+              <td data-col="Avaliação avulsa">Realizados numa nova consulta avulsa</td>
+              <td data-col="Método PME">Incluídos no percurso</td>
+            </tr>
+            <tr>
+              <th scope="row">Suporte entre encontros</th>
+              <td data-col="Avaliação avulsa">Incluído</td>
+              <td data-col="Método PME">Incluído</td>
+            </tr>
+            <tr>
+              <th scope="row">Agendamento</th>
+              <td data-col="Avaliação avulsa">Apenas a avaliação inicial</td>
+              <td data-col="Método PME">Os três encontros são organizados desde o início</td>
+            </tr>
+            <tr>
+              <th scope="row">Mais indicado para</th>
+              <td data-col="Avaliação avulsa">Quem deseja começar por uma avaliação individual</td>
+              <td data-col="Método PME">Quem procura um processo completo de acompanhamento</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 8. QUEM SOU ═══════════════════════════════════════ -->
   <section id="sobre" class="section" aria-labelledby="sobre-title">
     <div class="container">
       <div class="about-grid">
@@ -1309,6 +1565,8 @@
           <div class="prose reveal reveal-delay-2">
             <p>Sou brasileira e portuguesa e vivo em Portugal há oito anos. Há dez anos dedico-me às terapias integrativas e complementares, com especial interesse pela saúde e pelo bem-estar feminino, pelos hábitos de vida, pela suplementação alimentar e pela compreensão dos factores que influenciam a energia e a qualidade de vida.</p>
             <p>Quando existem análises laboratoriais ou outros dados relevantes, estes podem ser considerados no âmbito de uma avaliação educativa e contextual, sem substituir o diagnóstico ou o acompanhamento médico.</p>
+            <p>Foi a partir da minha experiência no acompanhamento individualizado de mulheres que criei o Método PME — Percurso Mulher em Equilíbrio, uma estrutura de acompanhamento em 90 dias, organizada em três etapas: Investigar, Estruturar e Consolidar.</p>
+            <p>Este método foi pensado para oferecer mais clareza, continuidade e espaço para ajustes ao longo do processo.</p>
             <p>Dou particular importância à educação em saúde. Não precisamos de ser especialistas para compreender melhor o nosso corpo. Quando conhecemos, ainda que de forma simples, o funcionamento do organismo e aprendemos a reconhecer os seus sinais, torna-se mais fácil fazer perguntas e participar nas decisões relacionadas com a nossa saúde.</p>
             <p>Por isso, procuro transmitir conhecimento de forma clara, responsável e relacionada com a realidade de cada pessoa.</p>
             <p>Durante o acompanhamento, explico o sentido das orientações propostas, incluindo a razão pela qual determinado suplemento ou recurso pode ser considerado, os cuidados relevantes e os aspectos que devem ser esclarecidos com o médico. Acredito que, quando compreendemos melhor o que nos é recomendado, conseguimos participar de forma mais consciente e segura no nosso próprio processo de saúde.</p>
@@ -1361,7 +1619,57 @@
     </div>
   </section>
 
-  <!-- ══ 7. LOCALIZAÇÃO ════════════════════════════════════ -->
+  <!-- ══ 9. INFORMAÇÕES SOBRE OS ENCONTROS ═════════════════ -->
+  <section id="informacoes" class="section" aria-labelledby="info-title">
+    <div class="container">
+      <span class="section-label reveal">Antes de começar</span>
+      <h2 id="info-title" class="section-heading reveal reveal-delay-1">Informações importantes sobre os encontros</h2>
+      <p class="section-lead reveal reveal-delay-2">Para que o acompanhamento decorra com organização, continuidade e respeito pelo tempo de cada mulher, agradecemos que considere as seguintes orientações.</p>
+
+      <div class="rules reveal reveal-delay-2">
+
+        <div class="rule-card">
+          <h3>Pontualidade</h3>
+          <p>Cada encontro tem um horário reservado exclusivamente para si.</p>
+          <p>Agradecemos que chegue no horário marcado. Em caso de atraso, faremos o possível para aproveitar o tempo disponível; no entanto, o encontro terminará à hora inicialmente prevista, para não comprometer os atendimentos seguintes.</p>
+          <p>Esta organização permite respeitar o seu processo, o nosso tempo de trabalho e o horário das restantes mulheres acompanhadas.</p>
+        </div>
+
+        <div class="rule-card">
+          <h3>Remarcação</h3>
+          <p>Caso necessite de remarcar um encontro, agradecemos que nos avise com pelo menos <strong>24 horas de antecedência</strong>.</p>
+          <p>Para manter o ritmo e a continuidade do PME, o ideal é que a nova data seja agendada ainda dentro do mesmo mês do encontro inicialmente marcado.</p>
+          <p>Compreendemos que podem surgir imprevistos. Sempre que necessário, analisaremos em conjunto a melhor alternativa possível, procurando preservar a organização e o propósito do percurso de 90 dias.</p>
+          <p>Quando não existe aviso com a antecedência mínima de 24 horas, é aplicada uma <strong>taxa de 13 €</strong> para uma nova remarcação. Esta taxa refere-se ao horário reservado exclusivamente para si e que, pela proximidade da data, poderá não ser possível disponibilizar a outra pessoa.</p>
+        </div>
+
+        <div class="rule-card">
+          <h3>Alteração da nossa parte</h3>
+          <p>Se, por motivos pessoais ou imprevistos, for necessário alterar a data de um encontro da nossa parte, entraremos em contacto consigo assim que possível para encontrarmos uma nova opção.</p>
+          <p>Nesse caso, não terá qualquer encargo adicional.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 10. PEDIDO DE MARCAÇÃO ════════════════════════════ -->
+  <section id="marcacao" class="section" aria-labelledby="marcacao-title">
+    <div class="container">
+      <div class="form-cta reveal">
+        <span class="section-label">Marcações</span>
+        <h2 id="marcacao-title">Gostaria de solicitar uma marcação?</h2>
+        <p>Ao clicar no botão abaixo, será direcionada para um breve formulário. O seu preenchimento permite-nos conhecer a modalidade pretendida e as suas preferências de horário, tornando o contacto e a organização da marcação mais ágeis.</p>
+        <a href="https://forms.gle/7gymgAjqnvVuSAU97" class="btn btn-primary" target="_blank" rel="noopener">
+          Pedir Marcação
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 11. ONDE ME ENCONTRAR ═════════════════════════════ -->
+
   <section id="localizacao" class="section" aria-labelledby="local-title">
 
     <div class="blob-deco" style="top:0;left:-2%;width:min(200px,28vw);opacity:0.12;" aria-hidden="true">
@@ -1370,7 +1678,8 @@
 
     <div class="container">
       <span class="section-label reveal">Onde me encontrar</span>
-      <h2 id="local-title" class="section-heading reveal reveal-delay-1">Presencial em Carcavelos</h2>
+      <h2 id="local-title" class="section-heading reveal reveal-delay-1">Onde me encontrar</h2>
+      <p class="section-lead reveal reveal-delay-2">As consultas podem ser realizadas presencialmente em Carcavelos, online ou em formato híbrido, de acordo com a sua preferência e disponibilidade.</p>
 
       <div class="location-grid reveal reveal-delay-2">
         <div class="location-info">
@@ -1430,12 +1739,12 @@
     </div>
   </section>
 
-  <!-- ══ 8. ARTIGOS ════════════════════════════════════════ -->
+  <!-- ══ 12. ARTIGOS ═══════════════════════════════════════ -->
   <section id="blog" class="section" aria-labelledby="blog-title">
     <div class="container">
       <span class="section-label reveal">Artigos</span>
-      <h2 id="blog-title" class="section-heading reveal reveal-delay-1">Conhecimento que<br>transforma</h2>
-      <p class="section-lead reveal reveal-delay-2">Reflexões, estudos e orientações sobre saúde integrativa, suplementação e bem-estar — para que tome decisões mais conscientes sobre a sua saúde.</p>
+      <h2 id="blog-title" class="section-heading reveal reveal-delay-1">Artigos e conteúdos educativos</h2>
+      <p class="section-lead reveal reveal-delay-2">Este é um espaço dedicado à partilha de informação educativa sobre saúde feminina e temas relacionados com o bem-estar da mulher. Aqui poderá encontrar artigos escritos por mim, bem como outros conteúdos selecionados, sempre com o objetivo de informar, estimular a reflexão e apoiar escolhas mais conscientes.</p>
 
       <div class="blog-grid">
         <article class="blog-card reveal reveal-delay-1">
@@ -1497,7 +1806,7 @@
     </div>
   </section>
 
-  <!-- ══ 9. CTA FINAL ══════════════════════════════════════ -->
+  <!-- ══ 13. CTA FINAL ═════════════════════════════════════ -->
   <section id="contacto" class="section" aria-labelledby="cta-title">
 
     <div class="blob-deco cta-blob-1" aria-hidden="true"><img src="assets/abstratos/elem-17.svg" alt=""></div>
@@ -1509,13 +1818,17 @@
     <div class="container">
       <div class="cta-inner">
         <span class="section-label reveal">Vamos começar?</span>
-        <h2 id="cta-title" class="reveal reveal-delay-1">Pronta para começar?</h2>
-        <p class="reveal reveal-delay-2">O primeiro passo é a escuta. Marque a sua Avaliação Integrativa Inicial e dê início a um acompanhamento verdadeiramente personalizado.</p>
+        <h2 id="cta-title" class="reveal reveal-delay-1">Pronta para cuidar do seu momento com mais clareza?</h2>
+        <p class="reveal reveal-delay-2">Pode começar através de uma Avaliação Integrativa Inicial ou escolher o Método PME — Percurso Mulher em Equilíbrio, para um acompanhamento individualizado ao longo de 90 dias. O primeiro passo é compreender o seu momento e identificar o que merece atenção agora.</p>
 
         <div class="cta-actions reveal reveal-delay-3">
-          <a href="https://wa.me/351935816417" class="btn btn-white" target="_blank" rel="noopener" aria-label="Falar no WhatsApp para marcar avaliação inicial">
+          <a href="https://forms.gle/7gymgAjqnvVuSAU97" class="btn btn-white" target="_blank" rel="noopener">
+            Pedir Marcação
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <a href="https://wa.me/351935816417" class="btn btn-ghost" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Marcar avaliação inicial
+            Falar no WhatsApp
           </a>
         </div>
 
@@ -1540,6 +1853,34 @@
   <!-- ══ FOOTER ════════════════════════════════════════════ -->
   <footer role="contentinfo">
     <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-logo">
+          <img src="assets/logo.png" alt="Júlia Assunção — Terapeuta Integrativa" />
+          <p class="footer-tag">Terapeuta Integrativa. Consultas presenciais em Carcavelos, online ou em formato híbrido.</p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contactos</h3>
+          <ul role="list">
+            <li><a href="https://wa.me/351935816417" target="_blank" rel="noopener">WhatsApp &mdash; +351 935 816 417</a></li>
+            <li><a href="https://forms.gle/7gymgAjqnvVuSAU97" target="_blank" rel="noopener">Pedir marcação</a></li>
+            <li>SENTE &mdash; Cowork Terapêutico<br />Praceta De Portugal, 63A<br />2775-369 Carcavelos</li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Navegar</h3>
+          <ul role="list">
+            <li><a href="#metodo-pme">Método PME</a></li>
+            <li><a href="#valores">Valores e modalidades</a></li>
+            <li><a href="/blog">Artigos</a></li>
+            <li><a href="#localizacao">Onde me encontrar</a></li>
+          </ul>
+        </div>
+
+      </div>
+
       <div class="footer-inner">
         <nav class="footer-social" aria-label="Redes sociais">
           <a href="https://www.instagram.com/julia_terapiaintegrativa" target="_blank" rel="noopener" aria-label="Instagram">

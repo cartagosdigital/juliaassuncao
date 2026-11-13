@@ -10,16 +10,20 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --old-lavender: #735D78;
-      --sage-green: #6B7F5E; --sage-light: #EDF2EA; --sage-mid: #B8C9B0;
-      --warm-mustard: #C9A84C;
-      --terracotta: #C17A5B; --terracotta-lt: #F7EDE6; --terracotta-md: #E8C4B0;
-      --white: #FFFFFF; --cream: #FAF7F3; --cream-warm: #F5EDE3;
-      --text-dark: #2A221E; --text-mid: #5A4A3A; --text-soft: #8A7468;
-      --font-body: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+      --old-lavender: #414D63;
+      --sage-green: #777753; --sage-light: #F1EFE3; --sage-mid: #D3D1B8;
+      --warm-mustard: #8C6D1F;
+      --terracotta: #A40505; --terracotta-lt: #F8E6DE; --terracotta-md: #E8C7B5;
+      --white: #FFFFFF; --cream: #F5EDE5; --cream-warm: #FFF7EA;
+      --text-dark: #2B3443; --text-mid: #4E596E; --text-soft: #5C6477;
+      --font-body: 'Montserrat', system-ui, sans-serif;
+      --red: #A40505; --red-bright: #B80B0B; --coral: #EB5151; --terracotta-earth: #BA7047;
+      --olive: #777753; --gold-soft: #EFD37E; --navy: #414D63;
+      --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --font-sub: 'DM Sans', system-ui, sans-serif;
       --radius-md: 16px; --radius-lg: 28px;
       --shadow-soft: 0 4px 24px rgba(80,50,30,0.08);
     }
@@ -61,8 +65,8 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--sage-green);
-      background: rgba(107,127,94,0.12);
-      border: 1px solid rgba(107,127,94,0.3);
+      background: rgba(119,119,83,0.12);
+      border: 1px solid rgba(119,119,83,0.3);
       padding: 0.35rem 1rem;
       border-radius: 100px;
       margin-bottom: 1rem;
@@ -150,6 +154,19 @@
     footer a, footer p { color: rgba(255,255,255,0.5); font-size: 0.85rem; text-decoration: none; }
     footer a:hover { color: var(--white); }
     footer nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    /* ─── IDENTIDADE 2026: tipografia ─────────────────────── */
+    /* Títulos: Playfair Display · Subtítulos: DM Sans · Corpo: Montserrat */
+    h1, h2, .page-title, .article-title, .login-brand, .admin-header-brand {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+    h3, h4, .section-label, .hero-eyebrow, .hero-years-chip, .btn, .nav-links a, .nav-cta,
+    .timeline-num, .blog-card-tag, .blog-card-title, .blog-card-link, .about-tag, .price-chip,
+    .price-table thead th, .compare-table thead th, .footer-col h3, .article-tag, .article-meta,
+    .back-link, .card-title, .btn-generate, .login-btn {
+      font-family: var(--font-sub);
+    }
   </style>
 </head>
 <body>

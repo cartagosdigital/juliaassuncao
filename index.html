@@ -14,38 +14,42 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
 
   <style>
     /* ─── TOKENS ──────────────────────────────────────────── */
     :root {
-      --queen-pink:       #E8C2CA;
-      --thistle:          #D1B3C4;
-      --glossy-grape:     #B392AC;
-      --mountbatten-pink: #937892;
-      --old-lavender:     #735D78;
+      --queen-pink:       #F2D9CF;
+      --thistle:          #E6CFC2;
+      --glossy-grape:     #9AA3B5;
+      --mountbatten-pink: #6A758A;
+      --old-lavender:     #414D63;
 
-      --sage-green:    #6B7F5E;
-      --sage-light:    #EDF2EA;
-      --sage-hero:     #DFE8D6;
-      --sage-mid:      #B8C9B0;
-      --warm-mustard:  #C9A84C;
-      --dusty-blue:    #7C9BAD;
-      --dusty-blue-lt: #EBF2F6;
-      --terracotta:    #C17A5B;
-      --terracotta-lt: #F7EDE6;
-      --terracotta-md: #E8C4B0;
+      --sage-green:    #777753;
+      --sage-light:    #F1EFE3;
+      --sage-hero:     #FFF7EA;
+      --sage-mid:      #D3D1B8;
+      --warm-mustard:  #8C6D1F;
+      --dusty-blue:    #5C6880;
+      --dusty-blue-lt: #E8EAEF;
+      --terracotta:    #A40505;
+      --terracotta-lt: #F8E6DE;
+      --terracotta-md: #E8C7B5;
 
       --white:      #FFFFFF;
-      --cream:      #FAF7F3;
-      --cream-warm: #F5EDE3;
-      --text-dark:  #2A221E;
-      --text-mid:   #5A4A3A;
-      --text-soft:  #8A7468;
+      --cream:      #F5EDE5;
+      --cream-warm: #FFF7EA;
+      --text-dark:  #2B3443;
+      --text-mid:   #4E596E;
+      --text-soft:  #5C6477;
 
-      --font-display: 'Great Vibes', cursive;
-      --font-body:    'DM Sans', sans-serif;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Montserrat', system-ui, sans-serif;
 
+      --red: #A40505; --red-bright: #B80B0B; --coral: #EB5151; --terracotta-earth: #BA7047;
+      --olive: #777753; --gold-soft: #EFD37E; --navy: #414D63;
+      --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --font-sub: 'DM Sans', system-ui, sans-serif;
       --radius-sm:  8px;
       --radius-md:  16px;
       --radius-lg:  28px;
@@ -102,7 +106,7 @@
       text-transform: uppercase;
       color: var(--terracotta);
       background: var(--terracotta-lt);
-      border: 1px solid rgba(193, 122, 91, 0.35);
+      border: 1px solid rgba(186, 112, 71, 0.35);
       padding: 0.4rem 1.1rem;
       border-radius: 100px;
       margin-bottom: 0.75rem;
@@ -139,11 +143,11 @@
     .btn-primary {
       background: var(--terracotta);
       color: var(--white);
-      box-shadow: 0 4px 18px rgba(193, 122, 91, 0.30);
+      box-shadow: 0 4px 18px rgba(186, 112, 71, 0.30);
     }
     .btn-primary:hover {
-      background: #a8654a;
-      box-shadow: 0 6px 24px rgba(193, 122, 91, 0.42);
+      background: #8A0404;
+      box-shadow: 0 6px 24px rgba(186, 112, 71, 0.42);
       transform: translateY(-2px);
     }
     .btn-outline {
@@ -183,7 +187,7 @@
       inset-block-start: 0;
       inset-inline: 0;
       z-index: 900;
-      background: rgba(250, 247, 243, 0.92);
+      background: rgba(245, 237, 229, 0.92);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid transparent;
@@ -204,7 +208,7 @@
       gap: 1rem;
     }
     .nav-logo { display: flex; align-items: center; flex: none; }
-    .nav-logo-img { height: 68px; width: auto; object-fit: contain; }
+    .nav-logo-img { height: 54px; width: auto; object-fit: contain; }
     .nav-links { display: flex; align-items: center; gap: 1.15rem; }
     .nav-links a {
       font-size: 0.84rem;
@@ -319,7 +323,7 @@
       display: block;
       width: 28px;
       height: 1.5px;
-      background: rgba(115, 93, 120, 0.45);
+      background: rgba(65, 77, 99, 0.45);
       border-radius: 2px;
       flex-shrink: 0;
     }
@@ -330,7 +334,7 @@
     }
     .hero-name { margin-bottom: 0.75rem; line-height: 1; }
     .hero-name-logo {
-      height: clamp(90px, 18vw, 180px);
+      height: clamp(200px, 32vw, 330px);
       width: auto;
       display: block;
       margin-inline: auto;
@@ -342,8 +346,8 @@
       font-size: 0.76rem;
       font-weight: 600;
       color: var(--warm-mustard);
-      background: rgba(201,168,76,0.12);
-      border: 1px solid rgba(201,168,76,0.28);
+      background: rgba(239,211,126,0.12);
+      border: 1px solid rgba(239,211,126,0.28);
       padding: 0.375rem 1rem;
       border-radius: 100px;
       margin-bottom: 2rem;
@@ -362,8 +366,8 @@
     #para-quem { background: var(--old-lavender); }
     #para-quem .section-label {
       color: var(--terracotta-lt);
-      background: rgba(193, 122, 91, 0.25);
-      border-color: rgba(193, 122, 91, 0.35);
+      background: rgba(186, 112, 71, 0.25);
+      border-color: rgba(186, 112, 71, 0.35);
     }
     #para-quem h2 { color: var(--white); }
     #para-quem .split { align-items: center; }
@@ -490,8 +494,8 @@
     #o-que-inclui .section-label,
     #informacoes .section-label {
       color: var(--sage-green);
-      background: rgba(107,127,94,0.13);
-      border-color: rgba(107,127,94,0.3);
+      background: rgba(119,119,83,0.13);
+      border-color: rgba(119,119,83,0.3);
     }
     .pme-opener .section-label { margin-bottom: 0; }
 
@@ -506,8 +510,8 @@
     #como-funciona { background: var(--cream); }
     #como-funciona .section-label {
       color: var(--old-lavender);
-      background: #EDE8F0;
-      border-color: rgba(115,93,120,0.3);
+      background: #E8EAEF;
+      border-color: rgba(65,77,99,0.3);
     }
     .timeline {
       position: relative;
@@ -655,8 +659,8 @@
     }
     .about-content .section-label {
       color: var(--sage-green);
-      background: rgba(107, 127, 94, 0.12);
-      border-color: rgba(107, 127, 94, 0.3);
+      background: rgba(119, 119, 83, 0.12);
+      border-color: rgba(119, 119, 83, 0.3);
     }
     .about-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.75rem; }
     .about-tag {
@@ -670,14 +674,14 @@
     }
     .about-tag--green { background: var(--sage-light); color: var(--sage-green); }
     .about-tag--terra { background: var(--terracotta-lt); color: var(--terracotta); }
-    .about-tag--lav   { background: #EDE8F0; color: var(--old-lavender); }
+    .about-tag--lav   { background: #E8EAEF; color: var(--old-lavender); }
 
     .formacao {
       margin-top: 3.5rem;
       background: var(--white);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-card);
-      border: 1.5px solid #E2DCE6;
+      border: 1.5px solid #DADDE4;
       padding: clamp(1.75rem, 4vw, 2.75rem);
     }
     .formacao h3 {
@@ -714,7 +718,7 @@
     .formacao-list li strong { font-weight: 700; color: var(--text-dark); }
     .formacao-divider {
       height: 1px;
-      background: #EDE8F0;
+      background: #E8EAEF;
       margin-block: 2rem;
     }
     .formacao-sub { font-size: 0.93rem; margin-bottom: 1rem; }
@@ -825,8 +829,8 @@
     .cta-inner { position: relative; z-index: 1; text-align: center; max-width: 640px; margin: 0 auto; }
     .cta-inner .section-label {
       color: var(--terracotta-md);
-      background: rgba(193,122,91,0.22);
-      border-color: rgba(193,122,91,0.4);
+      background: rgba(186,112,71,0.22);
+      border-color: rgba(186,112,71,0.4);
     }
     .cta-inner h2 { color: var(--white); font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem; }
     .cta-inner > p { color: rgba(255,255,255,0.78); font-size: 1.05rem; margin-bottom: 2.5rem; }
@@ -1049,9 +1053,9 @@
       padding-bottom: 2rem;
     }
     .footer-logo img {
-      height: 64px;
+      height: 52px;
       width: auto;
-      /* o logótipo é tinta preta: a branco sobre o rodapé escuro */
+      /* o logótipo é vermelho: a branco sobre o rodapé escuro */
       filter: brightness(0) invert(1);
       opacity: 0.9;
       margin-bottom: 0.875rem;
@@ -1090,7 +1094,7 @@
       .timeline { padding-inline-start: 2.5rem; }
       .como-note { flex-direction: column; text-align: center; align-items: center; }
       .hero-inner { padding-block: 3rem 2rem; }
-      .hero-name-logo { height: clamp(70px, 30vw, 120px); }
+      .hero-name-logo { height: clamp(170px, 48vw, 240px); }
     }
     @media (max-width: 760px) {
       .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -1118,6 +1122,19 @@
       .cta-contacts { flex-direction: column; align-items: center; }
       .cta-actions { flex-direction: column; align-items: center; }
       .info-card { padding: 1.5rem 1.5rem; }
+    }
+    /* ─── IDENTIDADE 2026: tipografia ─────────────────────── */
+    /* Títulos: Playfair Display · Subtítulos: DM Sans · Corpo: Montserrat */
+    h1, h2, .page-title, .article-title, .login-brand, .admin-header-brand {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+    h3, h4, .section-label, .hero-eyebrow, .hero-years-chip, .btn, .nav-links a, .nav-cta,
+    .timeline-num, .blog-card-tag, .blog-card-title, .blog-card-link, .about-tag, .price-chip,
+    .price-table thead th, .compare-table thead th, .footer-col h3, .article-tag, .article-meta,
+    .back-link, .card-title, .btn-generate, .login-btn {
+      font-family: var(--font-sub);
     }
   </style>
 </head>
